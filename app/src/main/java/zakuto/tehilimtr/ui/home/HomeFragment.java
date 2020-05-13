@@ -1,4 +1,4 @@
-package com.zakuto.teilim.ui.home;
+package zakuto.tehilimtr.ui.home;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.zakuto.teilim.R;
+import zakuto.tehilimtr.R;
 
 public class HomeFragment extends Fragment {
 

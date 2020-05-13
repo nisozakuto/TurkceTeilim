@@ -1,7 +1,5 @@
-package com.zakuto.teilim;
+package zakuto.tehilimtr;
 
-import android.util.Log;
-import java.util.Arrays;
 import java.util.Random;
 
 public class RandomTeilim {
