@@ -33,6 +33,7 @@ ListView tehilimtrListView;
         String tehilimtr12 = getResources().getString(R.string.perek12);
         String tehilimtr13 = getResources().getString(R.string.perek13);
         String tehilimtr14 = getResources().getString(R.string.perek14);
+        String tehilimtr15 = getResources().getString(R.string.perek15);
 
         String array1[] = {tehilimtr1,
                 tehilimtr2,
