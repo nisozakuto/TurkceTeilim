@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -12,12 +13,15 @@ import zakuto.tehilimtr.R;
 
 public class tumKitap extends AppCompatActivity {
     public TextView printtehilimtr;
-ListView tehilimtrListView;
+    ListView tehilimtrListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tum_kitap);
+
+        // Bu stringleri For loop ile kaydedebilirmiyiz???
+        // 150 tehilimi'de HashMap'e koymaya calisalim??
 
         String tehilimtr1 = getResources().getString(R.string.perek1);
         String tehilimtr2 = getResources().getString(R.string.perek2);
@@ -35,6 +39,10 @@ ListView tehilimtrListView;
         String tehilimtr14 = getResources().getString(R.string.perek14);
         String tehilimtr15 = getResources().getString(R.string.perek15);
 
+        int a = 0;
+        for (int i = 1; i < 151; i++) {
+            a += i;
+        }
         String array1[] = {tehilimtr1,
                 tehilimtr2,
                 tehilimtr3,
@@ -51,10 +59,9 @@ ListView tehilimtrListView;
         tehilimtrListView.setAdapter(arrayAdapter);
 
 
-
         // printtehilimtr = findViewById(R.id.printtehilimtr);
-       // printtehilimtr.setText(R.stritextViewFortehilimtrng.perek1);
-       // printtehilimtr.append(printtehilimtr + getResources().getString(R.string.perek2));
+        // printtehilimtr.setText(R.stritextViewFortehilimtrng.perek1);
+        // printtehilimtr.append(printtehilimtr + getResources().getString(R.string.perek2));
     }
 
 }
