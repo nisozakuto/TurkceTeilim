@@ -37,6 +37,8 @@ ListView tehilimtrListView;
 
         //üzerine ekleme denemesi
 
+        //deneme
+
         String array1[] = {tehilimtr1,
                 tehilimtr2,
                 tehilimtr3,
