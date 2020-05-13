@@ -30,8 +30,8 @@ ListView tehilimtrListView;
         String tehilimtr9 = getResources().getString(R.string.perek9);
         String tehilimtr10 = getResources().getString(R.string.perek10);
         String teilimtr11 = getResources().getSring(R.string.perek11);
-        String teilim12 = getResources().getString(R.string.perek12);
-        String teilim13 = getResources().getSrtring(R.string.perek13);
+        String teilimtr12 = getResources().getString(R.string.perek12);
+        String teilimtr13 = getResources().getSrtring(R.string.perek13);
 
         String array1[] = {tehilimtr1,
                 tehilimtr2,
