@@ -1,4 +1,4 @@
-package com.zakuto.teilim;
+package zakuto.tehilimtr;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
+
+import zakuto.tehilimtr.R;
 
 public class Second2Fragment extends Fragment {
 

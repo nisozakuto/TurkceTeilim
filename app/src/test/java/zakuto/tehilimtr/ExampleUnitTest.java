@@ -1,4 +1,4 @@
-package com.zakuto.teilim;
+package zakuto.tehilimtr;
 
 import org.junit.Test;
 

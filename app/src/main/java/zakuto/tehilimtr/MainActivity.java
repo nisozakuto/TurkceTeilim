@@ -1,4 +1,4 @@
-package com.zakuto.teilim;
+package zakuto.tehilimtr;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,14 +7,13 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import zakuto.tehilimtr.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-
-import java.util.Date;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
