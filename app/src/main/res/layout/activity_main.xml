@@ -52,11 +52,11 @@
             android:text="Button" />
 
         <Button
-            android:id="@+id/randomTeilimButton"
+            android:id="@+id/randomtehilimtrButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="RandomTeilim" />
+            android:text="Randomtehilimtr" />
 
     </LinearLayout>
 

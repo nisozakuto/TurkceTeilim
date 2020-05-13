@@ -9,7 +9,7 @@ import zakuto.tehilimtr.R;
 public class Info extends AppCompatActivity {
 ListView infoList;
     private ArrayAdapter aAdapter;
-    private String[]  teilimArray = {"1.Kitap 1-9",
+    private String[]  tehilimtrArray = {"1.Kitap 1-9",
             "2.Kitap 10-17",
             "3.Kitap 18-22",
             "4.Kitap 23-28",
@@ -46,7 +46,7 @@ ListView infoList;
         setContentView(R.layout.activity_info);
 
         infoList = (ListView) findViewById(R.id.infoList);
-        aAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, teilimArray);
+        aAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, tehilimtrArray);
         infoList.setAdapter(aAdapter);
     }
 }

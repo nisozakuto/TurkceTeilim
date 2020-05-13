@@ -17,8 +17,8 @@ import androidx.navigation.ui.NavigationUI;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    public Button tumKitap, infoButton, randomTeilimButton;
-    public TextView teilimText, randomTeilimText;
+    public Button tumKitap, infoButton, randomtehilimtrButton;
+    public TextView tehilimtrText, randomtehilimtrText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,20 +40,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         infoButton = findViewById(R.id.infoButton);
         infoButton.setOnClickListener(this);
 
-        teilimText = findViewById(R.id.textView2);
-        teilimText.setText(R.string.dummmyText);
+        tehilimtrText = findViewById(R.id.textView2);
+        tehilimtrText.setText(R.string.dummmyText);
 
-        randomTeilimButton = findViewById(R.id.randomTeilimButton);
-        randomTeilimButton.setOnClickListener(this);
-        randomTeilimText = findViewById(R.id.randomNumberText);
-        RandomTeilim();
-        RandomTeilim randomTeilimObject = new RandomTeilim();
-        randomTeilimText.setText(String.valueOf(randomTeilimObject.randomNumber()));
+        randomtehilimtrButton = findViewById(R.id.randomtehilimtrButton);
+        randomtehilimtrButton.setOnClickListener(this);
+        randomtehilimtrText = findViewById(R.id.randomNumberText);
+        Randomtehilimtr();
+        RandomTeilim randomtehilimtrObject = new RandomTeilim();
+        randomtehilimtrText.setText(String.valueOf(randomtehilimtrObject.randomNumber()));
     }
 
-    public void RandomTeilim() {
-        RandomTeilim randomTeilimObject = new RandomTeilim();
-        randomTeilimText.setText(String.valueOf(randomTeilimObject.randomNumber()));
+    public void Randomtehilimtr() {
+        RandomTeilim randomtehilimtrObject = new RandomTeilim();
+        randomtehilimtrText.setText(String.valueOf(randomtehilimtrObject.randomNumber()));
     }
 
     public void tumKitap() {
@@ -71,8 +71,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent infoIntent = new Intent(this, Info.class);
                 startActivity(infoIntent);
                 break;
-            case R.id.randomTeilimButton:
-                RandomTeilim();
+            case R.id.randomtehilimtrButton:
+                Randomtehilimtr();
                 break;
         }
     }

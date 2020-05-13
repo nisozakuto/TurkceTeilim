@@ -11,45 +11,45 @@ import android.widget.TextView;
 import zakuto.tehilimtr.R;
 
 public class tumKitap extends AppCompatActivity {
-    public TextView printTeilim;
-ListView teilimListView;
+    public TextView printtehilimtr;
+ListView tehilimtrListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tum_kitap);
 
-        String teilim1 = getResources().getString(R.string.perek1);
-        String teilim2 = getResources().getString(R.string.perek2);
-        String teilim3 = getResources().getString(R.string.perek3);
-        String teilim4 = getResources().getString(R.string.perek4);
-        String teilim5 = getResources().getString(R.string.perek5);
-        String teilim6 = getResources().getString(R.string.perek6);
-        String teilim7 = getResources().getString(R.string.perek7);
-        String teilim8 = getResources().getString(R.string.perek8);
-        String teilim9 = getResources().getString(R.string.perek9);
-        String teilim10 = getResources().getString(R.string.perek10);
+        String tehilimtr1 = getResources().getString(R.string.perek1);
+        String tehilimtr2 = getResources().getString(R.string.perek2);
+        String tehilimtr3 = getResources().getString(R.string.perek3);
+        String tehilimtr4 = getResources().getString(R.string.perek4);
+        String tehilimtr5 = getResources().getString(R.string.perek5);
+        String tehilimtr6 = getResources().getString(R.string.perek6);
+        String tehilimtr7 = getResources().getString(R.string.perek7);
+        String tehilimtr8 = getResources().getString(R.string.perek8);
+        String tehilimtr9 = getResources().getString(R.string.perek9);
+        String tehilimtr10 = getResources().getString(R.string.perek10);
 
-        String array1[] = {teilim1,
-                teilim2,
-                teilim3,
-                teilim4,
-                teilim5,
-                teilim6,
-                teilim7,
-                teilim8,
-                teilim9,
-                teilim10};
+        String array1[] = {tehilimtr1,
+                tehilimtr2,
+                tehilimtr3,
+                tehilimtr4,
+                tehilimtr5,
+                tehilimtr6,
+                tehilimtr7,
+                tehilimtr8,
+                tehilimtr9,
+                tehilimtr10};
 
-        teilimListView = (ListView) findViewById(R.id.listView);
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.content_tum_kitap, R.id.textViewForTeilim, array1);
-        teilimListView.setAdapter(arrayAdapter);
+        tehilimtrListView = (ListView) findViewById(R.id.listView);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.content_tum_kitap, R.id.textViewFortehilimtr, array1);
+        tehilimtrListView.setAdapter(arrayAdapter);
 
 
 
-        // printTeilim = findViewById(R.id.printTeilim);
-       // printTeilim.setText(R.stritextViewForTeilimng.perek1);
-       // printTeilim.append(printTeilim + getResources().getString(R.string.perek2));
+        // printtehilimtr = findViewById(R.id.printtehilimtr);
+       // printtehilimtr.setText(R.stritextViewFortehilimtrng.perek1);
+       // printtehilimtr.append(printtehilimtr + getResources().getString(R.string.perek2));
     }
 
 }
