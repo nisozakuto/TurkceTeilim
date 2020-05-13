@@ -35,6 +35,9 @@ ListView tehilimtrListView;
         String tehilimtr14 = getResources().getString(R.string.perek14);
         String tehilimtr15 = getResources().getString(R.string.perek15);
 
+
+    //buraya onur yazıyor şuanda
+
         String array1[] = {tehilimtr1,
                 tehilimtr2,
                 tehilimtr3,
