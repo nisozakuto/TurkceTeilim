@@ -16,10 +16,10 @@ import androidx.navigation.ui.NavigationUI;
 
 import java.util.Date;
 
-public class MainActivity extends AppCompatActivity  implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    public Button tumKitap,infoButton;
-public TextView teilimText;
+    public Button tumKitap, infoButton, randomTeilimButton;
+    public TextView teilimText, randomTeilimText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +35,7 @@ public TextView teilimText;
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
-        tumKitap =findViewById(R.id.tumKitapButton);
+        tumKitap = findViewById(R.id.tumKitapButton);
         tumKitap.setOnClickListener(this);
 
         infoButton = findViewById(R.id.infoButton);
@@ -43,9 +43,20 @@ public TextView teilimText;
 
         teilimText = findViewById(R.id.textView2);
         teilimText.setText(R.string.dummmyText);
+
+        randomTeilimButton = findViewById(R.id.randomTeilimButton);
+        randomTeilimButton.setOnClickListener(this);
+        randomTeilimText = findViewById(R.id.randomNumberText);
+        RandomTeilim();
+        RandomTeilim randomTeilimObject = new RandomTeilim();
+        randomTeilimText.setText(String.valueOf(randomTeilimObject.randomNumber()));
     }
 
-    
+    public void RandomTeilim() {
+        RandomTeilim randomTeilimObject = new RandomTeilim();
+        randomTeilimText.setText(String.valueOf(randomTeilimObject.randomNumber()));
+    }
+
     public void tumKitap() {
         Intent tumKitapIntent = new Intent(this, tumKitap.class);
         startActivity(tumKitapIntent);
@@ -60,6 +71,10 @@ public TextView teilimText;
             case R.id.infoButton:
                 Intent infoIntent = new Intent(this, Info.class);
                 startActivity(infoIntent);
+                break;
+            case R.id.randomTeilimButton:
+                RandomTeilim();
+                break;
         }
     }
 }
