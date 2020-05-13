@@ -32,6 +32,12 @@ ListView tehilimtrListView;
         String tehilimtr11 = getResources().getSring(R.string.perek11);
         String tehilimtr12 = getResources().getString(R.string.perek12);
         String tehilimtr13 = getResources().getSrtring(R.string.perek13);
+        String tehilimtr13 = getResources().getString(R.string.perek13);
+        String tehilimtr14 = getResources().getString(R.string.perek14);
+        String tehilimtr15 = getResources().getString(R.string.perek15);
+
+
+
 
         String array1[] = {tehilimtr1,
                 tehilimtr2,
@@ -42,7 +48,8 @@ ListView tehilimtrListView;
                 tehilimtr7,
                 tehilimtr8,
                 tehilimtr9,
-                tehilimtr10};
+                tehilimtr10,
+                tehilimtr11};
 
         tehilimtrListView = (ListView) findViewById(R.id.listView);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.content_tum_kitap, R.id.textViewFortehilimtr, array1);
