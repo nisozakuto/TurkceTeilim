@@ -34,10 +34,7 @@ public class tumKitap extends AppCompatActivity {
         String tehilimtr9 = getResources().getString(R.string.perek9);
         String tehilimtr10 = getResources().getString(R.string.perek10);
         String tehilimtr11 = getResources().getString(R.string.perek11);
-        String tehilimtr12 = getResources().getString(R.string.perek12);
-        String tehilimtr13 = getResources().getString(R.string.perek13);
-        String tehilimtr14 = getResources().getString(R.string.perek14);
-        String tehilimtr15 = getResources().getString(R.string.perek15);
+
 
         int a = 0;
         for (int i = 1; i < 151; i++) {
