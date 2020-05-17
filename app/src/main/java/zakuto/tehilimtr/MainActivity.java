@@ -6,6 +6,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import zakuto.tehilimtr.R;
 
@@ -14,12 +17,10 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-<<<<<<< Updated upstream
-=======
+
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
->>>>>>> Stashed changes
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -27,10 +28,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-<<<<<<< Updated upstream
-    public Button tumKitap, infoButton, randomtehilimtrButton;
-    public TextView tehilimtrText, randomtehilimtrText;
-=======
     public Button tumKitap, infoButton, randomtehilimtrButton, textTest, fifthButton, sixthButton;
     public TextView tehilimtrText, randomtehilimtrText;
     public TehilimClass Tehilim = new TehilimClass();
@@ -40,14 +37,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //destinationTehilimArray.add(1,2,3,4,5);
     String destinationString = "1-100";
     public int[] destinationTehilimArray, tehilimNumbersArray;
->>>>>>> Stashed changes
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-<<<<<<< Updated upstream
-=======
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
@@ -59,7 +53,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mAdView.loadAd(adRequest);
 
         destinationTehilimArray = new int[]{12, 34, 54, 512};
->>>>>>> Stashed changes
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -85,15 +78,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Randomtehilimtr();
         RandomTeilim randomtehilimtrObject = new RandomTeilim();
         randomtehilimtrText.setText(String.valueOf(randomtehilimtrObject.randomNumber()));
-<<<<<<< Updated upstream
-=======
 
         fifthButton = findViewById(R.id.fifthButton);
         fifthButton.setOnClickListener(this);
 
         sixthButton = findViewById(R.id.sixthButton);
         sixthButton.setOnClickListener(this);
->>>>>>> Stashed changes
     }
 
     public void Randomtehilimtr() {
@@ -119,8 +109,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.randomtehilimtrButton:
                 Randomtehilimtr();
                 break;
-<<<<<<< Updated upstream
-=======
+
             case R.id.textTest:
                 String perek;
                 perek = TehilimClass.getTehilim("tr" + 1);
@@ -145,7 +134,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 readTehilimIntent.putExtra("tehilimNumbers", tehilimNumbersArray);
                 startActivity(readTehilimIntent);
                 break;
->>>>>>> Stashed changes
         }
     }
 }
