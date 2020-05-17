@@ -14,16 +14,52 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+<<<<<<< Updated upstream
+=======
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+>>>>>>> Stashed changes
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+<<<<<<< Updated upstream
     public Button tumKitap, infoButton, randomtehilimtrButton;
     public TextView tehilimtrText, randomtehilimtrText;
+=======
+    public Button tumKitap, infoButton, randomtehilimtrButton, textTest, fifthButton, sixthButton;
+    public TextView tehilimtrText, randomtehilimtrText;
+    public TehilimClass Tehilim = new TehilimClass();
+    private AdView mAdView;
+    //public int[] destinationTehilimArray = {1, 2, 3, 4, 5};
+    //ArrayList<Integer> destinationTehilimArray;
+    //destinationTehilimArray.add(1,2,3,4,5);
+    String destinationString = "1-100";
+    public int[] destinationTehilimArray, tehilimNumbersArray;
+>>>>>>> Stashed changes
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+<<<<<<< Updated upstream
+=======
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+        destinationTehilimArray = new int[]{12, 34, 54, 512};
+>>>>>>> Stashed changes
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -49,6 +85,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Randomtehilimtr();
         RandomTeilim randomtehilimtrObject = new RandomTeilim();
         randomtehilimtrText.setText(String.valueOf(randomtehilimtrObject.randomNumber()));
+<<<<<<< Updated upstream
+=======
+
+        fifthButton = findViewById(R.id.fifthButton);
+        fifthButton.setOnClickListener(this);
+
+        sixthButton = findViewById(R.id.sixthButton);
+        sixthButton.setOnClickListener(this);
+>>>>>>> Stashed changes
     }
 
     public void Randomtehilimtr() {
@@ -57,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void tumKitap() {
-        Intent tumKitapIntent = new Intent(this, tumKitap.class);
+        Intent tumKitapIntent = new Intent(this, readTehilim.class);
         startActivity(tumKitapIntent);
     }
 
@@ -74,6 +119,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.randomtehilimtrButton:
                 Randomtehilimtr();
                 break;
+<<<<<<< Updated upstream
+=======
+            case R.id.textTest:
+                String perek;
+                perek = TehilimClass.getTehilim("tr" + 1);
+                randomtehilimtrText.setText("Test)");
+                randomtehilimtrText.setText(perek);
+                break;
+            case R.id.fifthButton:
+                Intent readTehilimIntent = new Intent(this, readTehilim.class);
+                //readTehilimIntent.putIntegerArrayListExtra("myList", (ArrayList<Integer>) destinationTehilimArray );
+                //readTehilimIntent.putExtra("tehilimList", destinationTehilimArray);
+                tehilimNumbersArray = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
+                readTehilimIntent.putExtra("tehilimNumbers", tehilimNumbersArray);
+                // Bundle bundle = new Bundle();
+                // bundle.putIntegerArrayList("Send Bundle data", destinationTehilimArray);
+                //readTehilimIntent.putExtra("Tehilim", destinationTehilimArray.toString());
+                //readTehilimIntent.putExtra("Tehilim", destinationString);
+                startActivity(readTehilimIntent);
+                break;
+            case R.id.sixthButton:
+                readTehilimIntent = new Intent(this, readTehilim.class);
+                tehilimNumbersArray = new int[]{35,36,37,38};
+                readTehilimIntent.putExtra("tehilimNumbers", tehilimNumbersArray);
+                startActivity(readTehilimIntent);
+                break;
+>>>>>>> Stashed changes
         }
     }
 }

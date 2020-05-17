@@ -13,7 +13,7 @@
             android:label="@string/title_activity_info"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name="zakuto.tehilimtr.tumKitap"
+            android:name="zakuto.tehilimtr.readTehilim"
             android:label="@string/title_activity_tum_kitap"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
