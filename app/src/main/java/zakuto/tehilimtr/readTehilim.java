@@ -59,6 +59,7 @@ public class readTehilim extends AppCompatActivity {
         String tehilimtr1 = getResources().getString(R.string.perek1);
         String array1[] = {tehilimtr1};
         tehilimtrListView = (ListView) findViewById(R.id.listView);
+
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.content_tum_kitap, R.id.textViewFortehilimtr, mylist);
         tehilimtrListView.setAdapter(arrayAdapter);
         Log.i("summy tag","Dummy comment");
