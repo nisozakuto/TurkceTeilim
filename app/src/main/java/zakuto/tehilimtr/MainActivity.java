@@ -27,8 +27,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    public Button tumKitap, infoButton, randomtehilimtrButton;
-    public TextView tehilimtrText, randomtehilimtrText;
+
     public Button tumKitap, infoButton, randomtehilimtrButton, textTest, fifthButton, sixthButton;
     public TextView tehilimtrText, randomtehilimtrText;
     public TehilimClass Tehilim = new TehilimClass();
