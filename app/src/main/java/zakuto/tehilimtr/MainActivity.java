@@ -2,6 +2,7 @@ package zakuto.tehilimtr;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -17,8 +18,9 @@ import androidx.navigation.ui.NavigationUI;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    public Button tumKitap, infoButton, randomtehilimtrButton;
+    public Button tumKitap, infoButton, randomtehilimtrButton,textTest;
     public TextView tehilimtrText, randomtehilimtrText;
+    public TehilimClass Tehilim = new TehilimClass();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +42,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         infoButton = findViewById(R.id.infoButton);
         infoButton.setOnClickListener(this);
 
+        textTest = findViewById(R.id.textTest);
+        textTest.setOnClickListener(this);
+
         tehilimtrText = findViewById(R.id.textView2);
         tehilimtrText.setText(R.string.dummmyText);
 
         randomtehilimtrButton = findViewById(R.id.randomtehilimtrButton);
         randomtehilimtrButton.setOnClickListener(this);
         randomtehilimtrText = findViewById(R.id.randomNumberText);
+
         Randomtehilimtr();
         RandomTeilim randomtehilimtrObject = new RandomTeilim();
         randomtehilimtrText.setText(String.valueOf(randomtehilimtrObject.randomNumber()));
@@ -73,6 +79,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.randomtehilimtrButton:
                 Randomtehilimtr();
+                break;
+            case R.id.textTest:
+                String perek;
+                perek = TehilimClass.getTehilim("tr" + 1);
+                randomtehilimtrText.setText("Test)");
+                randomtehilimtrText.setText(perek);
+
                 break;
         }
     }
