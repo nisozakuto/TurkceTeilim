@@ -10,6 +10,7 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import zakuto.tehilimtr.R;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -102,10 +103,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.tumKitapButton:
                 tumKitap();
                 break;
+
             case R.id.infoButton:
                 Intent infoIntent = new Intent(this, Info.class);
                 startActivity(infoIntent);
                 break;
+
             case R.id.randomtehilimtrButton:
                 Randomtehilimtr();
                 break;
@@ -116,6 +119,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 randomtehilimtrText.setText("Test)");
                 randomtehilimtrText.setText(perek);
                 break;
+
             case R.id.fifthButton:
                 Intent readTehilimIntent = new Intent(this, readTehilim.class);
                 //readTehilimIntent.putIntegerArrayListExtra("myList", (ArrayList<Integer>) destinationTehilimArray );
@@ -128,9 +132,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //readTehilimIntent.putExtra("Tehilim", destinationString);
                 startActivity(readTehilimIntent);
                 break;
+
             case R.id.sixthButton:
                 readTehilimIntent = new Intent(this, readTehilim.class);
-                tehilimNumbersArray = new int[]{35,36,37,38};
+                tehilimNumbersArray = new int[]{35, 36, 37, 38};
                 readTehilimIntent.putExtra("tehilimNumbers", tehilimNumbersArray);
                 startActivity(readTehilimIntent);
                 break;

@@ -1,161 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:id="@+id/container"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:paddingTop="?attr/actionBarSize">
-
-<com.google.android.material.bottomnavigation.BottomNavigationView
-    android:id="@+id/nav_view"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:background="?android:attr/windowBackground"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toRightOf="parent"
-    app:menu="@menu/bottom_nav_menu" />
-
-<fragment
-    android:id="@+id/nav_host_fragment"
-    android:name="androidx.navigation.fragment.NavHostFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:defaultNavHost="true"
-    app:layout_constraintBottom_toTopOf="parent"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toRightOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:navGraph="@navigation/mobile_navigation" />
-<LinearLayout
-    android:id="@+id/LinearVertical"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:weightSum="3"
-    app:layout_constraintTop_toBottomOf="@id/nav_host_fragment"
-    android:orientation="vertical">
+    android:layout_height="match_parent"
+    android:paddingTop="?attr/actionBarSize">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+    <fragment
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/mobile_navigation" />
 
     <LinearLayout
-        android:id="@+id/firstButtonRow"
+        android:id="@+id/LinearVertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:weightSum="4"
+        android:orientation="vertical"
+        android:weightSum="2"
         app:layout_constraintTop_toBottomOf="@id/nav_host_fragment">
 
-        <Button
-            android:id="@+id/infoButton"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/firstButtonRow"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="info button"
-            android:textAllCaps="false" />
+            android:weightSum="4"
+            app:layout_constraintTop_toBottomOf="@id/nav_host_fragment">
 
-        <Button
-            android:id="@+id/tumKitapButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Button"
-            android:textAllCaps="false" />
+            <Button
+                android:id="@+id/infoButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="info button"
+                android:textAllCaps="false" />
 
-        <Button
-            android:id="@+id/randomtehilimtrButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Randomtehilimtr"
-            android:textAllCaps="false" />
+            <Button
+                android:id="@+id/tumKitapButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Button"
+                android:textAllCaps="false" />
 
-        <Button
-            android:id="@+id/textTest"
-            android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/randomtehilimtrButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Randomtehilimtr"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/textTest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TextTest"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/secondButtonRow"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="TextTest"
-            android:textAllCaps="false" />
+            android:weightSum="4"
+            app:layout_constraintTop_toBottomOf="@id/nav_host_fragment">
+
+            <Button
+                android:id="@+id/fifthButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="5"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/sixthButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="6"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/seventhButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="7"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/eightButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="8"
+                android:textAllCaps="false" />
+        </LinearLayout>
     </LinearLayout>
 
-   <LinearLayout
-        android:id="@+id/secondButtonRow"
+    <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="4"
-        app:layout_constraintTop_toBottomOf="@id/nav_host_fragment">
+        android:layout_height="100dp"
+        app:layout_constraintTop_toBottomOf="@id/LinearVertical"
+        tools:layout_editor_absoluteX="0dp">
 
-        <Button
-            android:id="@+id/fifthButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="5"
-            android:textAllCaps="false" />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="25dp"
+            android:text="TextView" />
+    </ScrollView>
 
-        <Button
-            android:id="@+id/sixthButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="6"
-            android:textAllCaps="false" />
-
-        <Button
-            android:id="@+id/seventhButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="7"
-            android:textAllCaps="false" />
-
-        <Button
-            android:id="@+id/eightButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="8"
-            android:textAllCaps="false" />
-    </LinearLayout>
-</LinearLayout>
-
-<ScrollView
-    android:id="@+id/scrollView2"
-    android:layout_width="match_parent"
-    android:layout_height="100dp"
-    app:layout_constraintTop_toBottomOf="@id/LinearVertical"
-    tools:layout_editor_absoluteX="0dp">
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="25dp"
-        android:text="TextView" />
-</ScrollView>
+        android:id="@+id/randomNumberText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
-<TextView
-    android:id="@+id/randomNumberText"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="TextView"
-    app:layout_constraintBottom_toTopOf="@+id/nav_view"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
-
-<com.google.android.gms.ads.AdView
-    android:id="@+id/adView"
-    app:adSize="BANNER"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentBottom="true"
-    android:layout_centerHorizontal="true"
-    android:layout_marginTop="56dp"
-    app:adUnitId="ca-app-pub-3940256099942544/6300978111"
-    app:layout_constraintBottom_toTopOf="@+id/nav_view"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/randomNumberText">
-</com.google.android.gms.ads.AdView>
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="56dp"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-3940256099942544/6300978111"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/randomNumberText"></com.google.android.gms.ads.AdView>
 </androidx.constraintlayout.widget.ConstraintLayout>
