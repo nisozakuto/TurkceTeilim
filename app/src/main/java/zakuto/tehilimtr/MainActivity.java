@@ -2,13 +2,11 @@ package zakuto.tehilimtr;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import zakuto.tehilimtr.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -85,7 +83,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 perek = TehilimClass.getTehilim("tr" + 1);
                 randomtehilimtrText.setText("Test)");
                 randomtehilimtrText.setText(perek);
-
                 break;
         }
     }
