@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="zakuto.tehilimtr">
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,6 +12,7 @@
             android:name="zakuto.tehilimtr.OrderActivity"
             android:label="@string/title_activity_info"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+
         <activity
             android:name="zakuto.tehilimtr.readTehilim"
             android:label="@string/title_activity_tum_kitap"
