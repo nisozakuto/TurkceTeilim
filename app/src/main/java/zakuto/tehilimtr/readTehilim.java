@@ -43,16 +43,23 @@ public class readTehilim extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         //int[] myArr = extras.getIntArray("tehilimList");
-        int[] tehilimNumbers = extras.getIntArray("tehilimNumbers");
+
+        int[] tehilimNumbers = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+     /*   Activate this:
+        tehilimNumbers = extras.getIntArray("tehilimNumbers");*/
+
+        int month = extras.getInt("month");
+
         ArrayList<String> mylist = new ArrayList<String>();
         mylist.clear();
         //mylist.add(TehilimClass.getTehilim("tr77")); //this adds an element to the list.
-        Log.i("tehilimNumbers",String.valueOf(tehilimNumbers[1]));
+        Log.i("tehilimNumbers", String.valueOf(tehilimNumbers[0]));
 
-        for (int i = tehilimNumbers[0]; i < tehilimNumbers[0]+tehilimNumbers.length; i++) {
+        for (int i = tehilimNumbers[0]; i < tehilimNumbers[0] + tehilimNumbers.length; i++) {
             //readTehilimMap.put("Tehilim", TehilimClass.getTehilim("tr" + i));
             mylist.add(TehilimClass.getTehilim("tr" + i)); //this adds an element to the list.
-            Log.i("Value","Test");
+            Log.i("Value", "Test");
             //Log.i("Value", String.valueOf(readTehilimMap));
         }
 
@@ -62,8 +69,8 @@ public class readTehilim extends AppCompatActivity {
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.content_tum_kitap, R.id.textViewFortehilimtr, mylist);
         tehilimtrListView.setAdapter(arrayAdapter);
-        Log.i("summy tag","Dummy comment");
-
+        Log.i("summy tag", "Dummy comment");
+        Log.i("month", String.valueOf(month));
         // printtehilimtr.setText(R.stritextViewFortehilimtrng.perek1);
         // printtehilimtr.append(printtehilimtr + getResources().getString(R.string.perek2));
     }

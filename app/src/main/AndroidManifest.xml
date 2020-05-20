@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="zakuto.tehilimtr">
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="zakuto.tehilimtr.Info"
+            android:name="zakuto.tehilimtr.OrderActivity"
             android:label="@string/title_activity_info"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
@@ -26,6 +27,10 @@
         </activity>
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713"/>
+            android:value="ca-app-pub-9743036193075566~1359104236"/>
+<!--
+           Mine android:value="ca-app-pub-9743036193075566~1359104236"/>
+-->
+        <!--Test android:value="ca-app-pub-3940256099942544~3347511713"/>-->
     </application>
 </manifest>
