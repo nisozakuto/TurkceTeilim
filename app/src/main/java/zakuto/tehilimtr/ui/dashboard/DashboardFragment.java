@@ -112,7 +112,7 @@ public class DashboardFragment<position> extends Fragment {
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
                 position += 1;
                 //Toast.makeText(getActivity(), "Stop Clicking me"+ position, Toast.LENGTH_SHORT).show();
-                Toast.makeText(getActivity(), "Stop Clicking me" + position, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Gün " + position + " açılıyor!", Toast.LENGTH_SHORT).show();
                 // Then you start a new Activity via Intent
                 Intent readTehilimIntent = new Intent(getActivity(), readTehilim.class);
                 monthlyOrder(position);

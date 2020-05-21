@@ -35,7 +35,9 @@ import zakuto.tehilimtr.ui.dashboard.DashboardFragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 
 import zakuto.tehilimtr.ui.home.HomeFragment;
@@ -46,7 +48,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     BottomNavigationView bottomNavigation;
 
     public Button tumKitap, infoButton, randomtehilimtrButton, textTest, fifthButton, sixthButton,seventhButton;
-    public TextView tehilimtrText, randomtehilimtrText;
+    public TextView tehilimtrText, date;
+    public TextView randomtehilimtrText;
     public TehilimClass Tehilim = new TehilimClass();
 
     //public int[] destinationTehilimArray = {1, 2, 3, 4, 5};
@@ -63,6 +66,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        date = (TextView) findViewById(R.id.date);
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MMM-yyyy");
+        String dateTime = simpleDateFormat.format(calendar.getTime());
+        date.setText(dateTime);
+
 
         //Test with Pixel
         List<String> testDeviceIds = Arrays.asList("F2F51C5D2BA7B325DC8FAA267BF930DE");
