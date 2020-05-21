@@ -33,13 +33,12 @@ public class readTehilim extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         //int[] myArr = extras.getIntArray("tehilimList");
-
         //Test:
-        // int[] tehilimNumbers = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+         int[] tehilimNumbers = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 
         //Activate this:
-        int[] tehilimNumbers = extras.getIntArray("tehilimNumbers");
-
+       // int[] tehilimNumbers = extras.getIntArray("tehilimNumbers");
+        int singleTehilim = extras.getInt("TehilimNo");
         int month = extras.getInt("month");
 
         ArrayList<String> mylist = new ArrayList<String>();
@@ -55,6 +54,10 @@ public class readTehilim extends AppCompatActivity {
             //Log.i("Value", String.valueOf(readTehilimMap));
         }
 
+        if(singleTehilim == 23)
+        {        mylist.clear();
+            mylist.add(TehilimClass.getTehilim("tr" + 23)); //this adds an element to the list.
+        }
         tehilimtrListView = (ListView) findViewById(R.id.listView);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.content_tum_kitap, R.id.textViewFortehilimtr, mylist);
         tehilimtrListView.setAdapter(arrayAdapter);
