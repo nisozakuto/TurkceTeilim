@@ -1,26 +1,15 @@
 package zakuto.tehilimtr;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.util.ArrayMap;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
-import zakuto.tehilimtr.R;
 
 public class readTehilim extends AppCompatActivity {
     public TextView printtehilimtr;
@@ -33,9 +22,10 @@ public class readTehilim extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tum_kitap);
-
-        // Intent gelenIntent = getIntent();
+        setContentView(R.layout.activity_read_tehilim);
+       /* Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);*/
+        //Intent gelenIntent = getIntent();
         //tehilimlerString = gelenIntent.getStringExtra("Tehilim");
         //List<Integer> tehilimList = (ArrayList<Integer>)getIntent().getSerializableExtra("TehilimList");
         //ArrayList<Integer> test = getIntent().putIntegerArrayListExtra("TehilimList");
@@ -44,34 +34,41 @@ public class readTehilim extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         //int[] myArr = extras.getIntArray("tehilimList");
 
-        int[] tehilimNumbers = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        //Test:
+        // int[] tehilimNumbers = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 
-     /*   Activate this:
-        tehilimNumbers = extras.getIntArray("tehilimNumbers");*/
+        //Activate this:
+        int[] tehilimNumbers = extras.getIntArray("tehilimNumbers");
 
         int month = extras.getInt("month");
 
         ArrayList<String> mylist = new ArrayList<String>();
         mylist.clear();
         //mylist.add(TehilimClass.getTehilim("tr77")); //this adds an element to the list.
-        Log.i("tehilimNumbers", String.valueOf(tehilimNumbers[0]));
+        //Log.i("tehilimNumbers", String.valueOf(tehilimNumbers[0]));
 
         for (int i = tehilimNumbers[0]; i < tehilimNumbers[0] + tehilimNumbers.length; i++) {
             //readTehilimMap.put("Tehilim", TehilimClass.getTehilim("tr" + i));
             mylist.add(TehilimClass.getTehilim("tr" + i)); //this adds an element to the list.
-            Log.i("Value", "Test");
+            Log.i("mylist", String.valueOf(mylist));
+            //Log.i("For lop in read tehilim", "For lop in read tehilim: " +  i);
             //Log.i("Value", String.valueOf(readTehilimMap));
         }
 
-        String tehilimtr1 = getResources().getString(R.string.perek1);
-        String array1[] = {tehilimtr1};
         tehilimtrListView = (ListView) findViewById(R.id.listView);
-
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.content_tum_kitap, R.id.textViewFortehilimtr, mylist);
         tehilimtrListView.setAdapter(arrayAdapter);
         Log.i("summy tag", "Dummy comment");
         Log.i("month", String.valueOf(month));
         // printtehilimtr.setText(R.stritextViewFortehilimtrng.perek1);
         // printtehilimtr.append(printtehilimtr + getResources().getString(R.string.perek2));
+        int[] test;
+        while (MonthlyOrder.getMonthlyOrder("1") != null) {
+            test = MonthlyOrder.getMonthlyOrder("1");
+            Log.i("values", String.valueOf(test));
+        }
+    }
+
+    private void setSupportActionBar(Toolbar myToolbar) {
     }
 }

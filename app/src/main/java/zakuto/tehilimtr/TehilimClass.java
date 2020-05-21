@@ -5,6 +5,7 @@ import android.util.ArrayMap;
 public class TehilimClass {
     private static ArrayMap<String, String> TehilimMap = new ArrayMap<String, String>();
     public TehilimClass() {
+        TehilimMap.put("tr0", "");
         TehilimMap.put("tr1", "Teilim 1\n \n1 Aşre aiş aşer│ lo alah baatsat reşaim, uvdereh hataim lo amad, uvmoşav letsim lo yaşav.\n2 Ki im beTorat Adonay heftso, uvTorato yege yomam valayla.\\n3 Veaya keets şatul al palge mayim; aşer piryo│ yiten beito, vealeu lo yibol, vehol aşer yaase yatsliah.\\n4 Lo hen areşaim, ki im kamots aşer tidefenu ruah.\\n5 Al ken│ lo yakumu reşaim bamişpat, vehataim baadat tsadikim.\\n6 Ki yodea Adonay dereh tsadikim, vedereh reşaim toved.\\n\n");
         TehilimMap.put("tr2", "Teilim 2\n 1 Lama rageşu goyim, ulumim yegu rik.\n2 Yityatsevu malhe erets, verozenim nosedu yahad, al Adonay veal meşiho.\n3 Nenateka et moserotemo, venaşliha mimenu avotemo.\n4 Yoşev başamayim yishak, Adonay yilag lamo.\n5 Az yedaber elemo veapo, uvaharono yevaalemo.\n6 Vaani nasahti malki, al TSiyon ar kodşi.\n7 Asapera el hok, Adonay amar elay beni ata, ani ayom yelidtiha.\n8 Şeal mimeni veetena goyim nahalateha, vaahuzateha afse arets.\n9 Teroem beşevet barzel, kihli yotser tenapetsem.\n10 Veata melahim askilu, ivaseru şofete arets.\n11 İvdu et Adonay beyira, vegilu birada.\n12 Naşeku var, pen yeenaf│ vetovedu dereh, ki yivar kimat apo; aşre kol hose vo.\n");
         TehilimMap.put("tr3", "Teilim 3\n1 Mizmor leDavid, bevorho mipene Avşalom beno.\n2 Adonay ma rabu tsaray, rabim kamim alay.\n3 Rabim omerim lenafşi, en yeşuata lo vELoim sela.\n4 VeAta Adonay magen baadi, kevodi umerim roşi.\n5 Koli el Adonay ekra, vayaaneni mear kodşo sela.\n6 Ani şahavti vaişana, ekitsoti ki Adonay yismeheni.\n7 Lo ira merivevot am, aşer saviv şatu alay.\n8 Kuma Adonay, │oşieni Eloay, ki ikita et kol oyevay lehi, şine reşaim şibarta.\n9 L’ Adonay ayşua, al ameha virhateha sela.\n");
@@ -158,6 +159,7 @@ public class TehilimClass {
         TehilimMap.put("tr149", "Teilim 149\n1 AleluYa;│ şiru l’ Adonay şir hadaş, teilato bikal hasidim.\n2 Yismah Yisrael beosav, bene TSiyon yagilu vemalkam.\n3 Yealelu Şemo vemahol, betof vehinor yezameru lo.\n4 Ki rotse Adonay beamo, yefaer anavim bişua.\n5 Yalezu hasidim behavod, yeranenu al mişkevotam.\n6 Romemot El bigronam, veherev pifiyot beyadam.\n7 Laasot nekama bagoyim, tohehot balumim.\n8 Lesor malheem bezikim, venihbedeem behavle varzel.\n9 Laasot baem│ mişpat katuv, adar u lehol hasidav; AleluYa.\n <");
         TehilimMap.put("tr150", "Teilim 150\n1 AleluYa;│ alelu El beKodşo, aleluU birkia uzo.\n2 AleluU vigvurotav, aleluU kerov gudlo.\n3 AleluU beteka şofar, aleluU benevel vehinor.\n4 AleluU betof umahol, aleluU beminim veugav.\n5 AleluU vetsiltsele şama, aleluU betsiltsele terua.\n6 Kol aneşama tealel Ya; AleluYa.\n");
     }
+
     public static String getTehilim(String tehilimnumber) {
         return TehilimMap.get(tehilimnumber);
     }

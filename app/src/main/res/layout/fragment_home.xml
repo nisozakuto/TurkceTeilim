@@ -6,17 +6,67 @@
     android:layout_height="match_parent"
     tools:context="zakuto.tehilimtr.ui.home.HomeFragment">
 
+<!--
+    <LinearLayout
+        android:id="@+id/LinearVertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:weightSum="2"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/firstButtonRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="4"
+            app:layout_constraintTop_toBottomOf="@id/nav_host_fragment">
+
+            <Button
+                android:id="@+id/infoButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="info button"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/tumKitapButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="tumKitapButton"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/randomtehilimtrButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Randomtehilimtr"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/textTest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TextTest"
+                android:textAllCaps="false" />
+        </LinearLayout>
+    </LinearLayout>
+-->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   android:orientation="vertical" >
+
     <TextView
-        android:id="@+id/text_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="@string/home_string"
+        android:id="@+id/home_text">
+
+    </TextView>
+</LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

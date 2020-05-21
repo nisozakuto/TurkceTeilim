@@ -17,104 +17,20 @@
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/bottom_nav_menu" />
 
+    <!--app:navGraph="@navigation/mobile_navigation"-->
+
     <fragment
         android:id="@+id/nav_host_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="56dp"
         app:defaultNavHost="true"
-        app:layout_constraintBottom_toTopOf="@id/LinearVertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/mobile_navigation" />
-
-    <LinearLayout
-        android:id="@+id/LinearVertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:weightSum="2"
-        app:layout_constraintTop_toBottomOf="@id/nav_host_fragment">
-        <LinearLayout
-            android:id="@+id/firstButtonRow"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="4"
-            app:layout_constraintTop_toBottomOf="@id/nav_host_fragment">
-
-            <Button
-                android:id="@+id/infoButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="info button"
-                android:textAllCaps="false" />
-
-            <Button
-                android:id="@+id/tumKitapButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="tumKitapButton"
-                android:textAllCaps="false" />
-
-            <Button
-                android:id="@+id/randomtehilimtrButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Randomtehilimtr"
-                android:textAllCaps="false" />
-
-            <Button
-                android:id="@+id/textTest"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="TextTest"
-                android:textAllCaps="false" />
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/secondButtonRow"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="4"
-            app:layout_constraintTop_toBottomOf="@id/nav_host_fragment">
-
-            <Button
-                android:id="@+id/fifthButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="5"
-                android:textAllCaps="false" />
-
-            <Button
-                android:id="@+id/sixthButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="6"
-                android:textAllCaps="false" />
-
-            <Button
-                android:id="@+id/seventhButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="7"
-                android:textAllCaps="false" />
-
-            <Button
-                android:id="@+id/eightButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="8"
-                android:textAllCaps="false" />
-        </LinearLayout>
-    </LinearLayout>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
@@ -125,8 +41,7 @@
         app:layout_constraintBottom_toTopOf="@+id/nav_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mobile_navigation">
-    </com.google.android.gms.ads.AdView>
+        app:layout_constraintTop_toBottomOf="@+id/mobile_navigation" />
     <!--Mine        app:adUnitId="ca-app-pub-9743036193075566/1167532548"-->
     <!--Test        app:adUnitId="ca-app-pub-3940256099942544/6300978111"-->
 </androidx.constraintlayout.widget.ConstraintLayout>

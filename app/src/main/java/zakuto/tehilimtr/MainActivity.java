@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
 
-        tumKitap = findViewById(R.id.tumKitapButton);
+       /* tumKitap = findViewById(R.id.tumKitapButton);
         tumKitap.setOnClickListener(this);
 
         infoButton = findViewById(R.id.infoButton);
@@ -106,18 +106,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         textTest.setOnClickListener(this);
 
         randomtehilimtrButton = findViewById(R.id.randomtehilimtrButton);
-        randomtehilimtrButton.setOnClickListener(this);
-
+        randomtehilimtrButton.setOnClickListener(this);*/
         Randomtehilimtr();
-
-        fifthButton = findViewById(R.id.fifthButton);
-        fifthButton.setOnClickListener(this);
-
-        sixthButton = findViewById(R.id.sixthButton);
-        sixthButton.setOnClickListener(this);
-
-        seventhButton = findViewById(R.id.seventhButton);
-        seventhButton.setOnClickListener(this);
     }
 
     public void Randomtehilimtr() {
@@ -161,12 +151,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.tumKitapButton:
-              /*
+            /*case R.id.tumKitapButton:
+              *//*
               Snackbar snackbar = Snackbar
                         .make(coordinatorLayout, "www.journaldev.com", Snackbar.LENGTH_LONG);
                 snackbar.show();
-                */
+                *//*
                 pressed++;
                 randomtehilimtrText.setText("Tum kitaplar yakinda gelicek: " + pressed);
                 break;
@@ -182,7 +172,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.textTest:
-                String perek;
+               *//* String perek;
                 perek = TehilimClass.getTehilim("tr" + 1);
                 tehilimtrText.setText("Test)");
                 tehilimtrText.setText(perek);
@@ -192,34 +182,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 } else {
                     tehilimtrText.setText("Test");
                     s = 1;
-                }
-                break;
-
-            case R.id.fifthButton:
+                }*//*
                 Intent readTehilimIntent = new Intent(this, readTehilim.class);
-                //readTehilimIntent.putIntegerArrayListExtra("myList", (ArrayList<Integer>) destinationTehilimArray );
-                //readTehilimIntent.putExtra("tehilimList", destinationTehilimArray);
-                tehilimNumbersArray = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
-                readTehilimIntent.putExtra("tehilimNumbers", tehilimNumbersArray);
-                // Bundle bundle = new Bundle();
-                // bundle.putIntegerArrayList("Send Bundle data", destinationTehilimArray);
-                //readTehilimIntent.putExtra("Tehilim", destinationTehilimArray.toString());
-                //readTehilimIntent.putExtra("Tehilim", destinationString);
-                startActivity(readTehilimIntent);
-                break;
-
-            case R.id.sixthButton:
                 readTehilimIntent = new Intent(this, readTehilim.class);
                 tehilimNumbersArray = new int[]{35, 36, 37, 38};
                 readTehilimIntent.putExtra("tehilimNumbers", tehilimNumbersArray);
                 startActivity(readTehilimIntent);
-                break;
-
-            case R.id.seventhButton:
                 AdRequest adRequest = new AdRequest.Builder().build();
                 mAdView.loadAd(adRequest);
                 Log.i("Ad request","Requested?");
-                break;
+                break;*/
         }
     }
 }
