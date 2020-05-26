@@ -34,11 +34,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
-        FragmentTransaction FirstFragment = new FragmentTransaction();
+      /*  FragmentTransaction FirstFragment = new FragmentTransaction();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.home_frame, FirstFragment);
         transaction.addToBackStack(null);
-        transaction.commit();
+        transaction.commit();*/
+
         /*SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         StringBuilder builder = new StringBuilder();
         builder.append("\n" + "Perform Sync:\t" + sharedPrefs.getBoolean("perform_sync", false));
