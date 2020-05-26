@@ -4,7 +4,6 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import zakuto.tehilimtr.R;
 
 public class OrderActivity extends AppCompatActivity {
     ListView infoList;
@@ -16,7 +15,7 @@ public class OrderActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_info);
+        setContentView(R.layout.activity_order);
 
         Bundle extras = getIntent().getExtras();
         order = extras.getString("order");

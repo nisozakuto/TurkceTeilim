@@ -2,80 +2,63 @@ package zakuto.tehilimtr;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
+import android.widget.Toast;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.RequestConfiguration;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
-import zakuto.tehilimtr.ui.home.HomeFragment;
-import zakuto.tehilimtr.ui.notifications.NotificationsFragment;
-import zakuto.tehilimtr.ui.dashboard.DashboardFragment;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.List;
-
-import zakuto.tehilimtr.ui.home.HomeFragment;
-import zakuto.tehilimtr.ui.notifications.NotificationsFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    BottomNavigationView bottomNavigation;
-
-    public Button tumKitap, infoButton, randomtehilimtrButton, textTest, fifthButton, sixthButton,seventhButton;
-    public TextView tehilimtrText, date;
-    public TextView randomtehilimtrText;
-    public TehilimClass Tehilim = new TehilimClass();
-
-    //public int[] destinationTehilimArray = {1, 2, 3, 4, 5};
-    //ArrayList<Integer> destinationTehilimArray;
-    //destinationTehilimArray.add(1,2,3,4,5);
-    String destinationString = "1-100";
-    int s = 1;
-    int pressed = 0;
-
-    public int[] destinationTehilimArray, tehilimNumbersArray;
-    private AdView mAdView;
+    public int[] destinationTehilimArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        date = (TextView) findViewById(R.id.date);
+        BottomNavigationView navView = findViewById(R.id.nav_view);
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
+                .build();
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        NavigationUI.setupWithNavController(navView, navController);
+
+        FragmentTransaction FirstFragment = new FragmentTransaction();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.home_frame, FirstFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+        /*SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        StringBuilder builder = new StringBuilder();
+        builder.append("\n" + "Perform Sync:\t" + sharedPrefs.getBoolean("perform_sync", false));
+        builder.append("\n" + "Sync Intervals:\t" + sharedPrefs.getString("sync_interval", "-1"));
+        builder.append("\n" + "Name:\t" + sharedPrefs.getString("full_name", "Not known to us"));
+        builder.append("\n" + "Email Address:\t" + sharedPrefs.getString("email_address", "No EMail Address Provided"));
+        builder.append("\n" + "Customized Notification Ringtone:\t" + sharedPrefs.getString("notification_ringtone", ""));
+        builder.append("\n\nClick on Settings Button at bottom right corner to Modify Your Prefrences");
+        You have to add the textview
+        TextView settingsTextView = (TextView) findViewById(R.id.preference_text);
+        settingsTextView.setText(builder.toString());*/
+
+       /* date = (TextView) findViewById(R.id.date);
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MMM-yyyy");
         String dateTime = simpleDateFormat.format(calendar.getTime());
-        date.setText(dateTime);
-
+        date.setText(dateTime);*/
 
         //Test with Pixel
-        List<String> testDeviceIds = Arrays.asList("F2F51C5D2BA7B325DC8FAA267BF930DE");
+/*        List<String> testDeviceIds = Arrays.asList("F2F51C5D2BA7B325DC8FAA267BF930DE");
         RequestConfiguration configuration =
                 new RequestConfiguration.Builder().setTestDeviceIds(testDeviceIds).build();
         MobileAds.setRequestConfiguration(configuration);
@@ -85,27 +68,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onInitializationComplete(InitializationStatus initializationStatus) {
                 Log.i("AD", "ad is here!");
             }
-        });
+        });*/
 
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-                Log.i("AD","ad is here!");
-            }
-        });
-
-        mAdView = findViewById(R.id.adView);
+/*        mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+        mAdView.loadAd(adRequest);*/
 
         destinationTehilimArray = new int[]{12, 34, 54, 512};
+       /*
+        //Bottom Navigation code
         BottomNavigationView bottomNavigation = findViewById(R.id.nav_view);
         bottomNavigation.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
         openFragment(HomeFragment.newInstance("", ""));
-
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-
+        */
        /* tumKitap = findViewById(R.id.tumKitapButton);
         tumKitap.setOnClickListener(this);
 
@@ -124,20 +99,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         RandomTeilim randomtehilimtrObject = new RandomTeilim();
         //randomtehilimtrText.setText(String.valueOf(randomtehilimtrObject.randomNumber()));
     }
-
     /*  public void tumKitap() {
           Intent tumKitapIntent = new Intent(this, readTehilim.class);
           startActivity(tumKitapIntent);
       }
   */
 
+/*
     public void openFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.container, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
     }
-
 
     BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -157,12 +131,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     return false;
                 }
             };
+            */
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.top_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // action with ID action_refresh was selected
+            case R.id.action_refresh:
+                Toast.makeText(this, "Refresh selected", Toast.LENGTH_SHORT)
+                        .show();
+                break;
+            // action with ID action_settings was selected
+            case R.id.action_settings:
+                Intent settingIntent = new Intent(this, SettingsActivity.class);
+                startActivity(settingIntent);
+                Toast.makeText(this, "Settings selected", Toast.LENGTH_SHORT)
+                        .show();
+                break;
+            default:
+                break;
+        }
+        return true;
+    }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             /*case R.id.tumKitapButton:
-              *//*
+             *//*
               Snackbar snackbar = Snackbar
                         .make(coordinatorLayout, "www.journaldev.com", Snackbar.LENGTH_LONG);
                 snackbar.show();

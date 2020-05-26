@@ -4,59 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/red"
     tools:context="zakuto.tehilimtr.ui.home.HomeFragment">
 
-<!--
     <LinearLayout
-        android:id="@+id/LinearVertical"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:weightSum="2"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:id="@+id/firstButtonRow"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="4"
-            app:layout_constraintTop_toBottomOf="@id/nav_host_fragment">
-
-            <Button
-                android:id="@+id/infoButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="info button"
-                android:textAllCaps="false" />
-
-            <Button
-                android:id="@+id/tumKitapButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="tumKitapButton"
-                android:textAllCaps="false" />
-
-            <Button
-                android:id="@+id/randomtehilimtrButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Randomtehilimtr"
-                android:textAllCaps="false" />
-
-            <Button
-                android:id="@+id/textTest"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="TextTest"
-                android:textAllCaps="false" />
-        </LinearLayout>
-    </LinearLayout>
--->
-    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -69,9 +21,7 @@
             android:id="@+id/home_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/home_string">
-
-        </TextView>
+            android:text="@string/home_string"></TextView>
 
         <Button
             android:id="@+id/FullBook"
@@ -81,4 +31,27 @@
             android:text="Tum Kitap"
             android:textAllCaps="false" />
     </LinearLayout>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-9743036193075566/1167532548"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.47000003" />
+    <!--Mine        app:adUnitId="ca-app-pub-9743036193075566/1167532548"-->
+    <!--Test        app:adUnitId="ca-app-pub-3940256099942544/6300978111"-->
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
