@@ -1,21 +1,26 @@
 package zakuto.tehilimtr;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+
+import zakuto.tehilimtr.ui.Browse.BrowseFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -34,11 +39,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
-      /*  FragmentTransaction FirstFragment = new FragmentTransaction();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.home_frame, FirstFragment);
-        transaction.addToBackStack(null);
-        transaction.commit();*/
 
         /*SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         StringBuilder builder = new StringBuilder();

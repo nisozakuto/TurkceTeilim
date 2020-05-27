@@ -16,9 +16,9 @@ import com.google.android.material.tabs.TabLayout;
 import java.util.ArrayList;
 import java.util.List;
 
+import zakuto.tehilimtr.FullBookFragment;
 import zakuto.tehilimtr.MonthlyFragment;
 import zakuto.tehilimtr.R;
-import zakuto.tehilimtr.ui.notifications.NotificationsFragment;
 
 
 public class BrowseFragment extends Fragment {
@@ -50,12 +50,9 @@ public class BrowseFragment extends Fragment {
 */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        //View view = inflater.inflate(R.layout.fixtures_new_tabs, container, false);
         View view = inflater.inflate(R.layout.fragment_browse, container, false);
-        // Setting ViewPager for each Tabs
         ViewPager viewPager = (ViewPager) view.findViewById(R.id.view_pager);
         setupViewPager(viewPager);
-        // Set Tabs inside Toolbar
         TabLayout tabs = (TabLayout) view.findViewById(R.id.result_tabs1);
         tabs.setupWithViewPager(viewPager);
         return view;
@@ -65,7 +62,7 @@ public class BrowseFragment extends Fragment {
     private void setupViewPager(ViewPager viewPager) {
         Adapter adapter = new Adapter(getChildFragmentManager());
         adapter.addFragment(new MonthlyFragment(), "Aylık Düzen");
-        adapter.addFragment(new NotificationsFragment(), "Günlük Düzen");
+        adapter.addFragment(new FullBookFragment(), "Tüm Kitap");
         viewPager.setAdapter(adapter);
     }
 
