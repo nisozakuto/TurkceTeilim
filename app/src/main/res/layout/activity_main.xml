@@ -7,16 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.fragment.app.FragmentContainerView
+    <fragment
         android:id="@+id/nav_host_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
+        android:layout_marginBottom="56dp"
         app:defaultNavHost="true"
         app:navGraph="@navigation/mobile_navigation"
         tools:layout_editor_absoluteY="618dp">
-    </androidx.fragment.app.FragmentContainerView>
+    </fragment>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
