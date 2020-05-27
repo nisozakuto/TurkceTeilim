@@ -4,15 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FullBook">
-
-    <FrameLayout
-        android:id="@+id/monthlyFragmentId"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
         <ListView
             android:id="@+id/monthlyFragmentListView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-    </FrameLayout>
 </FrameLayout>

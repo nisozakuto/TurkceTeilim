@@ -32,9 +32,8 @@ public class FullBookFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_full_book, container, false);
 
-        for (int i = 1; i < 152; i++) {
-            tehilimArray[i - 1] = i  + ".Gün";
-            // Log.i("For:" + " " + tehilimArray[i - 1]);
+        for (int i = 1; i < 151; i++) {
+            tehilimArray[i - 1] = i + ".Gün";
         }
 
         ListView monthlyListView = (ListView) view.findViewById(R.id.monthlyFragmentListView);
@@ -50,7 +49,6 @@ public class FullBookFragment extends Fragment {
                 fr.commit();
             }
         });
-
 
         return view;
     }
@@ -74,7 +72,6 @@ public class FullBookFragment extends Fragment {
             passTehilimValues = new int[]{10, 11, 12, 14, 15, 16, 17};
             return passTehilimValues;
         }
-
         if (position == 3) {
             passTehilimValues = new int[]{18, 19, 20, 21, 22};
             return passTehilimValues;

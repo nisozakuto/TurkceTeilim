@@ -4,22 +4,17 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-
 import com.google.android.material.tabs.TabLayout;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import zakuto.tehilimtr.FullBookFragment;
 import zakuto.tehilimtr.MonthlyFragment;
 import zakuto.tehilimtr.R;
-
 
 public class BrowseFragment extends Fragment {
 
@@ -31,23 +26,22 @@ public class BrowseFragment extends Fragment {
         setRetainInstance(true);
     }
 
-/*
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        dashboardViewModel =
-                ViewModelProviders.of(this).get(MonthlyViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        final TextView textView = root.findViewById(R.id.textViewFortehilimtr);
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
-        return root;
-    }
-*/
+    /*@Override
+        public View onCreateView(@NonNull LayoutInflater inflater,
+                                 ViewGroup container, Bundle savedInstanceState) {
+            dashboardViewModel =
+                    ViewModelProviders.of(this).get(MonthlyViewModel.class);
+            View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
+            final TextView textView = root.findViewById(R.id.textViewFortehilimtr);
+            dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+                @Override
+                public void onChanged(@Nullable String s) {
+                    textView.setText(s);
+                }
+            });
+            return root;
+        }
+    */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_browse, container, false);
@@ -107,6 +101,12 @@ public class BrowseFragment extends Fragment {
  * Use this factory method to create a new instance of
  * this fragment using the provided parameters.
  *
+ * @param param1 Parameter 1.
+ * @param param2 Parameter 2.
+ * @return A new instance of fragment SmsFragment.
+ * <p>
+ * Use this factory method to create a new instance of
+ * this fragment using the provided parameters.
  * @param param1 Parameter 1.
  * @param param2 Parameter 2.
  * @return A new instance of fragment SmsFragment.
