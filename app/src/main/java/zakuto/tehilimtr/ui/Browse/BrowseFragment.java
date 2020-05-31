@@ -4,14 +4,19 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
+
 import com.google.android.material.tabs.TabLayout;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import zakuto.tehilimtr.FullBookFragment;
 import zakuto.tehilimtr.MonthlyFragment;
 import zakuto.tehilimtr.R;
@@ -50,6 +55,16 @@ public class BrowseFragment extends Fragment {
         TabLayout tabs = (TabLayout) view.findViewById(R.id.result_tabs1);
         tabs.setupWithViewPager(viewPager);
         return view;
+
+/*        // Create new fragment and transaction
+        Fragment newFragment = new BrowseFragment();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        // Replace whatever is in the fragment_container view with this fragment,
+        // and add the transaction to the back stack if needed
+        transaction.replace(R.id.view_pager, newFragment);
+        transaction.addToBackStack(null);
+        // Commit the transaction
+        transaction.commit();*/
     }
 
     // Add Fragments to Tabs
@@ -101,6 +116,18 @@ public class BrowseFragment extends Fragment {
  * Use this factory method to create a new instance of
  * this fragment using the provided parameters.
  *
+ * @param param1 Parameter 1.
+ * @param param2 Parameter 2.
+ * @return A new instance of fragment SmsFragment.
+ * <p>
+ * Use this factory method to create a new instance of
+ * this fragment using the provided parameters.
+ * @param param1 Parameter 1.
+ * @param param2 Parameter 2.
+ * @return A new instance of fragment SmsFragment.
+ * <p>
+ * Use this factory method to create a new instance of
+ * this fragment using the provided parameters.
  * @param param1 Parameter 1.
  * @param param2 Parameter 2.
  * @return A new instance of fragment SmsFragment.

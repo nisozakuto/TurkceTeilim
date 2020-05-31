@@ -18,9 +18,9 @@ public class OrderActivity extends AppCompatActivity {
         setContentView(R.layout.activity_order);
 
         Bundle extras = getIntent().getExtras();
-        order = extras.getString("order");
+        //order = extras.getString("order");
 
-        infoList = (ListView) findViewById(R.id.infoList);
+       /* infoList = (ListView) findViewById(R.id.infoList);
         if(order == "monthly"){
             aAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, monthlyTehilimArray);
         }
@@ -28,6 +28,6 @@ public class OrderActivity extends AppCompatActivity {
         {
             aAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, dailyTehilimArray);
         }
-        infoList.setAdapter(aAdapter);
+        infoList.setAdapter(aAdapter);*/
     }
 }

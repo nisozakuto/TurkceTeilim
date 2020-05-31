@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
-
         /*SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         StringBuilder builder = new StringBuilder();
         builder.append("\n" + "Perform Sync:\t" + sharedPrefs.getBoolean("perform_sync", false));
@@ -106,8 +105,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
       }
   */
 
-/*
-    public void openFragment(Fragment fragment) {
+/*  public void openFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.container, fragment);
         transaction.addToBackStack(null);

@@ -1,8 +1,10 @@
 package zakuto.tehilimtr;
 
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -10,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import zakuto.tehilimtr.ui.Browse.BrowseFragment;
 
 public class MonthlyFragment extends Fragment {
 
@@ -32,7 +35,8 @@ public class MonthlyFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.monthly_fragment, container, false);
+        final View view = inflater.inflate(R.layout.monthly_fragment, container, false);
+
         ListView monthlyListView = (ListView) view.findViewById(R.id.monthlyFragmentListView);
         ArrayAdapter<String> listviewAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, monthlyTehilimArray);
         monthlyListView.setAdapter(listviewAdapter);
@@ -41,13 +45,32 @@ public class MonthlyFragment extends Fragment {
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
                 position += 1;
                 Toast.makeText(getActivity(), "Gün " + position + " açılıyor!", Toast.LENGTH_SHORT).show();
-                FragmentTransaction fr = getChildFragmentManager().beginTransaction();
+                /*FragmentTransaction fr = getChildFragmentManager().beginTransaction();
                 fr.replace(R.id.monthlyFragmentId, new readFragment());
-                fr.commit();
+                fr.commit();*/
+
+        /*        getFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.monthlyFragmentId, new readFragment())
+                        .commit();
+*/
+
+
+               /* try
+                {
+                Intent infoIntent = new Intent(getContext(), ReadActivity.class);
+                // infoIntent.putExtra("order", "Monthly");
+                infoIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(infoIntent);}
+                catch (Exception e) {
+                    e.printStackTrace();
+                }*/
             }
         });
         return view;
     }
+
+
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -55,11 +78,11 @@ public class MonthlyFragment extends Fragment {
         mViewModel = ViewModelProviders.of(this).get(MonthlyViewModel.class);
         // TODO: Use the ViewModel
     }
+
     public int[] monthlyOrder(int position) {
         passTehilimValues = new int[]{};
         int index = 0;
         if (position == 1) {
-            Log.i("position", String.valueOf(position));
             passTehilimValues = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
             return passTehilimValues;
         }
@@ -67,7 +90,6 @@ public class MonthlyFragment extends Fragment {
             passTehilimValues = new int[]{10, 11, 12, 14, 15, 16, 17};
             return passTehilimValues;
         }
-
         if (position == 3) {
             passTehilimValues = new int[]{18, 19, 20, 21, 22};
             return passTehilimValues;

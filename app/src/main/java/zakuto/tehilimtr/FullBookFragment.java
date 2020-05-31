@@ -1,5 +1,6 @@
 package zakuto.tehilimtr;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -32,7 +34,7 @@ public class FullBookFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_full_book, container, false);
 
         for (int i = 1; i < 151; i++) {
-            tehilimArray[i-1] = i + ".Gün";
+            tehilimArray[i - 1] = i + ".Gün";
         }
 
         ListView fullBookListView = (ListView) view.findViewById(R.id.monthlyFragmentListView);
@@ -43,12 +45,11 @@ public class FullBookFragment extends Fragment {
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
                 position += 1;
                 Toast.makeText(getActivity(), "Kitap " + position + " açılıyor!", Toast.LENGTH_SHORT).show();
-                FragmentTransaction fr = getChildFragmentManager().beginTransaction();
-                fr.replace(R.id.monthlyFragmentId, new readFragment());
-                fr.commit();
+                Intent in = new Intent(getActivity(), ReadActivity.class);
+                startActivity(in);
+
             }
         });
-
         return view;
     }
 
