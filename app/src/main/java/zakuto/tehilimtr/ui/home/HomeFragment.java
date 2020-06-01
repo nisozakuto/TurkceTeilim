@@ -31,13 +31,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-        final TextView textView = root.findViewById(R.id.home_text);
+    /*    final TextView textView = root.findViewById(R.id.home_text);
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
             }
-        });
+        });*/
         FullBook = root.findViewById(R.id.FullBook);
         FullBook.setOnClickListener(this);
         return root;
