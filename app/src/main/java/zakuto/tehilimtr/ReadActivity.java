@@ -37,10 +37,7 @@ public class ReadActivity extends AppCompatActivity {
         Log.i("niso", "55");
         ArrayList<String> mylist = new ArrayList<String>();
 
-
-        ListView fullBookListView = (ListView) findViewById(R.id.listView);
-        ArrayAdapter<String> listviewAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, tehilimArray);
-        fullBookListView.setAdapter(listviewAdapter);
+        final ListView list = findViewById(R.id.listView);
 
         Intent intent = getIntent();
         Bundle b = intent.getExtras();
@@ -52,13 +49,16 @@ public class ReadActivity extends AppCompatActivity {
         if (tehilimExtra != null) {
             textView.setText("Kullanici teilim istiyor " + tehilimExtra + ".teilim");
             mylist.clear();
-            //mylist.add(TehilimClass.getTehilim("tr77")); //this adds an element to the list.
-            //mylist.add(TehilimClass.getTehilim("tr5")); //this adds an element to the list.
+            String a = TehilimClass.getTehilim("tr"+24);
+            mylist.add(a); //this adds an element to the list.
+    //            mylist.add(TehilimClass.getTehilim("tr5")); //this adds an element to the list.
 
         } else if (kitapExtra != null) {
             textView.setText("Kullanici kitap istiyor " + kitapExtra + ".kitap");
             textView.setText("" + monthlyOrder(Integer.parseInt(kitapExtra)));
         }
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mylist);
+        list.setAdapter(arrayAdapter);
         /* FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

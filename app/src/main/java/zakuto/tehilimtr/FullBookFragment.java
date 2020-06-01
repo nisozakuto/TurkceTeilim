@@ -18,11 +18,13 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
+
 public class FullBookFragment extends Fragment {
 
     private MonthlyViewModel mViewModel;
     int[] passTehilimValues = new int[]{};
     String[] tehilimArray = new String[150];
+    public TehilimClass Teilim = new TehilimClass();
 
     public static FullBookFragment newInstance() {
         return new FullBookFragment();
