@@ -47,12 +47,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.FullBook:
-                Intent infoIntent = new Intent(getActivity(), ReadActivity.class);
+          /*      Intent infoIntent = new Intent(getActivity(), ReadActivity.class);
                 //infoIntent.putExtra("order", "Monthly");
-                startActivity(infoIntent);
-
-
-
+                startActivity(infoIntent);*/
+                FragmentManager manager = getFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.replace(R.id.nav_host_fragment, readFragment.newInstance()); // newInstance() is a static factory method.
+                transaction.commit();
                 break;
         }
     }

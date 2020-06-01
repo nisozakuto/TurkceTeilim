@@ -56,15 +56,6 @@ public class BrowseFragment extends Fragment {
         tabs.setupWithViewPager(viewPager);
         return view;
 
-/*        // Create new fragment and transaction
-        Fragment newFragment = new BrowseFragment();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        // Replace whatever is in the fragment_container view with this fragment,
-        // and add the transaction to the back stack if needed
-        transaction.replace(R.id.view_pager, newFragment);
-        transaction.addToBackStack(null);
-        // Commit the transaction
-        transaction.commit();*/
     }
 
     // Add Fragments to Tabs

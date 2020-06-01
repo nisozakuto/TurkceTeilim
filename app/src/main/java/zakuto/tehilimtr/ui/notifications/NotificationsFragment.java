@@ -7,7 +7,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import zakuto.tehilimtr.R;
+import zakuto.tehilimtr.readFragment;
 
 
 public class NotificationsFragment extends Fragment{
@@ -54,6 +58,10 @@ public class NotificationsFragment extends Fragment{
             public void onClick(View view) {
                 a++;
                 text_notifications.setText("Test Worked" + a);
+                FragmentManager manager = getFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.replace(R.id.nav_host_fragment, readFragment.newInstance()); // newInstance() is a static factory method.
+                transaction.commit();
             }
         });
 

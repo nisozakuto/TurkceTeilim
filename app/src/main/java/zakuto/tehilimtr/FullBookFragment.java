@@ -45,9 +45,12 @@ public class FullBookFragment extends Fragment {
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
                 position += 1;
                 Toast.makeText(getActivity(), "Kitap " + position + " açılıyor!", Toast.LENGTH_SHORT).show();
-                Intent in = new Intent(getActivity(), ReadActivity.class);
-                startActivity(in);
-
+                /*Intent in = new Intent(getActivity(), ReadActivity.class);
+                startActivity(in);*/
+                FragmentManager manager = getFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.replace(R.id.result_tabs1, readFragment.newInstance()); // newInstance() is a static factory method.
+                transaction.commit();
             }
         });
         return view;

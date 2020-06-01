@@ -45,32 +45,18 @@ public class MonthlyFragment extends Fragment {
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
                 position += 1;
                 Toast.makeText(getActivity(), "Gün " + position + " açılıyor!", Toast.LENGTH_SHORT).show();
-                /*FragmentTransaction fr = getChildFragmentManager().beginTransaction();
-                fr.replace(R.id.monthlyFragmentId, new readFragment());
-                fr.commit();*/
-
-        /*        getFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.monthlyFragmentId, new readFragment())
-                        .commit();
-*/
-
-
-               /* try
-                {
-                Intent infoIntent = new Intent(getContext(), ReadActivity.class);
-                // infoIntent.putExtra("order", "Monthly");
-                infoIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(infoIntent);}
-                catch (Exception e) {
-                    e.printStackTrace();
-                }*/
+                FragmentManager manager = getFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.replace(R.id.nav_host_fragment, readFragment.newInstance()); // newInstance() is a static factory method.
+                transaction.commit();
             }
         });
         return view;
     }
 
-
+    private FragmentManager getSupportFragmentManager() {
+        return null;
+    }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
