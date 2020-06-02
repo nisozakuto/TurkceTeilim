@@ -56,7 +56,7 @@ public class NotificationsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_notifications, container, false);
         date = view.findViewById(R.id.dateInfo);
         Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MMM-yyyy");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MMMM-yyyy");
         String dateTime = simpleDateFormat.format(calendar.getTime());
         date.setText(dateTime);
         return view;
