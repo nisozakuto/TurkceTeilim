@@ -3,59 +3,54 @@ package zakuto.tehilimtr;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.util.ArrayMap;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class ReadActivity extends AppCompatActivity {
-    public TextView printtehilimtr;
-    ListView tehilimtrListView;
     int[] passTehilimValues = new int[]{};
-
-    int[] tehilimler;
-    String tehilimlerString;
-    ArrayAdapter adapter;
-    static ArrayMap<String, String> readTehilimMap = new ArrayMap<String, String>();
     String kitapExtra = null, tehilimExtra = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        TextView textView = (TextView) findViewById(R.id.textView);
-        textView.setText("Test Onur");
-        Log.i("niso", "55");
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
         ArrayList<String> mylist = new ArrayList<String>();
-
         final ListView list = findViewById(R.id.listView);
-
         Intent intent = getIntent();
         Bundle b = intent.getExtras();
         if (b != null) {
             tehilimExtra = (String) b.get("tehilim");
             kitapExtra = (String) b.get("kitap");
-            textView.setText(tehilimExtra + "" + kitapExtra);
         }
-        if (tehilimExtra != null) {
-            textView.setText("Kullanici teilim istiyor " + tehilimExtra + ".teilim");
-            mylist.clear();
-            String a = TehilimClass.getTehilim("tr"+24);
-            mylist.add(a); //this adds an element to the list.
-    //            mylist.add(TehilimClass.getTehilim("tr5")); //this adds an element to the list.
 
+        if (tehilimExtra != null) {
+            mylist.clear();
+            mylist.add(TehilimClass.getTehilim("tr" + Integer.parseInt(tehilimExtra))); //this adds an element to the list.
         } else if (kitapExtra != null) {
-            textView.setText("Kullanici kitap istiyor " + kitapExtra + ".kitap");
-            textView.setText("" + monthlyOrder(Integer.parseInt(kitapExtra)));
+            monthlyOrder(Integer.parseInt(kitapExtra));
+            mylist.clear();
+            for (int i = passTehilimValues[0]; i < passTehilimValues[0] + passTehilimValues.length; i++) {
+                mylist.add(TehilimClass.getTehilim("tr" + i)); //this adds an element to the list.
+            }
         }
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mylist);
         list.setAdapter(arrayAdapter);
@@ -86,7 +81,41 @@ public class ReadActivity extends AppCompatActivity {
             //Log.i("Value", String.valueOf(readTehilimMap));
         }
         */
+    }
 
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.top_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        if (getSupportFragmentManager().popBackStackImmediate()) {
+            return true;
+        }
+        return super.onSupportNavigateUp();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // action with ID action_refresh was selected
+            case R.id.action_refresh:
+                Toast.makeText(this, "Refresh selected", Toast.LENGTH_SHORT)
+                        .show();
+                break;
+            // action with ID action_settings was selected
+            case R.id.action_settings:
+                Intent settingIntent = new Intent(this, SettingsActivity.class);
+                startActivity(settingIntent);
+                Toast.makeText(this, "Settings selected", Toast.LENGTH_SHORT)
+                        .show();
+                break;
+            default:
+                break;
+        }
+        return true;
     }
 
     public int[] monthlyOrder(int position) {
@@ -213,5 +242,4 @@ public class ReadActivity extends AppCompatActivity {
             return passTehilimValues;
         }
     }
-
 }

@@ -3,6 +3,7 @@ package zakuto.tehilimtr;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -10,6 +11,12 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.RequestConfiguration;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,11 +27,15 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import java.util.Arrays;
+import java.util.List;
+
 import zakuto.tehilimtr.ui.Browse.BrowseFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     public int[] destinationTehilimArray;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,30 +62,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextView settingsTextView = (TextView) findViewById(R.id.preference_text);
         settingsTextView.setText(builder.toString());*/
 
-       /* date = (TextView) findViewById(R.id.date);
-        Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MMM-yyyy");
-        String dateTime = simpleDateFormat.format(calendar.getTime());
-        date.setText(dateTime);*/
-
         //Test with Pixel
-/*        List<String> testDeviceIds = Arrays.asList("F2F51C5D2BA7B325DC8FAA267BF930DE");
+       /* List<String> testDeviceIds = Arrays.asList("F2F51C5D2BA7B325DC8FAA267BF930DE");
         RequestConfiguration configuration =
                 new RequestConfiguration.Builder().setTestDeviceIds(testDeviceIds).build();
-        MobileAds.setRequestConfiguration(configuration);
-
+        MobileAds.setRequestConfiguration(configuration);*/
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
                 Log.i("AD", "ad is here!");
             }
-        });*/
-
-/*        mAdView = findViewById(R.id.adView);
+        });
+        mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);*/
-
-        destinationTehilimArray = new int[]{12, 34, 54, 512};
+        mAdView.loadAd(adRequest);
+    }
        /*
         //Bottom Navigation code
         BottomNavigationView bottomNavigation = findViewById(R.id.nav_view);
@@ -83,35 +85,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         */
        /* tumKitap = findViewById(R.id.tumKitapButton);
         tumKitap.setOnClickListener(this);
-
-        infoButton = findViewById(R.id.infoButton);
-        infoButton.setOnClickListener(this);
-
-        textTest = findViewById(R.id.textTest);
-        textTest.setOnClickListener(this);
-
-        randomtehilimtrButton = findViewById(R.id.randomtehilimtrButton);
-        randomtehilimtrButton.setOnClickListener(this);*/
-        Randomtehilimtr();
     }
-
-    public void Randomtehilimtr() {
-        RandomTeilim randomtehilimtrObject = new RandomTeilim();
-        //randomtehilimtrText.setText(String.valueOf(randomtehilimtrObject.randomNumber()));
-    }
-    /*  public void tumKitap() {
-          Intent tumKitapIntent = new Intent(this, readTehilim.class);
-          startActivity(tumKitapIntent);
-      }
-  */
-
 /*  public void openFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.container, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
     }
-
     BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override

@@ -6,15 +6,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import zakuto.tehilimtr.R;
 import zakuto.tehilimtr.readFragment;
 
 
-public class NotificationsFragment extends Fragment{
+public class NotificationsFragment extends Fragment {
 
     private NotificationsViewModel notificationsViewModel;
     private static final String ARG_PARAM1 = "param1";
@@ -22,7 +26,7 @@ public class NotificationsFragment extends Fragment{
     private String mParam1;
     private String mParam2;
     Button TestButton;
-    TextView text_notifications;
+    TextView text_notifications, date;
     int a = 0;
 
     public NotificationsFragment() {
@@ -50,22 +54,11 @@ public class NotificationsFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_notifications, container, false);
-
-        text_notifications = view.findViewById(R.id.text_notifications);
-        TestButton = (Button) view.findViewById(R.id.TestButton);
-        TestButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                a++;
-                text_notifications.setText("Test Worked" + a);
-                FragmentManager manager = getFragmentManager();
-                FragmentTransaction transaction = manager.beginTransaction();
-                transaction.replace(R.id.nav_host_fragment, readFragment.newInstance()); // newInstance() is a static factory method.
-                transaction.commit();
-            }
-        });
-
-        // Inflate the layout for this fragment
+        date = view.findViewById(R.id.dateInfo);
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MMM-yyyy");
+        String dateTime = simpleDateFormat.format(calendar.getTime());
+        date.setText(dateTime);
         return view;
     }
 }

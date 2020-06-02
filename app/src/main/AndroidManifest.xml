@@ -12,7 +12,7 @@
         <activity
             android:name=".ReadActivity"
             android:label="@string/title_activity_read"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme"></activity>
         <activity
             android:name=".TestActivity"
             android:label="@string/title_activity_test"
@@ -23,7 +23,6 @@
             android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -37,9 +36,6 @@
             android:label="@string/title_activity_settings" />
         <activity android:name=".InfoActivity" />
 
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-9743036193075566~1359104236" />
 
         <activity
             android:name=".OrderActivity"
@@ -47,8 +43,16 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".ReadTehilim"
+            android:allowBackup="true"
             android:label="@string/title_activity_tum_kitap"
-            android:theme="@style/AppTheme.NoActionBar" />
-    </application>
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
 
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-9743036193075566~1359104236" />
+    </application>
 </manifest>
