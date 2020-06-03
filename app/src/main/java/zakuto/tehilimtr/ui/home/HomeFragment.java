@@ -1,7 +1,9 @@
 
 package zakuto.tehilimtr.ui.home;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -47,6 +50,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private HomeViewModel homeViewModel;
     Button FullBook;
     TextView date;
+    String lastReadBook = null;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -54,7 +58,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
+        //Fragment'ta Button tanimlama yeri:
         FullBook = root.findViewById(R.id.FullBook);
+        //Yeni butonu buraya koy
+        //Buraya git: public void onClick(View view) {
+        //Yeni bir switch koy
         date = root.findViewById(R.id.date);
         FullBook.setOnClickListener(this);
         String locationName = "New York, NY";
@@ -78,9 +86,27 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 transaction.replace(R.id.nav_host_fragment, readFragment.newInstance()); // newInstance() is a static factory method.
                 transaction.commit();
                 break;
+           /* Yeni buton'un clicki icin bunlari koy
+            Intent intent = new Intent(getActivity(), ReadActivity.class);
+            Degeri koy= lastReadBook
+            intent.putExtra("kitap", String.valueOf(lastReadBook));
+            startActivity(intent);
+            Read Activity'e git oradan cek degeri ve ac .
+            */
         }
     }
+    @Override
+    public void onResume() {
+        super.onResume();
 
+        SharedPreferences sh
+                = this.getActivity().getSharedPreferences("MySharedPref",
+                Context.MODE_PRIVATE);
+
+        lastReadBook = sh.getString("lastReadBook", "");
+        Toast.makeText(getActivity(), lastReadBook + ".Kitaptan devam et", Toast.LENGTH_SHORT).show();
+
+    }
     private FragmentManager getSupportFragmentManager() {
         return null;
     }

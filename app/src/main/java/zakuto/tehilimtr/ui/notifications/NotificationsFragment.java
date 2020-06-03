@@ -1,5 +1,7 @@
 package zakuto.tehilimtr.ui.notifications;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,8 +15,9 @@ import java.util.Calendar;
 
 import zakuto.tehilimtr.R;
 
-public class NotificationsFragment extends Fragment {
+import static android.content.Context.MODE_PRIVATE;
 
+public class NotificationsFragment extends Fragment {
     private NotificationsViewModel notificationsViewModel;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -46,6 +49,21 @@ public class NotificationsFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        SharedPreferences sharedPreferences
+                = this.getActivity().getSharedPreferences("MySharedPref",
+                MODE_PRIVATE);
+
+        SharedPreferences.Editor myEdit
+                = sharedPreferences.edit();
+        myEdit.putString(
+                "name",
+                "24");
+        myEdit.commit();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -55,6 +73,7 @@ public class NotificationsFragment extends Fragment {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MMMM-yyyy");
         String dateTime = simpleDateFormat.format(calendar.getTime());
         date.setText(dateTime);
+
         return view;
     }
 }

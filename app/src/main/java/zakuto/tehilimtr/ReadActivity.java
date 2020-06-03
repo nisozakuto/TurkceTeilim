@@ -1,27 +1,32 @@
 package zakuto.tehilimtr;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
-import android.util.ArrayMap;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class ReadActivity extends AppCompatActivity {
+public class ReadActivity extends AppCompatActivity implements View.OnClickListener {
     int[] passTehilimValues = new int[]{};
     String kitapExtra = null, tehilimExtra = null;
+    Button next, back;
+    Integer teilimNumber = 23;
+    ArrayList<String> mylist = new ArrayList<String>();
+    ListView list;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +38,13 @@ public class ReadActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        ArrayList<String> mylist = new ArrayList<String>();
-        final ListView list = findViewById(R.id.listView);
+        list = findViewById(R.id.listView);
+        final Button next = findViewById(R.id.next);
+        final Button back = findViewById(R.id.back);
+
+        back.setOnClickListener(this);
+        next.setOnClickListener(this);
+
         Intent intent = getIntent();
         Bundle b = intent.getExtras();
         if (b != null) {
@@ -44,7 +54,8 @@ public class ReadActivity extends AppCompatActivity {
 
         if (tehilimExtra != null) {
             mylist.clear();
-            mylist.add(TehilimClass.getTehilim("tr" + Integer.parseInt(tehilimExtra))); //this adds an element to the list.
+            teilimNumber = Integer.parseInt(tehilimExtra);
+            mylist.add(TehilimClass.getTehilim("tr" + teilimNumber)); //this adds an element to the list.
         } else if (kitapExtra != null) {
             monthlyOrder(Integer.parseInt(kitapExtra));
             mylist.clear();
@@ -52,8 +63,7 @@ public class ReadActivity extends AppCompatActivity {
                 mylist.add(TehilimClass.getTehilim("tr" + i)); //this adds an element to the list.
             }
         }
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mylist);
-        list.setAdapter(arrayAdapter);
+        setListView();
         /* FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +93,37 @@ public class ReadActivity extends AppCompatActivity {
         */
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        SharedPreferences sharedPreferences
+                = getSharedPreferences("MySharedPref",
+                MODE_PRIVATE);
+        SharedPreferences.Editor myEdit
+                = sharedPreferences.edit();
+        myEdit.putString(
+                "lastReadBook", kitapExtra
+        );
+        myEdit.commit();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        SharedPreferences sh
+                = getSharedPreferences("MySharedPref",
+                Context.MODE_PRIVATE);
+        String s1 = sh.getString("name", "");
+        Toast.makeText(this, s1 + " + .Teilim açılıyor!", Toast.LENGTH_SHORT).show();
+
+    }
+
+    public void setListView() {
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mylist);
+        list.setAdapter(arrayAdapter);
+    }
+
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.top_menu, menu);
@@ -101,10 +142,10 @@ public class ReadActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             // action with ID action_refresh was selected
-            case R.id.action_refresh:
+      /*      case R.id.action_refresh:
                 Toast.makeText(this, "Refresh selected", Toast.LENGTH_SHORT)
                         .show();
-                break;
+                break;*/
             // action with ID action_settings was selected
             case R.id.action_settings:
                 Intent settingIntent = new Intent(this, SettingsActivity.class);
@@ -240,6 +281,33 @@ public class ReadActivity extends AppCompatActivity {
         {
             passTehilimValues = new int[]{145, 146, 147, 148, 149, 150};
             return passTehilimValues;
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.next:
+                if (teilimNumber == 150) {
+                    teilimNumber = 1;
+                } else {
+                    teilimNumber++;
+                }
+                mylist.clear();
+                mylist.add(TehilimClass.getTehilim("tr" + teilimNumber)); //this adds an element to the list.
+                setListView();
+                break;
+            case R.id.back:
+                if (teilimNumber == 1) {
+                    teilimNumber = 150;
+                } else {
+                    teilimNumber--;
+                }
+                mylist.clear();
+                mylist.add(TehilimClass.getTehilim("tr" + teilimNumber)); //this adds an element to the list.
+                setListView();
+                break;
+
         }
     }
 }

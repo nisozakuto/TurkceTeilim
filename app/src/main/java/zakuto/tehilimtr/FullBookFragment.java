@@ -18,7 +18,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
-
 public class FullBookFragment extends Fragment {
 
     private MonthlyViewModel mViewModel;

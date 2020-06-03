@@ -1,13 +1,16 @@
 package zakuto.tehilimtr;
 
 import android.app.FragmentManager;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -40,11 +43,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public int[] destinationTehilimArray;
     private AdView mAdView;
+    int teilimNumber = 0;
+    public static final String MyPREFERENCES = "MyPrefs";
+    EditText editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        editText = (EditText) findViewById(R.id.editText);
+
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
@@ -96,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
        /* tumKitap = findViewById(R.id.tumKitapButton);
         tumKitap.setOnClickListener(this);
     }
-/*  public void openFragment(Fragment fragment) {
+    /* public void openFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.container, fragment);
         transaction.addToBackStack(null);
@@ -122,6 +130,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             };
             */
 
+ /*   @Override
+    protected void onPause() {
+        super.onPause();
+
+        SharedPreferences sharedPreferences
+                = getSharedPreferences("MySharedPref",
+                MODE_PRIVATE);
+        SharedPreferences.Editor myEdit
+                = sharedPreferences.edit();
+        myEdit.putString(
+                "name",
+                "24");
+        myEdit.commit();
+    }
+*/
+
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -133,10 +159,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             // action with ID action_refresh was selected
-            case R.id.action_refresh:
+/*            case R.id.action_refresh:
                 Toast.makeText(this, "Refresh selected", Toast.LENGTH_SHORT)
                         .show();
-                break;
+                break;*/
             // action with ID action_settings was selected
             case R.id.action_settings:
                 Intent settingIntent = new Intent(this, SettingsActivity.class);
