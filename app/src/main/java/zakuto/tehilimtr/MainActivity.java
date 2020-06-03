@@ -28,9 +28,13 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 import zakuto.tehilimtr.ui.Browse.BrowseFragment;
+import zmanim.ComplexZmanimCalendar;
+import zmanim.util.GeoLocation;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -49,6 +53,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
+
+
+
 
         /*SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         StringBuilder builder = new StringBuilder();
@@ -71,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
-                Log.i("AD","ad is here!");
+                Log.i("AD", "ad is here!");
             }
         });
 

@@ -26,11 +26,16 @@ import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 import zakuto.tehilimtr.R;
 import zakuto.tehilimtr.ReadActivity;
 import zakuto.tehilimtr.readFragment;
+import zmanim.ComplexZmanimCalendar;
+import zmanim.util.GeoLocation;
+
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
@@ -41,6 +46,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     private HomeViewModel homeViewModel;
     Button FullBook;
+    TextView date;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -49,7 +55,17 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         FullBook = root.findViewById(R.id.FullBook);
+        date = root.findViewById(R.id.date);
         FullBook.setOnClickListener(this);
+        String locationName = "New York, NY";
+        double latitude = 40.6782; //Lakewood, NJ
+        double longitude = -73.9442; //Lakewood, NJ
+        double elevation = 0; //optional elevation
+        TimeZone timeZone = TimeZone.getTimeZone("America/New_York");
+        GeoLocation location = new GeoLocation(locationName, latitude, longitude, elevation, timeZone);
+        ComplexZmanimCalendar czc = new ComplexZmanimCalendar(location);
+        Date sunrise = czc.getSunrise();
+        date.setText("Gunes dogumu NY icin: " + String.valueOf(sunrise));
         return root;
     }
 

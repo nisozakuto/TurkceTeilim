@@ -8,15 +8,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import zakuto.tehilimtr.R;
-import zakuto.tehilimtr.readFragment;
-
 
 public class NotificationsFragment extends Fragment {
 
@@ -28,6 +23,7 @@ public class NotificationsFragment extends Fragment {
     Button TestButton;
     TextView text_notifications, date;
     int a = 0;
+
 
     public NotificationsFragment() {
         // Required empty public constructor
