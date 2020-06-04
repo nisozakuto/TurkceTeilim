@@ -37,6 +37,9 @@ import zakuto.tehilimtr.R;
 import zakuto.tehilimtr.ReadActivity;
 import zakuto.tehilimtr.readFragment;
 import zmanim.ComplexZmanimCalendar;
+import zmanim.ZmanimCalendar;
+import zmanim.hebrewcalendar.HebrewDateFormatter;
+import zmanim.hebrewcalendar.JewishCalendar;
 import zmanim.util.GeoLocation;
 
 import com.google.android.gms.ads.AdRequest;
@@ -48,7 +51,7 @@ import com.google.android.gms.ads.initialization.OnInitializationCompleteListene
 public class HomeFragment extends Fragment implements View.OnClickListener {
 
     private HomeViewModel homeViewModel;
-    Button FullBook;
+    Button FullBook, continueFromTheBook;
     TextView date;
     String lastReadBook = null;
 
@@ -58,11 +61,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-        //Fragment'ta Button tanimlama yeri:
         FullBook = root.findViewById(R.id.FullBook);
-        //Yeni butonu buraya koy
-        //Buraya git: public void onClick(View view) {
-        //Yeni bir switch koy
+        continueFromTheBook = root.findViewById(R.id.continueFromTheBook);
+        continueFromTheBook.setOnClickListener(this);
         date = root.findViewById(R.id.date);
         FullBook.setOnClickListener(this);
         String locationName = "New York, NY";
@@ -72,8 +73,26 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         TimeZone timeZone = TimeZone.getTimeZone("America/New_York");
         GeoLocation location = new GeoLocation(locationName, latitude, longitude, elevation, timeZone);
         ComplexZmanimCalendar czc = new ComplexZmanimCalendar(location);
+        HebrewDateFormatter hdf = new HebrewDateFormatter();
+        JewishCalendar jc = new JewishCalendar();
+
         Date sunrise = czc.getSunrise();
-        date.setText("Gunes dogumu NY icin: " + String.valueOf(sunrise));
+        int hebrewDay = jc.getJewishDayOfMonth();
+       /* HebrewDateFormatter hdf = new HebrewDateFormatter();
+        System.out.println(jd); // prints hebrew date in English chars - 23 Nissan, 5773
+        hdf.setHebrewFormat(true); // change formatting to Hebrew
+        System.out.println(hdf.format(jd)); // date formatted in Hebrew
+        jd.setJewishDate(5729, JewishDate.SHEVAT, 21); // set the date to 21 Shevat, 5729
+        System.out.println(hdf.format(jd)); // date formatted in Hebrew
+        jd.setJewishDate(5772, JewishDate.NISSAN, 18); // set date to third day of Pesach
+        System.out.println(hdf.format(jd));
+        System.out.println(hdf.formatYomTov(jd)); //output Chol Hamoed Pesach in Hebrew
+        hdf.setHebrewFormat(false); // change formatting to default
+        System.out.println(hdf.format(jd)); // prints Hebrew date in English chars - 18 Nissan, 5772
+        System.out.println(hdf.formatYomTov(jd)); //output Chol Hamoed Pesach
+*/
+        date.setText("Gunes dogumu NY icin: " + String.valueOf(sunrise) + "\n Ibrani takvimi: " + jc + "\n " + hebrewDay + ".gun.");
+
         return root;
     }
 
@@ -86,27 +105,26 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 transaction.replace(R.id.nav_host_fragment, readFragment.newInstance()); // newInstance() is a static factory method.
                 transaction.commit();
                 break;
-           /* Yeni buton'un clicki icin bunlari koy
-            Intent intent = new Intent(getActivity(), ReadActivity.class);
-            Degeri koy= lastReadBook
-            intent.putExtra("kitap", String.valueOf(lastReadBook));
-            startActivity(intent);
-            Read Activity'e git oradan cek degeri ve ac .
-            */
+            case R.id.continueFromTheBook:
+                if (lastReadBook != null && lastReadBook != "") {
+                    Intent intent = new Intent(getActivity(), ReadActivity.class);
+                    intent.putExtra("kitap", String.valueOf(lastReadBook));
+                    startActivity(intent);
+                }
+                if (lastReadBook == null || lastReadBook == "") {
+                    Toast.makeText(getActivity(), "Son okuduğun kitap yok.", Toast.LENGTH_SHORT).show();
+                }
         }
     }
+
     @Override
     public void onResume() {
         super.onResume();
-
-        SharedPreferences sh
-                = this.getActivity().getSharedPreferences("MySharedPref",
-                Context.MODE_PRIVATE);
-
+        SharedPreferences sh = this.getActivity().getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
         lastReadBook = sh.getString("lastReadBook", "");
-        Toast.makeText(getActivity(), lastReadBook + ".Kitaptan devam et", Toast.LENGTH_SHORT).show();
 
     }
+
     private FragmentManager getSupportFragmentManager() {
         return null;
     }

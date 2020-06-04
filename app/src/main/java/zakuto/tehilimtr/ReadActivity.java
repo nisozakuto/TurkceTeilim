@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 public class ReadActivity extends AppCompatActivity implements View.OnClickListener {
     int[] passTehilimValues = new int[]{};
-    String kitapExtra = null, tehilimExtra = null;
+    String kitapExtra = null, tehilimExtra = null, ok = null;
     Button next, back;
     Integer teilimNumber = 23;
     ArrayList<String> mylist = new ArrayList<String>();
@@ -31,7 +31,7 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_read);
+        setContentView(R.layout.activity_read_for_full_book);
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -44,7 +44,6 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
 
         back.setOnClickListener(this);
         next.setOnClickListener(this);
-
         Intent intent = getIntent();
         Bundle b = intent.getExtras();
         if (b != null) {
@@ -64,6 +63,7 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
         setListView();
+    }
         /* FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,37 +91,26 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
             //Log.i("Value", String.valueOf(readTehilimMap));
         }
         */
+
+    public void setListView() {
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mylist);
+        list.setAdapter(arrayAdapter);
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        SharedPreferences sharedPreferences
-                = getSharedPreferences("MySharedPref",
-                MODE_PRIVATE);
-        SharedPreferences.Editor myEdit
-                = sharedPreferences.edit();
-        myEdit.putString(
-                "lastReadBook", kitapExtra
-        );
+        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        SharedPreferences.Editor myEdit = sharedPreferences.edit();
+        myEdit.putString("lastReadBook", kitapExtra);
         myEdit.commit();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
-        SharedPreferences sh
-                = getSharedPreferences("MySharedPref",
-                Context.MODE_PRIVATE);
+        SharedPreferences sh = getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
         String s1 = sh.getString("name", "");
-        Toast.makeText(this, s1 + " + .Teilim açılıyor!", Toast.LENGTH_SHORT).show();
-
-    }
-
-    public void setListView() {
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mylist);
-        list.setAdapter(arrayAdapter);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -307,7 +296,6 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
                 mylist.add(TehilimClass.getTehilim("tr" + teilimNumber)); //this adds an element to the list.
                 setListView();
                 break;
-
         }
     }
 }
