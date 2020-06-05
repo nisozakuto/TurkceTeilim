@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
@@ -56,23 +58,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
-
-
-
-        /*SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-        StringBuilder builder = new StringBuilder();
-        builder.append("\n" + "Perform Sync:\t" + sharedPrefs.getBoolean("perform_sync", false));
-        builder.append("\n" + "Sync Intervals:\t" + sharedPrefs.getString("sync_interval", "-1"));
-        builder.append("\n" + "Name:\t" + sharedPrefs.getString("full_name", "Not known to us"));
-        builder.append("\n" + "Email Address:\t" + sharedPrefs.getString("email_address", "No EMail Address Provided"));
-        builder.append("\n" + "Customized Notification Ringtone:\t" + sharedPrefs.getString("notification_ringtone", ""));
-        builder.append("\n\nClick on Settings Button at bottom right corner to Modify Your Prefrences");
-        You have to add the textview
-        TextView settingsTextView = (TextView) findViewById(R.id.preference_text);
-        settingsTextView.setText(builder.toString());*/
-
         //Test with Pixel
-       /* List<String> testDeviceIds = Arrays.asList("F2F51C5D2BA7B325DC8FAA267BF930DE");
+        /* List<String> testDeviceIds = Arrays.asList("F2F51C5D2BA7B325DC8FAA267BF930DE");
         RequestConfiguration configuration =
                 new RequestConfiguration.Builder().setTestDeviceIds(testDeviceIds).build();
         MobileAds.setRequestConfiguration(configuration);*/
@@ -87,18 +74,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-
     }
-       /*
-        //Bottom Navigation code
+        /*//Bottom Navigation code
         BottomNavigationView bottomNavigation = findViewById(R.id.nav_view);
         bottomNavigation.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
-        openFragment(HomeFragment.newInstance("", ""));
-        */
-       /* tumKitap = findViewById(R.id.tumKitapButton);
+        openFragment(HomeFragment.newInstance("", ""));*/
+       /*tumKitap = findViewById(R.id.tumKitapButton);
         tumKitap.setOnClickListener(this);
     }
-    /* public void openFragment(Fragment fragment) {
+    /*public void openFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.container, fragment);
         transaction.addToBackStack(null);
@@ -140,16 +124,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 */
 
-
-
-/*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.top_menu_english, menu);
+        inflater.inflate(R.menu.top_menu_main_activity, menu);
         return true;
     }
-*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

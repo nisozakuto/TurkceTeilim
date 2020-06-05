@@ -1,12 +1,21 @@
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android" >
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_refresh"
+        android:id="@+id/latin"
+        android:orderInCategory="100"
+        android:title="A"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/hebrew"
         android:orderInCategory="100"
         android:title="א"
         app:showAsAction="always" />
     <item
+        android:id="@+id/latinAndHebrew"
+        android:orderInCategory="100"
+        android:title="A/א"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/action_settings"
-        android:title="Settings">
-    </item>
+        android:title="Settings"></item>
 </menu>

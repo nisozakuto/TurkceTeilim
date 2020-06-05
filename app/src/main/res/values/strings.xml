@@ -55,11 +55,12 @@
         <item>"29.Kitap 140-144"</item>
         <item>"30.Kitap 145-150"</item>
     </string-array>
-    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_settings">Ayarlar</string>
 
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
     <string name="sync_header">Sync</string>
+    <string name="font">Font Ayarları</string>
 
     <!-- Messages Preferences -->
     <string name="signature_title">Your signature</string>
@@ -75,6 +76,11 @@
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
     <string name="title_activity_tabtest">tabtest</string>
+
+    <!-- Font Preferences -->
+    <string name="font_size">Font Boyutu</string>
+    <string name="font_title">Font Boyutu</string>
+    <string name="font_summary">Font Boyutunu ayarla</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

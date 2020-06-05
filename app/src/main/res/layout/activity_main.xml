@@ -35,6 +35,7 @@
     <!--Mine        app:adUnitId="ca-app-pub-9743036193075566/1167532548"-->
     <!--Test        app:adUnitId="ca-app-pub-3940256099942544/6300978111"-->
 
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
         android:layout_width="0dp"
@@ -47,6 +48,5 @@
         app:menu="@menu/bottom_nav_menu">
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

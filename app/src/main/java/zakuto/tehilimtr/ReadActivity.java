@@ -4,28 +4,30 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
 public class ReadActivity extends AppCompatActivity implements View.OnClickListener {
     int[] passTehilimValues = new int[]{};
-    String kitapExtra = null, tehilimExtra = null, ok = null;
+    String kitapExtra = null, tehilimExtra = null, layout = "latin";
     Button next, back;
-    Integer teilimNumber = 23;
+    Integer teilimNumber = 23, changeScript = 1;
     ArrayList<String> mylist = new ArrayList<String>();
     ListView list;
     ArrayList<String> myTehilimList = new ArrayList<String>();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +51,27 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
             tehilimExtra = (String) b.get("tehilim");
             kitapExtra = (String) b.get("kitap");
         }
+        if (kitapExtra != null) {
 
+            ViewGroup nextlayout = (ViewGroup) next.getParent();
+            nextlayout.removeView(next);
+            ViewGroup backlayout = (ViewGroup) back.getParent();
+            backlayout.removeView(back);
+            list.getLayoutParams().height = ViewGroup.LayoutParams.MATCH_PARENT;
+        }
+        chooseLayout();
+    }
+
+    public void chooseLayout() {
+        if (layout == "latin") {
+            latinTehilim();
+        }
+        if (layout == "hebrew") {
+            hebrewTehilim();
+        }
+    }
+
+    public void latinTehilim() {
         if (tehilimExtra != null) {
             mylist.clear();
             teilimNumber = Integer.parseInt(tehilimExtra);
@@ -62,6 +84,27 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
         setListView();
+    }
+
+    public void hebrewTehilim() {
+        if (tehilimExtra != null) {
+            mylist.clear();
+            teilimNumber = Integer.parseInt(tehilimExtra);
+            mylist.add(TehilimClass.getTehilim("H_perek" + teilimNumber)); //this adds an element to the list.
+        } else if (kitapExtra != null) {
+            monthlyOrder(Integer.parseInt(kitapExtra));
+            mylist.clear();
+            for (int i = passTehilimValues[0]; i < passTehilimValues[0] + passTehilimValues.length; i++) {
+                mylist.add(TehilimClass.getTehilim("H_perek" + i)); //this adds an element to the list.
+            }
+        }
+        setListView();
+    }
+
+    public void setListView() {
+        list.setAdapter(null);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mylist);
+        list.setAdapter(arrayAdapter);
     }
         /* FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -77,7 +120,6 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
     //List<Integer> tehilimList = (ArrayList<Integer>)getIntent().getSerializableExtra("TehilimList");
     //ArrayList<Integer> test = getIntent().putIntegerArrayListExtra("TehilimList");
     // Extract the array from the Bundle object
-
         /*
         int[] tehilimNumbers = {23};
         //int[] myArr = extras.getIntArray("tehilimList");
@@ -91,9 +133,9 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
         }
         */
 
-    public void setListView() {
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mylist);
-        list.setAdapter(arrayAdapter);
+    @Override
+    protected void onStart() {
+        super.onStart();
     }
 
     @Override
@@ -110,12 +152,10 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
         super.onResume();
         SharedPreferences sh = getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
         String s1 = sh.getString("name", "");
-    }
 
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.top_menu_english, menu);
-        return true;
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this /* Activity context */);
+        String name = sharedPreferences.getString("fontKey", "");
+        Toast.makeText(this, "Font Size: " + name, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -126,27 +166,60 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
         return super.onSupportNavigateUp();
     }
 
-    /*   @Override
-       public boolean onOptionsItemSelected(MenuItem item) {
-           switch (item.getItemId()) {
-               // action with ID action_refresh was selected
-         *//*      case R.id.action_refresh:
-                Toast.makeText(this, "Refresh selected", Toast.LENGTH_SHORT)
-                        .show();
-                break;*//*
-            // action with ID action_settings was selected
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.top_menu_english, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        if (changeScript == 1) {
+            menu.findItem(R.id.latin).setVisible(false);
+            menu.findItem(R.id.latinAndHebrew).setVisible(false);
+            layout = "latin";
+            chooseLayout();
+        }
+        if (changeScript == 2) {
+            menu.findItem(R.id.latin).setVisible(false);
+            menu.findItem(R.id.hebrew).setVisible(false);
+            layout = "hebrew";
+            chooseLayout();
+        }
+        if (changeScript == 3) {
+            menu.findItem(R.id.latinAndHebrew).setVisible(false);
+            menu.findItem(R.id.hebrew).setVisible(false);
+            layout = "latinAndHebrew";
+        }
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.latin:
+                changeScript = 1;
+                invalidateOptionsMenu();
+                break;
+            case R.id.hebrew:
+                changeScript = 2;
+                invalidateOptionsMenu();
+                break;
+            case R.id.latinAndHebrew:
+                changeScript = 3;
+                invalidateOptionsMenu();
+                break;
             case R.id.action_settings:
                 Intent settingIntent = new Intent(this, SettingsActivity.class);
                 startActivity(settingIntent);
-                Toast.makeText(this, "Settings selected", Toast.LENGTH_SHORT)
-                        .show();
+                Toast.makeText(this, "Settings selected", Toast.LENGTH_SHORT).show();
                 break;
             default:
                 break;
         }
         return true;
     }
-*/
+
     public int[] monthlyOrder(int position) {
         passTehilimValues = new int[]{};
         if (position == 1) {
