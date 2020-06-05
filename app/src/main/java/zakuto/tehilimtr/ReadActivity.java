@@ -26,6 +26,7 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
     Integer teilimNumber = 23;
     ArrayList<String> mylist = new ArrayList<String>();
     ListView list;
+    ArrayList<String> myTehilimList = new ArrayList<String>();
 
 
     @Override
@@ -73,11 +74,11 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
         */
-        //Intent gelenIntent = getIntent();
-        //tehilimlerString = gelenIntent.getStringExtra("Tehilim");
-        //List<Integer> tehilimList = (ArrayList<Integer>)getIntent().getSerializableExtra("TehilimList");
-        //ArrayList<Integer> test = getIntent().putIntegerArrayListExtra("TehilimList");
-        // Extract the array from the Bundle object
+    //Intent gelenIntent = getIntent();
+    //tehilimlerString = gelenIntent.getStringExtra("Tehilim");
+    //List<Integer> tehilimList = (ArrayList<Integer>)getIntent().getSerializableExtra("TehilimList");
+    //ArrayList<Integer> test = getIntent().putIntegerArrayListExtra("TehilimList");
+    // Extract the array from the Bundle object
 
         /*
         int[] tehilimNumbers = {23};
@@ -127,14 +128,14 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
         return super.onSupportNavigateUp();
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            // action with ID action_refresh was selected
-      /*      case R.id.action_refresh:
+    /*   @Override
+       public boolean onOptionsItemSelected(MenuItem item) {
+           switch (item.getItemId()) {
+               // action with ID action_refresh was selected
+         *//*      case R.id.action_refresh:
                 Toast.makeText(this, "Refresh selected", Toast.LENGTH_SHORT)
                         .show();
-                break;*/
+                break;*//*
             // action with ID action_settings was selected
             case R.id.action_settings:
                 Intent settingIntent = new Intent(this, SettingsActivity.class);
@@ -147,7 +148,7 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
         }
         return true;
     }
-
+*/
     public int[] monthlyOrder(int position) {
         passTehilimValues = new int[]{};
         if (position == 1) {

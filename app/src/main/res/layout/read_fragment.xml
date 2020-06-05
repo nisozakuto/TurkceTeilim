@@ -26,11 +26,12 @@
 
     <Button
         android:id="@+id/randomButton"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/random"
         android:padding="8dp"
+        android:textColor="@android:color/white"
         android:background="@drawable/custom_button"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
