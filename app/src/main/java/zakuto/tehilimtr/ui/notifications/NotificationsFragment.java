@@ -66,15 +66,9 @@ public class NotificationsFragment extends Fragment implements View.OnClickListe
     @Override
     public void onPause() {
         super.onPause();
-
-        SharedPreferences sharedPreferences
-                = this.getActivity().getSharedPreferences("MySharedPref",
-                MODE_PRIVATE);
-        SharedPreferences.Editor myEdit
-                = sharedPreferences.edit();
-        myEdit.putString(
-                "name",
-                "24");
+        SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        SharedPreferences.Editor myEdit = sharedPreferences.edit();
+        myEdit.putString("name", "24");
         myEdit.commit();
     }
 
@@ -112,7 +106,6 @@ public class NotificationsFragment extends Fragment implements View.OnClickListe
 
             public void onLoadResource(WebView view, String url) {
                 if (progressDialog == null) {
-                    // in standard case YourActivity.this
                     progressDialog = new ProgressDialog(getActivity());
                     progressDialog.setMessage("Sayfa Yükleniyor...");
                     progressDialog.show();
@@ -164,9 +157,7 @@ public class NotificationsFragment extends Fragment implements View.OnClickListe
     }
 }
 
-/*
-
-    public View onCreateView(@NonNull LayoutInflater inflater,
+/*    public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         notificationsViewModel =
                 ViewModelProviders.of(this).get(NotificationsViewModel.class);
