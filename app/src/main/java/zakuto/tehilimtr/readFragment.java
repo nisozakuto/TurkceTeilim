@@ -43,7 +43,7 @@ public class readFragment extends Fragment implements View.OnClickListener {
         randomButton = root.findViewById(R.id.randomButton);
         randomButton.setOnClickListener(this);
         return root;
-        //Make the button round edged
+        //Make the button round edged = This is done.
     }
 
     public void Randomtehilimtr() {
