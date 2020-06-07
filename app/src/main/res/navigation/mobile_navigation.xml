@@ -3,7 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    android:name="androidx.navigation.fragment.NavHostFragment"
+    app:startDestination="@id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="zakuto.tehilimtr.ui.Browse.BrowseFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_navigation_dashboard_to_readFragment"
+            app:destination="@id/readFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_home"
@@ -12,14 +23,13 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="zakuto.tehilimtr.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
-
-    <fragment
         android:id="@+id/navigation_notifications"
         android:name="zakuto.tehilimtr.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/readFragment"
+        android:name="zakuto.tehilimtr.readFragment"
+        android:label="read_fragment"
+        tools:layout="@layout/read_fragment" />
 </navigation>

@@ -1,0 +1,20 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <SwitchPreferenceCompat
+        app:key="font"
+        app:title="@string/font_size" />
+
+    <SwitchPreferenceCompat
+        app:dependency="sync"
+        app:key="attachment"
+        app:summaryOff="@string/attachment_summary_off"
+        app:summaryOn="@string/attachment_summary_on"
+        app:title="@string/attachment_title" />
+
+   <!-- <SeekBarPreference
+        android:defaultValue="0"
+        android:key="fontKey"
+        android:max="8"
+        android:summary="@string/font_summary"
+        android:title="@string/font_title" />-->
+</PreferenceScreen>

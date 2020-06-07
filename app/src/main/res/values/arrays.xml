@@ -1,0 +1,25 @@
+<resources>
+    <!-- Reply Preference -->
+    <string-array name="reply_entries">
+        <item>Reply</item>
+        <item>Reply to all</item>
+    </string-array>
+    <string-array name="reply_values">
+        <item>reply</item>
+        <item>reply_all</item>
+    </string-array>
+    //Preferences Start
+    <string-array name="updateInterval">
+        <item name="1000">Every 1 second</item>
+        <item name="5000">Every 5 seconds</item>
+        <item name="30000">Every 30 seconds</item>
+        <item name="60000">Every 1 minute</item>
+    </string-array>
+    <string-array name="updateIntervalValues">
+        <item name="1000">1000</item>
+        <item name="5000">5000</item>
+        <item name="30000">30000</item>
+        <item name="60000">60000</item>
+    </string-array>
+    //Preferences End
+</resources>

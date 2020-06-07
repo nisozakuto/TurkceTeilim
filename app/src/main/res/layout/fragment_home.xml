@@ -6,79 +6,47 @@
     android:layout_height="match_parent"
     tools:context="zakuto.tehilimtr.ui.home.HomeFragment">
 
-<!--
-    <LinearLayout
-        android:id="@+id/LinearVertical"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:weightSum="2"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:id="@+id/firstButtonRow"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="4"
-            app:layout_constraintTop_toBottomOf="@id/nav_host_fragment">
-
-            <Button
-                android:id="@+id/infoButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="info button"
-                android:textAllCaps="false" />
-
-            <Button
-                android:id="@+id/tumKitapButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="tumKitapButton"
-                android:textAllCaps="false" />
-
-            <Button
-                android:id="@+id/randomtehilimtrButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Randomtehilimtr"
-                android:textAllCaps="false" />
-
-            <Button
-                android:id="@+id/textTest"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="TextTest"
-                android:textAllCaps="false" />
-        </LinearLayout>
-    </LinearLayout>
--->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="10dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="537dp"
+        android:text="Date"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/FullBook"
+        app:layout_constraintVertical_bias="1.0" />
 
-        <TextView
-            android:id="@+id/home_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/home_string">
+    <Button
+        android:id="@+id/FullBook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_weight="1"
+        android:background="@color/SkypeDarkBlue"
+        android:padding="8dp"
+        android:text="Rastgele Oku"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/continueFromTheBook" />
 
-        </TextView>
+    <Button
+        android:id="@+id/continueFromTheBook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@color/SkypeDarkBlue"
+        android:text="@string/continueFromTheBook"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/FullBook"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Tum Kitap"
-            android:textAllCaps="false" />
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

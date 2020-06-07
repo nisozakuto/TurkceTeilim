@@ -4,7 +4,6 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import zakuto.tehilimtr.R;
 
 public class OrderActivity extends AppCompatActivity {
     ListView infoList;
@@ -16,12 +15,12 @@ public class OrderActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_info);
+        setContentView(R.layout.activity_order);
 
         Bundle extras = getIntent().getExtras();
-        order = extras.getString("order");
+        //order = extras.getString("order");
 
-        infoList = (ListView) findViewById(R.id.infoList);
+       /* infoList = (ListView) findViewById(R.id.infoList);
         if(order == "monthly"){
             aAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, monthlyTehilimArray);
         }
@@ -29,6 +28,6 @@ public class OrderActivity extends AppCompatActivity {
         {
             aAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, dailyTehilimArray);
         }
-        infoList.setAdapter(aAdapter);
+        infoList.setAdapter(aAdapter);*/
     }
 }

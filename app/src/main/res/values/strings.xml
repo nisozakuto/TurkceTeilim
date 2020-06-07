@@ -1,15 +1,22 @@
 <resources>
     <string name="app_name">Türkçe Teilim</string>
     <string name="title_home">Ana Sayfa</string>
-    <string name="title_dashboard">Aylık Düzen</string>
-    <string name="title_notifications">Profil</string>
+    <string name="title_dashboard">Teilimler</string>
+    <string name="title_notifications">Bilgiler</string>
     <string name="title_activity_tum_kitap">tumKitap</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="home_string">Home</string>
+    <string name="city">Şehir</string>
+    <string name="date">Tarih</string>
+    <string name="random">Rastgele Oku</string>
+    <string name="next">İleri</string>
+    <string name="back">Geri</string>
+    <string name="continueFromTheBook">Kaldığın kitap\'tan devam et</string>
+
+    <string name="addButton">Listeme ekle</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
@@ -48,4 +55,35 @@
         <item>"29.Kitap 140-144"</item>
         <item>"30.Kitap 145-150"</item>
     </string-array>
+    <string name="title_activity_settings">Ayarlar</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+    <string name="font">Font Ayarları</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="title_activity_texts">textsActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="title_activity_tabtest">tabtest</string>
+
+    <!-- Font Preferences -->
+    <string name="font_size">Font Boyutu</string>
+    <string name="font_title">Font Boyutu</string>
+    <string name="font_summary">Font Boyutunu ayarla</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="title_activity_read">ReadActivity</string>
 </resources>
