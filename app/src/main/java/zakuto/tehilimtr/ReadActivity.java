@@ -221,7 +221,7 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.share:
                 Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
                 sharingIntent.setType("text/plain");
-                String shareBody = TehilimClass.getTehilim("tr" + tehilimExtra);
+                String shareBody = TehilimClass.getTehilim("tr" + teilimNumber);
                 String shareSub = "Your subject here";
                 sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, shareSub);
                 sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
