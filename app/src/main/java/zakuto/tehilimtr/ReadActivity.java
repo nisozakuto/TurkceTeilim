@@ -28,11 +28,15 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
     ArrayList<String> mylist = new ArrayList<String>();
     ListView list;
     ArrayList<String> myTehilimList = new ArrayList<String>();
+    String showTehilim;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read_for_full_book);
+
+
+        String showTehilim = "tr" + tehilimExtra;
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -214,6 +218,14 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(settingIntent);
                 Toast.makeText(this, "Settings selected", Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.share:
+                Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                String shareBody = TehilimClass.getTehilim("tr" + tehilimExtra);
+                String shareSub = "Your subject here";
+                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, shareSub);
+                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+                startActivity(Intent.createChooser(sharingIntent, "WhatsApp üzerinden Teilim gönderebilirsiniz!"));
             default:
                 break;
         }
