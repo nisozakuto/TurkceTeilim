@@ -92,8 +92,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         hdf.setHebrewFormat(false); // change formatting to default
         System.out.println(hdf.format(jd)); // prints Hebrew date in English chars - 18 Nissan, 5772
         System.out.println(hdf.formatYomTov(jd)); //output Chol Hamoed Pesach
-*/
-        date.setText("Gunes dogumu NY icin: " + sunrise + "\n Ibrani takvimi: " + jc + "\n " + hebrewDay + ".gun.");
+        */
+        date.setText("İbrani takvimi: " + jc);
         return root;
     }
 

@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -37,7 +38,8 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
+            //actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setDisplayHomeAsUpEnabled(false);
         }
 
         list = findViewById(R.id.listView);
@@ -55,11 +57,9 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
             kitapExtra = (String) b.get("kitap");
             bookOfDay = (String) b.get("bookOfDay");
         }
-        if(bookOfDay!=null)
-        {
+        if (bookOfDay != null) {
             kitapExtra = bookOfDay;
         }
-
 
         if (kitapExtra != null) {
             Log.i("kitapExtra", kitapExtra);
@@ -68,7 +68,9 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
             ViewGroup backlayout = (ViewGroup) back.getParent();
             backlayout.removeView(back);
             list.getLayoutParams().height = ViewGroup.LayoutParams.MATCH_PARENT;
+
         }
+
         if (layout != null) {
             chooseLayout();
         }
@@ -91,13 +93,22 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
             teilimNumber = Integer.parseInt(tehilimExtra);
             mylist.add(TehilimClass.getTehilim("tr" + teilimNumber)); //this adds an element to the list.
             Log.i("teilimNumber", String.valueOf(teilimNumber));
-
         } else if (kitapExtra != null) {
             monthlyOrder(Integer.parseInt(kitapExtra));
             mylist.clear();
-            for (int i = passTehilimValues[0]; i < passTehilimValues[0] + passTehilimValues.length; i++) {
-                mylist.add(TehilimClass.getTehilim("tr" + i)); //this adds an element to the list.
+            if (kitapExtra == "23") {
+                mylist.add(TehilimClass.getTehilim("tr116")); //this adds an element to the list.
+                mylist.add(TehilimClass.getTehilim("tr117")); //this adds an element to the list.
+                mylist.add(TehilimClass.getTehilim("tr118")); //this adds an element to the list.
+                mylist.add(TehilimClass.getTehilim("tr1191")); //this adds an element to the list.
+            } else if (kitapExtra == "24") {
+                mylist.add(TehilimClass.getTehilim("tr1192")); //this adds an element to the list.
+            } else {
+                for (int i = passTehilimValues[0]; i < passTehilimValues[0] + passTehilimValues.length; i++) {
+                    mylist.add(TehilimClass.getTehilim("tr" + i)); //this adds an element to the list.
+                }
             }
+
         }
         setListView();
     }
@@ -110,9 +121,22 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
         } else if (kitapExtra != null) {
             monthlyOrder(Integer.parseInt(kitapExtra));
             mylist.clear();
-            for (int i = passTehilimValues[0]; i < passTehilimValues[0] + passTehilimValues.length; i++) {
-                mylist.add(TehilimClass.getTehilim("H_perek" + i)); //this adds an element to the list.
+            if (kitapExtra == "23") {
+                mylist.add(TehilimClass.getTehilim("H_perek116")); //this adds an element to the list.
+                mylist.add(TehilimClass.getTehilim("H_perek117")); //this adds an element to the list.
+                mylist.add(TehilimClass.getTehilim("H_perek118")); //this adds an element to the list.
+                mylist.add(TehilimClass.getTehilim("H_perek1191")); //this adds an element to the list.
+            } else if (kitapExtra == "24") {
+
+                mylist.add(TehilimClass.getTehilim("H_perek1192")); //this adds an element to the list.
+
+            } else {
+                for (int i = passTehilimValues[0]; i < passTehilimValues[0] + passTehilimValues.length; i++) {
+                    mylist.add(TehilimClass.getTehilim("H_perek" + i)); //this adds an element to the list.
+                }
             }
+
+
         }
         if (dailyTehilim != null) {
             monthlyOrder(Integer.parseInt(dailyTehilim));
@@ -195,7 +219,7 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
         return true;
     }
 
-/* @Override
+    @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         if (changeScript == 1) {
             menu.findItem(R.id.latin).setVisible(false);
@@ -215,27 +239,29 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
             layout = "latinAndHebrew";
         }
         return super.onPrepareOptionsMenu(menu);
-    }*/
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.latin:
                 changeScript = 1;
-                // invalidateOptionsMenu();
+                invalidateOptionsMenu();
                 break;
             case R.id.hebrew:
                 changeScript = 2;
-                // invalidateOptionsMenu();
+                invalidateOptionsMenu();
                 break;
             case R.id.latinAndHebrew:
                 changeScript = 3;
-                //  invalidateOptionsMenu();
+                Toast.makeText(this, "Bu özellik yapım aşamasında..", Toast.LENGTH_SHORT).show();
+                invalidateOptionsMenu();
                 break;
             case R.id.action_settings:
-                Intent settingIntent = new Intent(this, SettingsActivity.class);
+                /*Intent settingIntent = new Intent(this, SettingsActivity.class);
                 startActivity(settingIntent);
-                Toast.makeText(this, "Settings selected", Toast.LENGTH_SHORT).show();
+                */
+                Toast.makeText(this, "Ayarlar yakında..", Toast.LENGTH_SHORT).show();
                 break;
             default:
                 break;
@@ -246,125 +272,118 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
     public int[] monthlyOrder(int position) {
         passTehilimValues = new int[]{};
         if (position == 1) {
-            passTehilimValues = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
+            passTehilimValues = new int[]{1, 2, 3, 4, 5, 6, 7, 8};
             return passTehilimValues;
         }
         if (position == 2) {
-            passTehilimValues = new int[]{10, 11, 12, 14, 15, 16, 17};
+            passTehilimValues = new int[]{9, 10, 11, 12, 14, 15};
             return passTehilimValues;
         }
         if (position == 3) {
-            passTehilimValues = new int[]{18, 19, 20, 21, 22};
+            passTehilimValues = new int[]{16, 17, 18, 19};
             return passTehilimValues;
         }
         if (position == 4) {
-            passTehilimValues = new int[]{23, 24, 25, 26, 27, 28};
+            passTehilimValues = new int[]{20, 21, 22, 23, 24, 25};
             return passTehilimValues;
         }
         if (position == 5) {
-            passTehilimValues = new int[]{29, 30, 31, 32, 33, 34};
+            passTehilimValues = new int[]{26, 27, 28, 29, 30, 31};
             return passTehilimValues;
         }
         if (position == 6) {
-            passTehilimValues = new int[]{35, 36, 37, 38};
+            passTehilimValues = new int[]{32, 33, 34, 35};
             return passTehilimValues;
         }
         if (position == 7) {
-            passTehilimValues = new int[]{39, 40, 41, 42, 43};
+            passTehilimValues = new int[]{36, 37, 38, 39};
             return passTehilimValues;
         }
         if (position == 8) {
-            passTehilimValues = new int[]{44, 45, 46, 47, 48};
+            passTehilimValues = new int[]{40, 41, 42, 43, 44};
             return passTehilimValues;
         }
         if (position == 9) {
-            passTehilimValues = new int[]{49, 50, 51, 52, 53, 54};
+            passTehilimValues = new int[]{45, 46, 47, 48, 49};
             return passTehilimValues;
         }
         if (position == 10) {
-            passTehilimValues = new int[]{55, 56, 57, 58, 59};
+            passTehilimValues = new int[]{50, 51, 52, 53, 54, 55};
             return passTehilimValues;
         }
         if (position == 11) {
-            passTehilimValues = new int[]{60, 61, 62, 63, 64, 65};
+            passTehilimValues = new int[]{56, 57, 58, 59, 60, 61};
             return passTehilimValues;
         }
         if (position == 12) {
-            passTehilimValues = new int[]{66, 67, 68};
+            passTehilimValues = new int[]{62, 63, 64, 65, 66, 67};
             return passTehilimValues;
         }
         if (position == 13) {
-            passTehilimValues = new int[]{69, 70, 71};
+            passTehilimValues = new int[]{68, 69, 70};
             return passTehilimValues;
         }
         if (position == 14) {
-            passTehilimValues = new int[]{72, 73, 74, 75, 76};
+            passTehilimValues = new int[]{71, 72, 73, 74, 75};
             return passTehilimValues;
         }
         if (position == 15) {
-            passTehilimValues = new int[]{77, 78};
+            passTehilimValues = new int[]{76, 77, 78};
             return passTehilimValues;
         }
         if (position == 16) {
-            passTehilimValues = new int[]{79, 80, 81, 82};
+            passTehilimValues = new int[]{79, 80, 81, 82, 83, 84};
             return passTehilimValues;
         }
         if (position == 17) {
-            passTehilimValues = new int[]{83, 84, 85, 86, 87};
+            passTehilimValues = new int[]{85, 86, 87, 88, 89};
             return passTehilimValues;
         }
         if (position == 18) {
-            passTehilimValues = new int[]{88, 89};
+            passTehilimValues = new int[]{90, 91, 92, 93, 94, 95};
             return passTehilimValues;
         }
         if (position == 19) {
-            passTehilimValues = new int[]{90, 91, 92, 93, 94, 95, 96};
+            passTehilimValues = new int[]{96, 97, 98, 99, 100, 101, 102};
             return passTehilimValues;
         }
         if (position == 20) {
-            passTehilimValues = new int[]{97, 98, 99, 100, 101, 102, 103};
+            passTehilimValues = new int[]{103, 104, 105};
             return passTehilimValues;
         }
         if (position == 21) {
-            passTehilimValues = new int[]{104, 105};
+            passTehilimValues = new int[]{106, 107, 108};
             return passTehilimValues;
         }
         if (position == 22) {
-            passTehilimValues = new int[]{106, 107};
+            passTehilimValues = new int[]{109, 110, 111, 112, 113, 114, 115};
             return passTehilimValues;
         }
         if (position == 23) {
-            passTehilimValues = new int[]{108, 109, 110, 111, 112};
+            passTehilimValues = new int[]{116, 117, 118, 1191};
             return passTehilimValues;
         }
         if (position == 24) {
-            passTehilimValues = new int[]{113, 114, 115, 116, 117, 118};
+            passTehilimValues = new int[]{1192};
             return passTehilimValues;
         }
         if (position == 25) {
-            passTehilimValues = new int[]{119};
+            passTehilimValues = new int[]{120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131};
             return passTehilimValues;
         }
         if (position == 26) {
-            passTehilimValues = new int[]{119};
+            passTehilimValues = new int[]{132, 133, 134, 135, 136, 137, 138};
             return passTehilimValues;
         }
         if (position == 27) {
-            passTehilimValues = new int[]{120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134};
+            passTehilimValues = new int[]{139, 140, 141, 142, 143, 144};
             return passTehilimValues;
         }
         if (position == 28) {
-            passTehilimValues = new int[]{135, 136, 137, 138, 139};
-            return passTehilimValues;
-        }
-        if (position == 29) {
-            passTehilimValues = new int[]{140, 141, 142, 143, 144};
-            return passTehilimValues;
-        }
-        if (position == 30) {
             passTehilimValues = new int[]{145, 146, 147, 148, 149, 150};
             return passTehilimValues;
         }
+
         return passTehilimValues;
     }
 

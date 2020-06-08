@@ -75,11 +75,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
     }
+    public void setActionBarTitle(String title) {
+        getSupportActionBar().setTitle(title);
+    }
         /*//Bottom Navigation code
         BottomNavigationView bottomNavigation = findViewById(R.id.nav_view);
         bottomNavigation.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
         openFragment(HomeFragment.newInstance("", ""));*/
-       /*tumKitap = findViewById(R.id.tumKitapButton);
+        /*tumKitap = findViewById(R.id.tumKitapButton);
         tumKitap.setOnClickListener(this);
     }
     /*public void openFragment(Fragment fragment) {
@@ -107,8 +110,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             };
             */
-
- /*   @Override
+        /*   @Override
     protected void onPause() {
         super.onPause();
 
