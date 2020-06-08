@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -22,12 +23,12 @@ import java.util.ArrayList;
 
 public class ReadActivity extends AppCompatActivity implements View.OnClickListener {
     int[] passTehilimValues = new int[]{};
-    String kitapExtra = null, tehilimExtra = null, layout = "latin";
-    Button next, back;
+    String kitapExtra = null, tehilimExtra = null, layout = "latin", dailyTehilim = null, bookOfDay = "null";
     Integer teilimNumber = 23, changeScript = 1;
     ArrayList<String> mylist = new ArrayList<String>();
     ListView list;
     ArrayList<String> myTehilimList = new ArrayList<String>();
+    public TehilimClass TehilimClass = new TehilimClass();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,29 +46,42 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
 
         back.setOnClickListener(this);
         next.setOnClickListener(this);
+
         Intent intent = getIntent();
         Bundle b = intent.getExtras();
+
         if (b != null) {
             tehilimExtra = (String) b.get("tehilim");
             kitapExtra = (String) b.get("kitap");
+            bookOfDay = (String) b.get("bookOfDay");
         }
-        if (kitapExtra != null) {
+        if(bookOfDay!=null)
+        {
+            kitapExtra = bookOfDay;
+        }
 
+
+        if (kitapExtra != null) {
+            Log.i("kitapExtra", kitapExtra);
             ViewGroup nextlayout = (ViewGroup) next.getParent();
             nextlayout.removeView(next);
             ViewGroup backlayout = (ViewGroup) back.getParent();
             backlayout.removeView(back);
             list.getLayoutParams().height = ViewGroup.LayoutParams.MATCH_PARENT;
         }
-        chooseLayout();
+        if (layout != null) {
+            chooseLayout();
+        }
     }
 
     public void chooseLayout() {
-        if (layout == "latin") {
+        if (layout.equals("latin")) {
             latinTehilim();
+            Log.i("Test", "Latin");
         }
-        if (layout == "hebrew") {
+        if (layout.equals("hebrew")) {
             hebrewTehilim();
+            Log.i("Test", "Hebrew");
         }
     }
 
@@ -76,6 +90,8 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
             mylist.clear();
             teilimNumber = Integer.parseInt(tehilimExtra);
             mylist.add(TehilimClass.getTehilim("tr" + teilimNumber)); //this adds an element to the list.
+            Log.i("teilimNumber", String.valueOf(teilimNumber));
+
         } else if (kitapExtra != null) {
             monthlyOrder(Integer.parseInt(kitapExtra));
             mylist.clear();
@@ -96,6 +112,13 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
             mylist.clear();
             for (int i = passTehilimValues[0]; i < passTehilimValues[0] + passTehilimValues.length; i++) {
                 mylist.add(TehilimClass.getTehilim("H_perek" + i)); //this adds an element to the list.
+            }
+        }
+        if (dailyTehilim != null) {
+            monthlyOrder(Integer.parseInt(dailyTehilim));
+            mylist.clear();
+            for (int i = passTehilimValues[0]; i < passTehilimValues[0] + passTehilimValues.length; i++) {
+                mylist.add(TehilimClass.getTehilim("tr" + i)); //this adds an element to the list.
             }
         }
         setListView();
@@ -144,7 +167,7 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
         SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
         SharedPreferences.Editor myEdit = sharedPreferences.edit();
         myEdit.putString("lastReadBook", kitapExtra);
-        myEdit.commit();
+        myEdit.apply();
     }
 
     @Override
@@ -153,9 +176,9 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
         SharedPreferences sh = getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
         String s1 = sh.getString("name", "");
 
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this /* Activity context */);
+        /*        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this *//* Activity context *//*);
         String name = sharedPreferences.getString("fontKey", "");
-        Toast.makeText(this, "Font Size: " + name, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Font Size: " + name, Toast.LENGTH_SHORT).show();*/
     }
 
     @Override
@@ -172,7 +195,7 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
         return true;
     }
 
-    @Override
+/* @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         if (changeScript == 1) {
             menu.findItem(R.id.latin).setVisible(false);
@@ -192,22 +215,22 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
             layout = "latinAndHebrew";
         }
         return super.onPrepareOptionsMenu(menu);
-    }
+    }*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.latin:
                 changeScript = 1;
-                invalidateOptionsMenu();
+                // invalidateOptionsMenu();
                 break;
             case R.id.hebrew:
                 changeScript = 2;
-                invalidateOptionsMenu();
+                // invalidateOptionsMenu();
                 break;
             case R.id.latinAndHebrew:
                 changeScript = 3;
-                invalidateOptionsMenu();
+                //  invalidateOptionsMenu();
                 break;
             case R.id.action_settings:
                 Intent settingIntent = new Intent(this, SettingsActivity.class);
@@ -338,11 +361,11 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
             passTehilimValues = new int[]{140, 141, 142, 143, 144};
             return passTehilimValues;
         }
-        if (position == 30) ;
-        {
+        if (position == 30) {
             passTehilimValues = new int[]{145, 146, 147, 148, 149, 150};
             return passTehilimValues;
         }
+        return passTehilimValues;
     }
 
     @Override

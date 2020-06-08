@@ -51,10 +51,10 @@ import com.google.android.gms.ads.initialization.OnInitializationCompleteListene
 public class HomeFragment extends Fragment implements View.OnClickListener {
 
     private HomeViewModel homeViewModel;
-    Button FullBook, continueFromTheBook;
+    Button FullBook, continueFromTheBook, button4;
     TextView date;
     String lastReadBook = null;
-
+    int hebrewDay;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -63,9 +63,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         FullBook = root.findViewById(R.id.FullBook);
         continueFromTheBook = root.findViewById(R.id.continueFromTheBook);
-        continueFromTheBook.setOnClickListener(this);
         date = root.findViewById(R.id.date);
         FullBook.setOnClickListener(this);
+        continueFromTheBook.setOnClickListener(this);
+        button4 = root.findViewById(R.id.button4);
+        button4.setOnClickListener(this);
         String locationName = "New York, NY";
         double latitude = 40.6782; //Lakewood, NJ
         double longitude = -73.9442; //Lakewood, NJ
@@ -77,7 +79,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         JewishCalendar jc = new JewishCalendar();
 
         Date sunrise = czc.getSunrise();
-        int hebrewDay = jc.getJewishDayOfMonth();
+        hebrewDay = jc.getJewishDayOfMonth();
        /* HebrewDateFormatter hdf = new HebrewDateFormatter();
         System.out.println(jd); // prints hebrew date in English chars - 23 Nissan, 5773
         hdf.setHebrewFormat(true); // change formatting to Hebrew
@@ -91,8 +93,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         System.out.println(hdf.format(jd)); // prints Hebrew date in English chars - 18 Nissan, 5772
         System.out.println(hdf.formatYomTov(jd)); //output Chol Hamoed Pesach
 */
-        date.setText("Gunes dogumu NY icin: " + String.valueOf(sunrise) + "\n Ibrani takvimi: " + jc + "\n " + hebrewDay + ".gun.");
-
+        date.setText("Gunes dogumu NY icin: " + sunrise + "\n Ibrani takvimi: " + jc + "\n " + hebrewDay + ".gun.");
         return root;
     }
 
@@ -107,13 +108,21 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.continueFromTheBook:
                 if (lastReadBook != null && lastReadBook != "") {
-                    Intent intent = new Intent(getActivity(), ReadActivity.class);
-                    intent.putExtra("kitap", String.valueOf(lastReadBook));
-                    startActivity(intent);
-                }
-                if (lastReadBook == null || lastReadBook == "") {
+                    Intent intentlastReadBook = new Intent(getActivity(), ReadActivity.class);
+                    intentlastReadBook.putExtra("kitap", String.valueOf(lastReadBook));
+                    startActivity(intentlastReadBook);
+                } else if (lastReadBook.equals(null) || lastReadBook.equals("")) {
                     Toast.makeText(getActivity(), "Son okuduğun kitap yok.", Toast.LENGTH_SHORT).show();
+                } else {
+                    Log.i("continueFromTheBook", lastReadBook);
                 }
+                break;
+            case R.id.button4:
+                Intent intent = new Intent(getActivity(), ReadActivity.class);
+                intent.putExtra("bookOfDay", String.valueOf(hebrewDay));
+                startActivity(intent);
+                break;
+
         }
     }
 

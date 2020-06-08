@@ -15,6 +15,9 @@
     <string name="next">İleri</string>
     <string name="back">Geri</string>
     <string name="continueFromTheBook">Kaldığın kitap\'tan devam et</string>
+    <!-- Strings used for fragments for Home -->
+    <string name="todaysTehilims">Günün teilimleri</string>
+
 
     <string name="addButton">Listeme ekle</string>
 
@@ -23,38 +26,6 @@
     <string name="dummmyText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel feugiat quam. Donec commodo egestas congue. Mauris finibus interdum malesuada. Phasellus ac arcu a nibh lobortis congue sit amet sed lectus. Donec suscipit et nisi a gravida. Sed laoreet, erat id tincidunt elementum, ex erat rutrum quam, vitae convallis quam turpis sit amet dolor. In posuere diam dapibus venenatis consequat. Praesent dapibus ipsum eget tellus luctus hendrerit. Morbi iaculis augue et ipsum dictum, sed ultrices nulla ultrices. Fusce sit amet quam leo. Integer eget orci dapibus, feugiat libero non, vestibulum mi. Cras vitae porta justo.Nam sem felis, tristique id orci nec, tincidunt gravida quam. Ut non nunc faucibus, tincidunt velit vitae, vestibulum sapien. Cras ac tortor in quam finibus suscipit. Nam venenatis fringilla lorem sed fermentum. Etiam lobortis leo eget nisi dapibus pharetra. Aliquam eu dolor vel turpis fermentum molestie id in mauris. Duis id nulla tempus urna blandit tempor. Proin quis tempus odio, ac tincidunt justo. Nullam quis interdum erat, consequat mollis erat. Pellentesque semper ante in eros venenatis malesuada. Duis ullamcorper, quam eget eleifend feugiat, dolor mauris scelerisque ligula, sed laoreet quam enim suscipit purus. Vivamus ornare mauris non suscipit sodales.Ut dapibus aliquet odio non tempus. Sed fermentum feugiat ante. Fusce volutpat turpis sit amet urna placerat consectetur. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla consequat luctus pulvinar. Vivamus malesuada sit amet lectus sed mollis. Cras elementum non ipsum sed consequat. Etiam nec faucibus nunc. Vestibulum in vehicula tortor.Sed mattis nibh non diam maximus, eget volutpat felis dignissim. Donec vel mauris sagittis nunc iaculis porttitor nec a sapien. Etiam hendrerit massa at eleifend varius. Curabitur rhoncus nibh a felis sollicitudin sollicitudin. Sed dolor ex, dapibus vel vulputate eu, dapibus in turpis. Quisque rutrum, urna et rhoncus sollicitudin, urna ante fermentum ipsum, at suscipit sem ligula ac diam. Quisque feugiat nisi vitae ligula interdum, vel ultrices dui pharetra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc in consectetur mi, ut ornare nisi. Sed ligula nibh, viverra vitae erat et, faucibus pulvinar orci. Nam euismod, sem non imperdiet tempus, nunc magna condimentum est, ut viverra est tortor non nisi.Mauris et viverra nisl. Nunc ut porttitor velit. Vestibulum id venenatis quam. Proin imperdiet ex nec varius lobortis. Phasellus vitae elit vitae urna pretium luctus. Vivamus nec arcu elementum, porta felis non, semper metus. Vestibulum nec nibh lacus. Integer suscipit tortor volutpat, venenatis enim id, imperdiet mi.</string>
 
     <string name="title_activity_info">Info</string>
-    <string-array name="Gunluk">
-        <item>"1.Kitap 1-9"</item>
-        <item>"2.Kitap 10-17"</item>
-        <item>"3.Kitap 18-22"</item>
-        <item>"4.Kitap 23-28"</item>
-        <item>"5.Kitap 29-34"</item>
-        <item>"6.Kitap 35-38"</item>
-        <item>"7.Kitap 39-43"</item>
-        <item>"8.Kitap 44-48"</item>
-        <item>"9.Kitap 49-54"</item>
-        <item>"10.Kitap 55-59"</item>
-        <item>"11.Kitap 60-65"</item>
-        <item>"12.Kitap 66-68"</item>
-        <item>"13.Kitap 69-71"</item>
-        <item>"14.Kitap 72-76"</item>
-        <item>"15.Kitap 77-78"</item>
-        <item>"16.Kitap 79-82"</item>
-        <item>"17.Kitap 83-87"</item>
-        <item>"18.Kitap 88-89"</item>
-        <item>"19.Kitap 90-96"</item>
-        <item>"20.Kitap 97-103"</item>
-        <item>"21.Kitap 104-105"</item>
-        <item>"22.Kitap 106-107"</item>
-        <item>"23.Kitap 108-112"</item>
-        <item>"24.Kitap 113-118"</item>
-        <item>"25.Kitap 119-1-96"</item>
-        <item>"26.Kitap 119-97-176"</item>
-        <item>"27.Kitap 120-134"</item>
-        <item>"28.Kitap 135-139"</item>
-        <item>"29.Kitap 140-144"</item>
-        <item>"30.Kitap 145-150"</item>
-    </string-array>
     <string name="title_activity_settings">Ayarlar</string>
 
     <!-- Preference Titles -->

@@ -154,48 +154,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            /*case R.id.tumKitapButton:
-             *//*
-              Snackbar snackbar = Snackbar
-                        .make(coordinatorLayout, "www.journaldev.com", Snackbar.LENGTH_LONG);
-                snackbar.show();
-                *//*
-                pressed++;
-                randomtehilimtrText.setText("Tum kitaplar yakinda gelicek: " + pressed);
-                break;
 
-            case R.id.infoButton:
-                Intent infoIntent = new Intent(this, OrderActivity.class);
-                infoIntent.putExtra("order", "Monthly");
-                startActivity(infoIntent);
-                break;
-
-            case R.id.randomtehilimtrButton:
-                Randomtehilimtr();
-                break;
-
-            case R.id.textTest:
-               *//* String perek;
-                perek = TehilimClass.getTehilim("tr" + 1);
-                tehilimtrText.setText("Test)");
-                tehilimtrText.setText(perek);
-                if (s == 1) {
-                    tehilimtrText.setText(R.string.dummmyText);
-                    s = 0;
-                } else {
-                    tehilimtrText.setText("Test");
-                    s = 1;
-                }*//*
-                Intent readTehilimIntent = new Intent(this, readTehilim.class);
-                readTehilimIntent = new Intent(this, readTehilim.class);
-                tehilimNumbersArray = new int[]{35, 36, 37, 38};
-                readTehilimIntent.putExtra("tehilimNumbers", tehilimNumbersArray);
-                startActivity(readTehilimIntent);
-                AdRequest adRequest = new AdRequest.Builder().build();
-                mAdView.loadAd(adRequest);
-                Log.i("Ad request","Requested?");
-                break;*/
-        }
     }
 }

@@ -46,7 +46,7 @@ public class MonthlyFragment extends Fragment {
                 Toast.makeText(getActivity(), "Gün " + position + " açılıyor!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(), ReadActivity.class);
                 intent.putExtra("kitap", String.valueOf(position));
-                intent.putExtra("ok", "ok");
+                //intent.putExtra("ok", "ok");
                 startActivity(intent);
             }
         });
