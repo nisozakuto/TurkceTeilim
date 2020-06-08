@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -18,7 +19,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.CharArrayWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class ReadActivity extends AppCompatActivity implements View.OnClickListener {
     int[] passTehilimValues = new int[]{};
@@ -28,7 +32,7 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
     ArrayList<String> mylist = new ArrayList<String>();
     ListView list;
     ArrayList<String> myTehilimList = new ArrayList<String>();
-    String showTehilim;
+    String showTehilim, ornekString, str, shareButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -219,15 +223,42 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(this, "Settings selected", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.share:
+               /* if (kitapExtra != null) {
+                    Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                    sharingIntent.setType("text/plain");
+                    StringBuilder sb1 = new StringBuilder("Start");
+                    Arrays.toString(monthlyOrder(Integer.parseInt(kitapExtra)));
+
+                    for (int i = passTehilimValues[0]; i < passTehilimValues[0] + passTehilimValues.length; i++) {
+
+                        sb1.append(TehilimClass.getTehilim("tr" + i)); //this adds an element to the list.
+                    }
+
+                    String shareSub = "Your subject here";
+                    String shareBody = String.valueOf(sb1);
+
+                    sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, shareSub);
+                    sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+                    startActivity(Intent.createChooser(sharingIntent, "WhatsApp üzerinden Kitap gönderebilirsiniz!"));
+                } else {
+                    Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                    sharingIntent.setType("text/plain");
+                    String shareBody = TehilimClass.getTehilim("tr" + teilimNumber);
+                    String shareSub = "Your subject here";
+                    sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, shareSub);
+                    sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+                    startActivity(Intent.createChooser(sharingIntent, "WhatsApp üzerinden Teilim gönderebilirsiniz!"));
+                }*/
                 Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
                 sharingIntent.setType("text/plain");
-                String shareBody = TehilimClass.getTehilim("tr" + teilimNumber);
-                String shareSub = "Your subject here";
+                String shareSub = "Teilim paylaş";
+                String shareBody = "Arkadaşlarınla paylaş: \n \n https://play.google.com/store/apps/details?id=zakuto.tehilimtr&hl=en_US";
                 sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, shareSub);
                 sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
                 startActivity(Intent.createChooser(sharingIntent, "WhatsApp üzerinden Teilim gönderebilirsiniz!"));
-            default:
                 break;
+
+            default:
         }
         return true;
     }
@@ -239,7 +270,7 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
             return passTehilimValues;
         }
         if (position == 2) {
-            passTehilimValues = new int[]{10, 11, 12, 14, 15, 16, 17};
+            passTehilimValues = new int[]{10, 11, 12, 13, 14, 15, 16, 17};
             return passTehilimValues;
         }
         if (position == 3) {
