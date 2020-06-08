@@ -5,18 +5,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <SeekBar
+        android:id="@+id/seekBar"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginTop="32dp"
+        android:max="10"
+        android:progress="1"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/linearLayout"
         android:layout_marginBottom="54dp"
+        android:layout_marginTop="54dp"
         android:orientation="vertical">
+
         <ListView
             android:id="@+id/listView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:divider="@color/material_blue_grey_800"
-            android:dividerHeight="1dp"></ListView>
+            android:dividerHeight="1dp">
+
+        </ListView>
     </LinearLayout>
 
     <Button

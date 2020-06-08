@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -13,8 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.SeekBar;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
@@ -30,6 +29,7 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
     ListView list;
     ArrayList<String> myTehilimList = new ArrayList<String>();
     public TehilimClass TehilimClass = new TehilimClass();
+    int fontsize;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +37,12 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_read_for_full_book);
 
         ActionBar actionBar = getSupportActionBar();
+
         if (actionBar != null) {
             //actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setDisplayHomeAsUpEnabled(false);
         }
+        SeekBar fontseek = (SeekBar) findViewById(R.id.seekBar);
 
         list = findViewById(R.id.listView);
         final Button next = findViewById(R.id.next);
@@ -68,12 +70,78 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
             ViewGroup backlayout = (ViewGroup) back.getParent();
             backlayout.removeView(back);
             list.getLayoutParams().height = ViewGroup.LayoutParams.MATCH_PARENT;
-
         }
 
         if (layout != null) {
             chooseLayout();
         }
+        fontseek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            int progress;
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progressV, boolean fromUser) {
+                progress = progressV + 1;
+                switch (progress) {
+                    case 1:
+                        fontsize = 14;
+                        //fontboyutu.setText("Font boyutu:" + progress);
+                        //list.setTextSize(fontsize);
+                        Toast.makeText(getApplicationContext(), "Gün " + fontsize + " açılıyor!", Toast.LENGTH_SHORT).show();
+
+
+                        break;
+                    case 2:
+                        fontsize = 15;
+                        //fontboyutu.setText("Font boyutu:" + progress);
+                        Toast.makeText(getApplicationContext(), "Gün " + fontsize + " açılıyor!", Toast.LENGTH_SHORT).show();
+
+                        break;
+                    case 3:
+                        fontsize = 16;
+                        Toast.makeText(getApplicationContext(), "Gün " + fontsize + " açılıyor!", Toast.LENGTH_SHORT).show();
+
+                        break;
+                    case 4:
+                        fontsize = 17;
+                        Toast.makeText(getApplicationContext(), "Gün " + fontsize + " açılıyor!", Toast.LENGTH_SHORT).show();
+
+                        break;
+                    case 5:
+                        fontsize = 18;
+
+                        Toast.makeText(getApplicationContext(), "Gün " + fontsize + " açılıyor!", Toast.LENGTH_SHORT).show();
+
+                        break;
+                    case 6:
+                        fontsize = 19;
+                        Toast.makeText(getApplicationContext(), "Gün " + fontsize + " açılıyor!", Toast.LENGTH_SHORT).show();
+
+                        break;
+                    case 7:
+                        fontsize = 20;
+                        Toast.makeText(getApplicationContext(), "Gün " + fontsize + " açılıyor!", Toast.LENGTH_SHORT).show();
+
+                        break;
+                    case 8:
+                        fontsize = 21;
+                        Toast.makeText(getApplicationContext(), "Gün " + fontsize + " açılıyor!", Toast.LENGTH_SHORT).show();
+
+                        break;
+                    case 9:
+                        fontsize = 22;
+                        Toast.makeText(getApplicationContext(), "Gün " + fontsize + " açılıyor!", Toast.LENGTH_SHORT).show();
+                        break;
+                }
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+        });
     }
 
     public void chooseLayout() {
