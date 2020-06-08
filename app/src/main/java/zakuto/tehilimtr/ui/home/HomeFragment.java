@@ -68,17 +68,19 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         continueFromTheBook.setOnClickListener(this);
         button4 = root.findViewById(R.id.button4);
         button4.setOnClickListener(this);
-        String locationName = "New York, NY";
-        double latitude = 40.6782; //Lakewood, NJ
-        double longitude = -73.9442; //Lakewood, NJ
+
+        String locationName = "Istanbul, TR";
+        double latitude = 41.0082; //Lakewood, NJ
+        double longitude = 28.979530; //Lakewood, NJ
         double elevation = 0; //optional elevation
-        TimeZone timeZone = TimeZone.getTimeZone("America/New_York");
+        TimeZone timeZone = TimeZone.getTimeZone("TRT/Istanbul");
         GeoLocation location = new GeoLocation(locationName, latitude, longitude, elevation, timeZone);
         ComplexZmanimCalendar czc = new ComplexZmanimCalendar(location);
         HebrewDateFormatter hdf = new HebrewDateFormatter();
         JewishCalendar jc = new JewishCalendar();
 
         Date sunrise = czc.getSunrise();
+        Log.i("sunrise", String.valueOf(sunrise));
         hebrewDay = jc.getJewishDayOfMonth();
        /* HebrewDateFormatter hdf = new HebrewDateFormatter();
         System.out.println(jd); // prints hebrew date in English chars - 23 Nissan, 5773

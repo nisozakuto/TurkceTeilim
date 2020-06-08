@@ -258,9 +258,8 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
                 invalidateOptionsMenu();
                 break;
             case R.id.action_settings:
-                /*Intent settingIntent = new Intent(this, SettingsActivity.class);
+                Intent settingIntent = new Intent(this, SettingsActivity.class);
                 startActivity(settingIntent);
-                */
                 Toast.makeText(this, "Ayarlar yakında..", Toast.LENGTH_SHORT).show();
                 break;
             default:
