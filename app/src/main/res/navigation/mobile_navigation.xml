@@ -10,7 +10,7 @@
         android:id="@+id/navigation_dashboard"
         android:name="zakuto.tehilimtr.ui.Browse.BrowseFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" >
+        tools:layout="@layout/fragment_dashboard">
         <action
             android:id="@+id/action_navigation_dashboard_to_readFragment"
             app:destination="@id/readFragment" />
@@ -20,7 +20,17 @@
         android:id="@+id/navigation_home"
         android:name="zakuto.tehilimtr.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_navigation_dashboard_to_TehilimFragment"
+            app:destination="@id/TehilimFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/TehilimFragment"
+        android:name="zakuto.tehilimtr.tehilim.TehilimFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_tehilim" />
 
     <fragment
         android:id="@+id/navigation_notifications"

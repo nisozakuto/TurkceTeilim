@@ -15,7 +15,7 @@
             android:label="@string/title_activity_read"
             android:theme="@style/AppTheme"></activity>
         <activity
-            android:name=".TestActivity"
+            android:name=".MonthlyTehilimActivity"
             android:label="@string/title_activity_test"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -36,11 +36,6 @@
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />
         <activity android:name=".InfoActivity" />
-
-        <activity
-            android:name=".OrderActivity"
-            android:label="@string/title_activity_info"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <!--    <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

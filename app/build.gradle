@@ -9,8 +9,8 @@ android {
         applicationId "zakuto.tehilimtr"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 21
-        versionName "1.9.13"
+        versionCode 22
+        versionName "1.9.14"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 

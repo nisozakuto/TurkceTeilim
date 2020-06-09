@@ -20,7 +20,7 @@ public class Second3Fragment extends Fragment {
         return inflater.inflate(R.layout.fragment_second3, container, false);
     }
 
-    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+/*    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         view.findViewById(R.id.button_second).setOnClickListener(new View.OnClickListener() {
@@ -30,5 +30,5 @@ public class Second3Fragment extends Fragment {
                         .navigate(R.id.action_Second3Fragment_to_First3Fragment);
             }
         });
-    }
+    }*/
 }

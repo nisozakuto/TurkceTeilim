@@ -44,7 +44,7 @@ public class MonthlyFragment extends Fragment {
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
                 position += 1;
                 Toast.makeText(getActivity(), "Gün " + position + " açılıyor!", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(), ReadActivity.class);
+                Intent intent = new Intent(getActivity(), MonthlyTehilimActivity.class);
                 intent.putExtra("kitap", String.valueOf(position));
                 //intent.putExtra("ok", "ok");
                 startActivity(intent);

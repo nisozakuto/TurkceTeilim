@@ -14,44 +14,29 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.fragment.NavHostFragment;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.RequestConfiguration;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
-
-import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
 import java.util.TimeZone;
 
 import zakuto.tehilimtr.R;
 import zakuto.tehilimtr.ReadActivity;
+import zakuto.tehilimtr.MonthlyTehilimActivity;
 import zakuto.tehilimtr.readFragment;
+import zakuto.tehilimtr.tehilim.BeforeTehilimFragment;
 import zmanim.ComplexZmanimCalendar;
-import zmanim.ZmanimCalendar;
 import zmanim.hebrewcalendar.HebrewDateFormatter;
 import zmanim.hebrewcalendar.JewishCalendar;
 import zmanim.util.GeoLocation;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
-
 public class HomeFragment extends Fragment implements View.OnClickListener {
 
     private HomeViewModel homeViewModel;
-    Button FullBook, continueFromTheBook, button4;
+    Button randomButton, continueFromTheBook, button4, button6;
     TextView date;
     String lastReadBook = null;
     int hebrewDay;
@@ -61,10 +46,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-        FullBook = root.findViewById(R.id.FullBook);
+        randomButton = root.findViewById(R.id.randomButton);
         continueFromTheBook = root.findViewById(R.id.continueFromTheBook);
         date = root.findViewById(R.id.date);
-        FullBook.setOnClickListener(this);
+        randomButton.setOnClickListener(this);
         continueFromTheBook.setOnClickListener(this);
         button4 = root.findViewById(R.id.button4);
         button4.setOnClickListener(this);
@@ -99,15 +84,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         return root;
     }
 
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.FullBook:
-                FragmentManager manager = getFragmentManager();
-                FragmentTransaction transaction = manager.beginTransaction();
-                transaction.replace(R.id.nav_host_fragment, readFragment.newInstance()); // newInstance() is a static factory method.
-                transaction.commit();
-                break;
+
             case R.id.continueFromTheBook:
                 if (lastReadBook != null && lastReadBook != "") {
                     Intent intentlastReadBook = new Intent(getActivity(), ReadActivity.class);
@@ -119,10 +100,21 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                     Log.i("continueFromTheBook", lastReadBook);
                 }
                 break;
+            case R.id.randomButton:
+                FragmentManager manager = getFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.replace(R.id.nav_host_fragment, readFragment.newInstance()); // newInstance() is a static factory method.
+                transaction.commit();
+                break;
+
             case R.id.button4:
                 Intent intent = new Intent(getActivity(), ReadActivity.class);
                 intent.putExtra("bookOfDay", String.valueOf(hebrewDay));
                 startActivity(intent);
+
+                /*NavHostFragment.findNavController(HomeFragment.this)
+                        .navigate(R.id.action_navigation_dashboard_to_TehilimFragment);
+                */
                 break;
 
         }
