@@ -22,7 +22,7 @@ import java.util.ArrayList;
 
 public class ReadActivity extends AppCompatActivity implements View.OnClickListener {
     int[] passTehilimValues = new int[]{};
-    String kitapExtra = null, tehilimExtra = null, layout = "latin";
+    String kitapExtra = null, tehilimExtra = null, layout = "latin", fontSize;
     Button next, back;
     Integer teilimNumber = 23, changeScript = 1;
     ArrayList<String> mylist = new ArrayList<String>();
@@ -156,7 +156,11 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this /* Activity context */);
         String name = sharedPreferences.getString("fontKey", "");
         Toast.makeText(this, "Font Size: " + name, Toast.LENGTH_SHORT).show();
+
+        SharedPreferences fontSizePref = this.getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
+        fontSize = fontSizePref.getString("fontSize", "");
     }
+
 
     @Override
     public boolean onSupportNavigateUp() {

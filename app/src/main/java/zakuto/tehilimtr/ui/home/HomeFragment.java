@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,7 +52,7 @@ import com.google.android.gms.ads.initialization.OnInitializationCompleteListene
 public class HomeFragment extends Fragment implements View.OnClickListener {
 
     private HomeViewModel homeViewModel;
-    Button FullBook, continueFromTheBook;
+    Button FullBook, continueFromTheBook, settingsButton;
     TextView date;
     String lastReadBook = null;
 
@@ -75,6 +76,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         ComplexZmanimCalendar czc = new ComplexZmanimCalendar(location);
         HebrewDateFormatter hdf = new HebrewDateFormatter();
         JewishCalendar jc = new JewishCalendar();
+
+        settingsButton = root.findViewById(R.id.settingsButton);
+        settingsButton.setOnClickListener(this);
 
         Date sunrise = czc.getSunrise();
         int hebrewDay = jc.getJewishDayOfMonth();
@@ -114,6 +118,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 if (lastReadBook == null || lastReadBook == "") {
                     Toast.makeText(getActivity(), "Son okuduğun kitap yok.", Toast.LENGTH_SHORT).show();
                 }
+                break;
+            case R.id.settingsButton:
+                SharedPreferences settingPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                String settingString = settingPrefs.getString("signature", "No info was found");
+                date.setText(" " + settingString);
+                Toast.makeText(getActivity(), settingString, Toast.LENGTH_LONG).show();
+
         }
     }
 
@@ -122,7 +133,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         super.onResume();
         SharedPreferences sh = this.getActivity().getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
         lastReadBook = sh.getString("lastReadBook", "");
-
     }
 
     private FragmentManager getSupportFragmentManager() {
