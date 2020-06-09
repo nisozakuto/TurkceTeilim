@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "269622949354",
-    "firebase_url": "https://teilim-da34c.firebaseio.com",
-    "project_id": "teilim-da34c",
-    "storage_bucket": "teilim-da34c.appspot.com"
+    "project_number": "648169051034",
+    "firebase_url": "https://teilim-4c98c.firebaseio.com",
+    "project_id": "teilim-4c98c",
+    "storage_bucket": "teilim-4c98c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:269622949354:android:e2bd9b080bb582d0f72e93",
+        "mobilesdk_app_id": "1:648169051034:android:4e07dba2aca6437a712023",
         "android_client_info": {
           "package_name": "zakuto.tehilimtr"
         }
       },
       "oauth_client": [
         {
-          "client_id": "269622949354-21im5ovfh5pc88lhmquf29nqqdf4p8l3.apps.googleusercontent.com",
+          "client_id": "648169051034-h6gs46glg3ov0b1meu2a2d5knlcloorc.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCDIHO545vqGBoOZGOlVrJSiOBbKUdW-Yc"
+          "current_key": "AIzaSyABwrlBDopcgKQesG6JT9PYsBkhvfj-tlg"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "269622949354-21im5ovfh5pc88lhmquf29nqqdf4p8l3.apps.googleusercontent.com",
+              "client_id": "648169051034-h6gs46glg3ov0b1meu2a2d5knlcloorc.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -14,17 +14,6 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceFragment;
 import androidx.preference.PreferenceFragmentCompat;
 
-/*
-public class SettingsActivity extends PreferenceActivity {
-//Source: https://examples.javacodegeeks.com/android/core/ui/settings/android-settings-example/
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.preferences);
-    }
-}
-*/
-
 public class SettingsActivity extends AppCompatActivity {
     private static final String TAG = SettingsActivity.class.getSimpleName();
 
