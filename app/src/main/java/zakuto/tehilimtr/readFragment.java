@@ -49,7 +49,6 @@ public class readFragment extends Fragment implements View.OnClickListener {
         public void onActivityCreated(@Nullable Bundle savedInstanceState) {
             super.onActivityCreated(savedInstanceState);
             mViewModel = ViewModelProviders.of(this).get(ReadViewModel.class);
-            // TODO: Use the ViewModel
         }
 
         @Override
