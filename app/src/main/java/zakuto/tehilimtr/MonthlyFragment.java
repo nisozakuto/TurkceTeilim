@@ -25,7 +25,7 @@ import zakuto.tehilimtr.ui.Browse.BrowseFragment;
 public class MonthlyFragment extends Fragment {
 
     private MonthlyViewModel mViewModel;
-    String[] monthlyTehilimArray = {"1.Kitap 1-9", "2.Kitap 10-17", "3.Kitap 18-22", "4.Kitap 23-28", "5.Kitap 29-34", "6.Kitap 35-38", "7.Kitap 39-43", "8.Kitap 44-48", "9.Kitap 49-54", "10.Kitap 55-59", "11.Kitap 60-65", "12.Kitap 66-68", "13.Kitap 69-71", "14.Kitap 72-76", "15.Kitap 77-78", "16.Kitap 79-82", "17.Kitap 83-87", "18.Kitap 88-89", "19.Kitap 90-96", "20.Kitap 97-103", "21.Kitap 104-105", "22.Kitap 106-107", "23.Kitap 108-112", "24.Kitap 113-118", "25.Kitap 119-1-96", "26.Kitap 119-97-176", "27.Kitap 120-134", "28.Kitap 135-139", "29.Kitap 140-144", "30.Kitap 145-150"};
+    String[] monthlyTehilimArray = {"1.Kitap 1-8", "2.Kitap 9-15", "3.Kitap 16-19", "4.Kitap 20-25", "5.Kitap 26-31", "6.Kitap 32-35", "7.Kitap 36-39", "8.Kitap 40-44", "9.Kitap 45-49", "10.Kitap 50-55", "11.Kitap 56-61", "12.Kitap 62-67", "13.Kitap 68-70", "14.Kitap 71-75", "15.Kitap 76-78", "16.Kitap 79-84", "17.Kitap 85-89", "18.Kitap 90-95", "19.Kitap 96-102", "20.Kitap 103-105", "21.Kitap 106-108", "22.Kitap 109-115", "23.Kitap 116-119 Zayin", "24.Kitap 119 HET", "25.Kitap 120-131", "26.Kitap 132-138", "27.Kitap 139-144", "28.Kitap 145-150"};
 
     public static MonthlyFragment newInstance() {
         return new MonthlyFragment();
@@ -46,7 +46,7 @@ public class MonthlyFragment extends Fragment {
                 Toast.makeText(getActivity(), "Gün " + position + " açılıyor!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(), ReadActivity.class);
                 intent.putExtra("kitap", String.valueOf(position));
-                intent.putExtra("ok", "ok");
+                //intent.putExtra("ok", "ok");
                 startActivity(intent);
             }
         });

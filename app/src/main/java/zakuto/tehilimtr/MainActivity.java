@@ -47,6 +47,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private AdView mAdView;
     int teilimNumber = 0;
     public static final String MyPREFERENCES = "MyPrefs";
+    String fontSize;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +60,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
+        SharedPreferences fontSizePref = this.getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
+        String fontSize = fontSizePref.getString("fontSize", "");
+        Log.i("fontSize", "yukarida " + fontSize);
+
+
+        TehilimListAdapter TehilimListAdapter = new TehilimListAdapter("Preference ");
+        getSharedPreferences("SHAREDPREFFORADAPTER", MODE_PRIVATE)
+                .edit()
+                .putString("p", fontSize)
+                .commit();
+       // TehilimListAdapter.showToast(this.getApplicationContext());
         //Test with Pixel
         /* List<String> testDeviceIds = Arrays.asList("F2F51C5D2BA7B325DC8FAA267BF930DE");
         RequestConfiguration configuration =
@@ -75,11 +88,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
     }
+    public void setActionBarTitle(String title) {
+        getSupportActionBar().setTitle(title);
+    }
         /*//Bottom Navigation code
         BottomNavigationView bottomNavigation = findViewById(R.id.nav_view);
         bottomNavigation.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
         openFragment(HomeFragment.newInstance("", ""));*/
-       /*tumKitap = findViewById(R.id.tumKitapButton);
+        /*tumKitap = findViewById(R.id.tumKitapButton);
         tumKitap.setOnClickListener(this);
     }
     /*public void openFragment(Fragment fragment) {
@@ -107,8 +123,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             };
             */
-
- /*   @Override
+        /*   @Override
     protected void onPause() {
         super.onPause();
 
@@ -152,50 +167,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return true;
     }
 
+   /* @Override
+    protected void onResume() {
+        super.onResume();
+
+        SharedPreferences fontSizePref = this.getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
+        fontSize = fontSizePref.getString("fontSize", "");
+        Log.i("fontSize", fontSize);
+    }*/
+
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            /*case R.id.tumKitapButton:
-             *//*
-              Snackbar snackbar = Snackbar
-                        .make(coordinatorLayout, "www.journaldev.com", Snackbar.LENGTH_LONG);
-                snackbar.show();
-                *//*
-                pressed++;
-                randomtehilimtrText.setText("Tum kitaplar yakinda gelicek: " + pressed);
-                break;
 
-            case R.id.infoButton:
-                Intent infoIntent = new Intent(this, OrderActivity.class);
-                infoIntent.putExtra("order", "Monthly");
-                startActivity(infoIntent);
-                break;
-
-            case R.id.randomtehilimtrButton:
-                Randomtehilimtr();
-                break;
-
-            case R.id.textTest:
-               *//* String perek;
-                perek = TehilimClass.getTehilim("tr" + 1);
-                tehilimtrText.setText("Test)");
-                tehilimtrText.setText(perek);
-                if (s == 1) {
-                    tehilimtrText.setText(R.string.dummmyText);
-                    s = 0;
-                } else {
-                    tehilimtrText.setText("Test");
-                    s = 1;
-                }*//*
-                Intent readTehilimIntent = new Intent(this, readTehilim.class);
-                readTehilimIntent = new Intent(this, readTehilim.class);
-                tehilimNumbersArray = new int[]{35, 36, 37, 38};
-                readTehilimIntent.putExtra("tehilimNumbers", tehilimNumbersArray);
-                startActivity(readTehilimIntent);
-                AdRequest adRequest = new AdRequest.Builder().build();
-                mAdView.loadAd(adRequest);
-                Log.i("Ad request","Requested?");
-                break;*/
-        }
     }
 }

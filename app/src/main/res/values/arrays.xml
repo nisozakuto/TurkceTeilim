@@ -15,6 +15,12 @@
         <item name="30000">Every 30 seconds</item>
         <item name="60000">Every 1 minute</item>
     </string-array>
+    <string-array name="fontSizes">
+        <item name="14">14</item>
+        <item name="16">16</item>
+        <item name="18">18</item>
+        <item name="20">20</item>
+    </string-array>
     <string-array name="updateIntervalValues">
         <item name="1000">1000</item>
         <item name="5000">5000</item>
