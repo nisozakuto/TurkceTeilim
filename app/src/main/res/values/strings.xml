@@ -28,10 +28,15 @@
     <string name="title_activity_info">Info</string>
     <string name="title_activity_settings">Ayarlar</string>
 
+    <!--Root Preference-->
+    <string name="personal">Kişisel ayarlar</string>
+    <string name="your_name">İsim</string>
+    <string name="font">Font Ayarları</string>
+
+
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
     <string name="sync_header">Sync</string>
-    <string name="font">Font Ayarları</string>
 
     <!-- Messages Preferences -->
     <string name="signature_title">Your signature</string>

@@ -1,8 +1,6 @@
 package zakuto.tehilimtr.ui.notifications;
 
 import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,7 +21,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import zakuto.tehilimtr.R;
-import zakuto.tehilimtr.SettingsActivity;
 
 import static android.content.Context.MODE_PRIVATE;
 

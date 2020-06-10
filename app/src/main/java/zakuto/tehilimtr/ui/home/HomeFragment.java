@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,7 +52,9 @@ import com.google.android.gms.ads.initialization.OnInitializationCompleteListene
 public class HomeFragment extends Fragment implements View.OnClickListener {
 
     private HomeViewModel homeViewModel;
+
     Button FullBook, continueFromTheBook, button4;
+
     TextView date;
     String lastReadBook = null;
     int hebrewDay;
@@ -79,6 +82,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         HebrewDateFormatter hdf = new HebrewDateFormatter();
         JewishCalendar jc = new JewishCalendar();
 
+   /*     settingsButton = root.findViewById(R.id.settingsButton);
+        settingsButton.setOnClickListener(this);
+*/
         Date sunrise = czc.getSunrise();
         Log.i("sunrise", String.valueOf(sunrise));
         hebrewDay = jc.getJewishDayOfMonth();
@@ -119,12 +125,17 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                     Log.i("continueFromTheBook", lastReadBook);
                 }
                 break;
+/*
+                SharedPreferences settingPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                String settingString = settingPrefs.getString("font_size_preference", "No info was found");
+                date.setText(" " + settingString);
+                Toast.makeText(getActivity(), settingString, Toast.LENGTH_LONG).show();
+*/
             case R.id.button4:
                 Intent intent = new Intent(getActivity(), ReadActivity.class);
                 intent.putExtra("bookOfDay", String.valueOf(hebrewDay));
                 startActivity(intent);
                 break;
-
         }
     }
 
@@ -133,7 +144,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         super.onResume();
         SharedPreferences sh = this.getActivity().getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
         lastReadBook = sh.getString("lastReadBook", "");
-
     }
 
     private FragmentManager getSupportFragmentManager() {
