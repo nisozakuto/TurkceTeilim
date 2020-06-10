@@ -26,7 +26,7 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".TestActivity"
+            android:name=".MonthlyTehilimActivity"
             android:label="@string/title_activity_test"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -44,6 +44,7 @@
             android:value=".MainActivity" />
 
         <activity android:name=".InfoActivity" />
+
         <activity
             android:name=".OrderActivity"
             android:label="@string/title_activity_info"

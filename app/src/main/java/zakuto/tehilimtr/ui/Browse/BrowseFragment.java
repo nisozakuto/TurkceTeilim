@@ -55,7 +55,6 @@ public class BrowseFragment extends Fragment {
         TabLayout tabs = (TabLayout) view.findViewById(R.id.result_tabs1);
         tabs.setupWithViewPager(viewPager);
         return view;
-
     }
 
     // Add Fragments to Tabs

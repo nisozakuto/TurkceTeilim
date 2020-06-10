@@ -156,10 +156,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;*/
             // action with ID action_settings was selected
             case R.id.action_settings:
-                Intent settingIntent = new Intent(this, SettingsActivity.class);
+               /* Intent settingIntent = new Intent(this, SettingsActivity.class);
                 startActivity(settingIntent);
                 Toast.makeText(this, "Settings selected", Toast.LENGTH_SHORT)
-                        .show();
+                        .show();*/
                 break;
             default:
                 break;

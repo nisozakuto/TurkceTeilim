@@ -3,26 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph3"
-    app:startDestination="@id/First3Fragment">
+    app:startDestination="@id/preTehilimFragment">
 
     <fragment
-        android:id="@+id/First3Fragment"
-        android:name="zakuto.tehilimtr.First3Fragment"
+        android:id="@+id/preTehilimFragment"
+        android:name="zakuto.tehilimtr.tehilim.BeforeTehilimFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first3">
-
+        tools:layout="@layout/fragment_before_tehilim">
         <action
-            android:id="@+id/action_First3Fragment_to_Second3Fragment"
-            app:destination="@id/Second3Fragment" />
+            android:id="@+id/action_PreTehilimFragment_to_TehilimFragment"
+            app:destination="@id/TehilimFragment" />
     </fragment>
     <fragment
-        android:id="@+id/Second3Fragment"
-        android:name="zakuto.tehilimtr.Second3Fragment"
+        android:id="@+id/TehilimFragment"
+        android:name="zakuto.tehilimtr.tehilim.TehilimFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second3">
+        tools:layout="@layout/fragment_tehilim">
 
         <action
-            android:id="@+id/action_Second3Fragment_to_First3Fragment"
-            app:destination="@id/First3Fragment" />
+            android:id="@+id/action_TehilimFragment_to_afterTehilimFragment"
+            app:destination="@id/afterTehilimFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/afterTehilimFragment"
+        android:name="zakuto.tehilimtr.tehilim.AfterTehilimFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_after_tehilim">
     </fragment>
 </navigation>

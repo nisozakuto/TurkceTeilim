@@ -20,6 +20,7 @@ public class First3Fragment extends Fragment {
         return inflater.inflate(R.layout.fragment_first3, container, false);
     }
 
+/*
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
@@ -31,4 +32,5 @@ public class First3Fragment extends Fragment {
             }
         });
     }
+*/
 }

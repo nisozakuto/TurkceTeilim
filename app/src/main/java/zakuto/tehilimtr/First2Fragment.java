@@ -1,3 +1,4 @@
+/*
 package zakuto.tehilimtr;
 
 import android.os.Bundle;
@@ -34,3 +35,4 @@ public class First2Fragment extends Fragment {
         });
     }
 }
+*/
