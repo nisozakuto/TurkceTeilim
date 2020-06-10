@@ -15,6 +15,8 @@
     <string name="next">İleri</string>
     <string name="back">Geri</string>
     <string name="continueFromTheBook">Kaldığın kitap\'tan devam et</string>
+    <!-- Strings used for fragments for Home -->
+    <string name="todaysTehilims">Günün teilimleri</string>
 
     <string name="addButton">Listeme ekle</string>
 
