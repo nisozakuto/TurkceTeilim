@@ -59,7 +59,7 @@
 
     <!--Root Preference-->
     <string name="personal">Kişisel ayarlar</string>
-    <string name="name">İsim</string>
+    <string name="your_name">İsim</string>
     <string name="font">Font Ayarları</string>
 
 

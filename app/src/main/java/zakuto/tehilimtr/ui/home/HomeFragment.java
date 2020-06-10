@@ -77,9 +77,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         HebrewDateFormatter hdf = new HebrewDateFormatter();
         JewishCalendar jc = new JewishCalendar();
 
-        settingsButton = root.findViewById(R.id.settingsButton);
+   /*     settingsButton = root.findViewById(R.id.settingsButton);
         settingsButton.setOnClickListener(this);
-
+*/
         Date sunrise = czc.getSunrise();
         int hebrewDay = jc.getJewishDayOfMonth();
        /* HebrewDateFormatter hdf = new HebrewDateFormatter();
@@ -119,12 +119,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                     Toast.makeText(getActivity(), "Son okuduğun kitap yok.", Toast.LENGTH_SHORT).show();
                 }
                 break;
-            case R.id.settingsButton:
+/*
                 SharedPreferences settingPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
-                String settingString = settingPrefs.getString("signature", "No info was found");
+                String settingString = settingPrefs.getString("font_size_preference", "No info was found");
                 date.setText(" " + settingString);
                 Toast.makeText(getActivity(), settingString, Toast.LENGTH_LONG).show();
-
+*/
         }
     }
 

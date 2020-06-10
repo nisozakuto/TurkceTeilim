@@ -1,18 +1,17 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory app:title="@string/personal">
 
         <EditTextPreference
-            app:key="signature"
-            app:title="@string/signature_title"
+            app:key="name"
+            app:title="@string/your_name"
             app:useSimpleSummaryProvider="true" />
 
-        <EditTextPreference
-
-            app:key="font"
-            app:title="@string/font_size"
-            app:useSimpleSummaryProvider="true" />
+        <!--  <EditTextPreference
+              app:key="font"
+              app:title="@string/font_size"
+              app:useSimpleSummaryProvider="true" />-->
 
         <!--<ListPreference
             app:defaultValue="reply"
@@ -69,5 +68,12 @@
             app:title="@string/attachment_title" />
 -->
     </PreferenceCategory>
+    <ListPreference
+        android:defaultValue="2"
+        android:entries="@array/fontSizes"
+        android:entryValues="@array/fontSizes"
+        android:key="font_size_preference"
+        android:title="List preference"
+        app:useSimpleSummaryProvider="true" />
 
 </PreferenceScreen>

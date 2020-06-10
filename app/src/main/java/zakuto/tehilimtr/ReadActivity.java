@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -13,12 +15,16 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class ReadActivity extends AppCompatActivity implements View.OnClickListener {
     int[] passTehilimValues = new int[]{};
@@ -28,6 +34,9 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
     ArrayList<String> mylist = new ArrayList<String>();
     ListView list;
     ArrayList<String> myTehilimList = new ArrayList<String>();
+    String testcountryList[] = {"India", "China", "australia", "Portugle", "America", "NewZealand"};
+    ArrayList<String> countryList = new ArrayList<String>(5);
+    ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +51,13 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
         list = findViewById(R.id.listView);
         final Button next = findViewById(R.id.next);
         final Button back = findViewById(R.id.back);
+
+        countryList.add(0, "India NewZealand");
+        countryList.add(1, "India Neealand");
+        countryList.add(2, "Indiaaland");
+        countryList.add(3, "IewZealand");
+        countryList.add(4, "India NewZealand");
+
 
         back.setOnClickListener(this);
         next.setOnClickListener(this);
@@ -59,6 +75,7 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
             backlayout.removeView(back);
             list.getLayoutParams().height = ViewGroup.LayoutParams.MATCH_PARENT;
         }
+
         chooseLayout();
     }
 
@@ -101,10 +118,18 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
         setListView();
     }
 
+
     public void setListView() {
-        list.setAdapter(null);
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mylist);
-        list.setAdapter(arrayAdapter);
+        /*list.setAdapter(null);
+        //ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1 , mylist);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.listview_text, mylist);
+        list.setAdapter(arrayAdapter);*/
+        /*SharedPreferences settingPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String settingString = settingPrefs.getString("font_size_preference", "No info was found");*/
+
+        TehilimListAdapter tehilimlistadapter = new TehilimListAdapter(getApplicationContext(), mylist);
+        list.setAdapter(tehilimlistadapter);
+
     }
         /* FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -115,11 +140,11 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
         */
-    //Intent gelenIntent = getIntent();
-    //tehilimlerString = gelenIntent.getStringExtra("Tehilim");
-    //List<Integer> tehilimList = (ArrayList<Integer>)getIntent().getSerializableExtra("TehilimList");
-    //ArrayList<Integer> test = getIntent().putIntegerArrayListExtra("TehilimList");
-    // Extract the array from the Bundle object
+//Intent gelenIntent = getIntent();
+//tehilimlerString = gelenIntent.getStringExtra("Tehilim");
+//List<Integer> tehilimList = (ArrayList<Integer>)getIntent().getSerializableExtra("TehilimList");
+//ArrayList<Integer> test = getIntent().putIntegerArrayListExtra("TehilimList");
+// Extract the array from the Bundle object
         /*
         int[] tehilimNumbers = {23};
         //int[] myArr = extras.getIntArray("tehilimList");
@@ -154,11 +179,19 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
         String s1 = sh.getString("name", "");
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this /* Activity context */);
-        String name = sharedPreferences.getString("fontKey", "");
-        Toast.makeText(this, "Font Size: " + name, Toast.LENGTH_SHORT).show();
+        String testFontSize = sharedPreferences.getString("font_size_preference", "");
+       //Toast.makeText(this, "Font Size: " + testFontSize, Toast.LENGTH_SHORT).show();
 
         SharedPreferences fontSizePref = this.getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
         fontSize = fontSizePref.getString("fontSize", "");
+
+        Log.i("fontSize", "yukarida " + fontSize);
+        TehilimListAdapter TehilimListAdapter = new TehilimListAdapter("Preference ");
+        getSharedPreferences("SHAREDPREFFORADAPTER", MODE_PRIVATE)
+                .edit()
+                .putString("p", fontSize)
+                .commit();
+        setListView();
     }
 
 
