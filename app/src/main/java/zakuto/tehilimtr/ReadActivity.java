@@ -35,8 +35,6 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
     ListView list;
     ArrayList<String> myTehilimList = new ArrayList<String>();
     public TehilimClass TehilimClass = new TehilimClass();
-    ListView list;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

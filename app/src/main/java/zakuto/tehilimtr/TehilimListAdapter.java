@@ -21,7 +21,8 @@ public class TehilimListAdapter extends BaseAdapter {
     Context context;
     ArrayList<String> countryList;
     LayoutInflater inflter;
-    float fontSize;
+    int fontSize = 16;
+    String testFontSize = "16";
 
     public TehilimListAdapter(Context applicationContext, ArrayList<String> countryList) {
         this.context = applicationContext;
@@ -52,10 +53,12 @@ public class TehilimListAdapter extends BaseAdapter {
 
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-        String testFontSize = sharedPreferences.getString("font_size_preference", "");
+        testFontSize = sharedPreferences.getString("font_size_preference", "");
         Log.i("listAdapter", testFontSize);
 
 //      text1.setTextSize(TypedValue.COMPLEX_UNIT_SP, Float.parseFloat(context.getSharedPreferences("PATH", Context.MODE_PRIVATE).getString("p", "Error")));
+        if (testFontSize.equals(""))
+            testFontSize = "16";
         text1.setTextSize(TypedValue.COMPLEX_UNIT_SP, Float.valueOf(testFontSize));
 
         return view;

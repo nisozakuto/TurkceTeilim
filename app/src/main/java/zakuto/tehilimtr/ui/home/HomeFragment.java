@@ -53,7 +53,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     private HomeViewModel homeViewModel;
 
-    Button FullBook, continueFromTheBook, button4;
+    Button FullBook, continueFromTheBook, bookOfDay;
 
     TextView date;
     String lastReadBook = null;
@@ -69,8 +69,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         date = root.findViewById(R.id.date);
         FullBook.setOnClickListener(this);
         continueFromTheBook.setOnClickListener(this);
-        button4 = root.findViewById(R.id.button4);
-        button4.setOnClickListener(this);
+        bookOfDay = root.findViewById(R.id.bookOfDay);
+        bookOfDay.setOnClickListener(this);
 
         String locationName = "Istanbul, TR";
         double latitude = 41.0082; //Lakewood, NJ
@@ -131,7 +131,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 date.setText(" " + settingString);
                 Toast.makeText(getActivity(), settingString, Toast.LENGTH_LONG).show();
 */
-            case R.id.button4:
+            case R.id.bookOfDay:
                 Intent intent = new Intent(getActivity(), ReadActivity.class);
                 intent.putExtra("bookOfDay", String.valueOf(hebrewDay));
                 startActivity(intent);
