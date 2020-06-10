@@ -47,6 +47,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private AdView mAdView;
     int teilimNumber = 0;
     public static final String MyPREFERENCES = "MyPrefs";
+    String fontSize;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +60,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
+        SharedPreferences fontSizePref = this.getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
+        String fontSize = fontSizePref.getString("fontSize", "");
+        Log.i("fontSize", "yukarida " + fontSize);
+
+
+        TehilimListAdapter TehilimListAdapter = new TehilimListAdapter("Preference ");
+        getSharedPreferences("SHAREDPREFFORADAPTER", MODE_PRIVATE)
+                .edit()
+                .putString("p", fontSize)
+                .commit();
+       // TehilimListAdapter.showToast(this.getApplicationContext());
         //Test with Pixel
         /* List<String> testDeviceIds = Arrays.asList("F2F51C5D2BA7B325DC8FAA267BF930DE");
         RequestConfiguration configuration =
@@ -153,6 +166,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         return true;
     }
+
+   /* @Override
+    protected void onResume() {
+        super.onResume();
+
+        SharedPreferences fontSizePref = this.getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
+        fontSize = fontSizePref.getString("fontSize", "");
+        Log.i("fontSize", fontSize);
+    }*/
 
     @Override
     public void onClick(View view) {

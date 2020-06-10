@@ -1,8 +1,6 @@
 package zakuto.tehilimtr.ui.notifications;
 
 import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,7 +21,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import zakuto.tehilimtr.R;
-import zakuto.tehilimtr.SettingsActivity;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -74,8 +71,8 @@ public class NotificationsFragment extends Fragment implements View.OnClickListe
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-/*
         View view = inflater.inflate(R.layout.fragment_notifications, container, false);
+     /*   View view = inflater.inflate(R.layout.fragment_notifications, container, false);
         date = view.findViewById(R.id.dateInfo);
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MMMM-yyyy");
@@ -85,8 +82,6 @@ public class NotificationsFragment extends Fragment implements View.OnClickListe
         submitTehilim = view.findViewById(R.id.submitTehilim);
         submitTehilim.setOnClickListener(this);
         textView2 = view.findViewById(R.id.textView2);*/
-
-
 
        //Use this until for the releases it is fully developed
        View view = inflater.inflate(R.layout.coming_soon, container, false);

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,6 +38,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     private HomeViewModel homeViewModel;
     Button randomButton, continueFromTheBook, button4, button6;
+
     TextView date;
     String lastReadBook = null;
     int hebrewDay;
@@ -51,8 +53,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         date = root.findViewById(R.id.date);
         randomButton.setOnClickListener(this);
         continueFromTheBook.setOnClickListener(this);
-        button4 = root.findViewById(R.id.button4);
-        button4.setOnClickListener(this);
+        bookOfDay = root.findViewById(R.id.bookOfDay);
+        bookOfDay.setOnClickListener(this);
 
         String locationName = "Istanbul, TR";
         double latitude = 41.0082; //Lakewood, NJ
@@ -64,6 +66,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         HebrewDateFormatter hdf = new HebrewDateFormatter();
         JewishCalendar jc = new JewishCalendar();
 
+   /*     settingsButton = root.findViewById(R.id.settingsButton);
+        settingsButton.setOnClickListener(this);
+*/
         Date sunrise = czc.getSunrise();
         Log.i("sunrise", String.valueOf(sunrise));
         hebrewDay = jc.getJewishDayOfMonth();
@@ -107,7 +112,14 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 transaction.commit();
                 break;
 
-            case R.id.button4:
+
+            /*
+                SharedPreferences settingPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                String settingString = settingPrefs.getString("font_size_preference", "No info was found");
+                date.setText(" " + settingString);
+                Toast.makeText(getActivity(), settingString, Toast.LENGTH_LONG).show();
+*/
+            case R.id.bookOfDay:
                 Intent intent = new Intent(getActivity(), ReadActivity.class);
                 intent.putExtra("bookOfDay", String.valueOf(hebrewDay));
                 startActivity(intent);
@@ -116,7 +128,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                         .navigate(R.id.action_navigation_dashboard_to_TehilimFragment);
                 */
                 break;
-
         }
     }
 
@@ -125,7 +136,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         super.onResume();
         SharedPreferences sh = this.getActivity().getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
         lastReadBook = sh.getString("lastReadBook", "");
-
     }
 
     private FragmentManager getSupportFragmentManager() {

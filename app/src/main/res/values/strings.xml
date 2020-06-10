@@ -31,12 +31,49 @@
     <string name="preTehilimText">Yei Ratson milefaneha Adonay, Eloenu VEloe avotenu, aboher beDavid avdo uvzaro aharav veaboher beşirot vetişbahot,şeterahem alenu, utee haşuva leFaneha keriyat mizmore Teilim şenikra, keilu kivanu vehol akavanot areyot lehaven.\nUvhoah pesuke Teilim vetevoteem veotiyoteem unkudoteem vetaameem uşmoteha akedoşim aketuvim baem,veaşemot ayotseim meem meraşe tevot vesofe tevot, vihilufe tevot, uvizhut Avraam Yitshak veYaakov Moşe veAaron veYosef veDavidameleh aleem aşalom, uzhut kol atsadikim veahasidim,yeemu na rahameha alenu veal anşe vetenu veal kol kerovenu veal kol mi şeem mişoreş nafşenu ruhenu venişmatenu, veal kolYisrael ahenu behol mekomot moşevoteem,ute keriat mizmore Teilim resuya lefaneha lizmor aritsim ulahrit kol ahohim veakosim asovevim et aşoşanna aelyona,ulhaber eşet neurim im doda beaava veahava şalom vereut.\nUvrov rahameha yimaşeh alenu veal kol anizkarim şefa keduşa vetaora şefa yeşua verahamim,veal tikahenu min aolam aze kodem zemanenu, veniske venihye hayim arukim tovim umtukanim, beofen şenuhal letaken et aşer şihatnu.\nUzhut Avraam Yitshak veYaakov Moşe veAaron Yosef veDavid ameleh aleem aşalom, uzhut kol atsadikim veahasidim,tagen alenu veal kol anizkarim uvaadenu uvaadam, şetaarih apeha ad şuvenu Eleha bitşuva şelema.Umeotsar matenat hinam honenu, kedihtiv. vehanoti et aşer ahon verihamti et aşer arahem.\nUvizhut keriyatenu zod, yiye iluy lenefeş ruah neşema haya yehida şel kol mete ameha Yisrael,velirfuat kol hole ameha Yisrael anaşim venaşim vataf ulaslahat uvriut kol ameha Yisrael.Uhşem şeanahnu omerim leFaneha şira baolam aze kah tezakenu lomar lefaneha şir uşvaha leolam aba.Veal yede amirat aTeilim titorer havatselet aşaron laşir bekol nain gilat veranen, kevod aLevanon yutan la,od veadar beVet Eloenu, bimera veyamenu Amen Sela.\n\nLehu neranena lAdonay, nariya leTSur yişenu. Nekadema Panav betoda, bizmirot nariya lo. Ki El gadol Adonay, uMeleh gadol al kol eloim.\n</string>
     <string name="afterTehilimText">Mi yiten miTSiyon yeşuat Yisrael; beşuv Adonay şevut amo, yagel Yaakov yismah Yisrael.Utşuat tsadikim meAdonay, mauzan beet tsara.Vayazerem Adonay vayfaletem yefaletem mereşaim veyoşiem, kihasu vo.\n \nYei ratson milefaneha, Adonay Eloenu vEloe avotenu, bizhutMizmore Teilim şekaranu leFaneha, uvizhut pesukeem uvizhut tevoteem uvizhut Şemoteha akedoşim veateorim ayotseim meem,Şetehaper lanu al kol hatotenu vetimhol lanu al kol avonotenu, vetislah lanu al kol peşaenu, şehatanu veşeavinu veşepaşanu leFaneha;vetahazirenu bitşuva şelema leFaneha; vetadrihenu laavodateha; vetiftah libenu betalmud Torateha;vetişlah refua şelema lehole ameha ; vetikra lişvuyim deror velaasurim pekah koah; ulhol olehe derahim veovere yamim unarot meameha Yisrael,tatsilem mikol tsaar vanezeg, vetagiem limhoz heftsam lehayim ulşalom; vetifkod lehol haşuhe vanim bezera şel kayama laavodateha ulyirateha;veubarot şel ameha bet Yisrael tatsilen şelo tapelna veladoteen;veayoşevot al amaşber berahemeha arabim tatsilen mikol ra; \nveel amenikot taşpia şelo yehsar halav midadeen;veal yimşol askera veşedin vehol pegaim umarin bişin behol yalde ameha bet Yisrael,utgadelem leTorateha lilmod Tora lişma, vetatsilem meayin ara umidever umimagefa umisatan umiyetser ara;utvatel mealenu umikol ameha bet Yisrael behol makom şeem kol gezerot kaşot veraot;vetate lev amalhut alenu letova vetigzor alenu gezerot tovot;vetişlah beraha veatslaha behol maase yadenu; veahen parnasatenu miyadeha arehava veamelea, velo yitstarhu ameha Yisrael ze laze velo leam aher;veten lehol iş veiş de parnasato; ulhol geviya ugviya de mahsora; utmaer vetahiş legaolenu vetivne bet mikdaşenu vetifartenu;\n\nUvizhut şeloş esre midoteha şel rahamim aketuvot betorateha – kemo şeneemar.\nAdonay Adonay El Rahum veHanun Ereh Apayim veRav Hesed veEmet notser Hesed laalafim nose avon vafeşa vehataa veNake,şeenan hozerot rekam mileFaneha.ozrenu Eloe yişenu al devar kevod Şemeha, veatsilenu vehaper al hatotenu lemaan Şemeha. Baruh Adonay leolam, Amen veAmen.</string>
     <string name="title_activity_info">Info</string>
+    <string-array name="Gunluk">
+        <item>"1.Kitap 1-9"</item>
+        <item>"2.Kitap 10-17"</item>
+        <item>"3.Kitap 18-22"</item>
+        <item>"4.Kitap 23-28"</item>
+        <item>"5.Kitap 29-34"</item>
+        <item>"6.Kitap 35-38"</item>
+        <item>"7.Kitap 39-43"</item>
+        <item>"8.Kitap 44-48"</item>
+        <item>"9.Kitap 49-54"</item>
+        <item>"10.Kitap 55-59"</item>
+        <item>"11.Kitap 60-65"</item>
+        <item>"12.Kitap 66-68"</item>
+        <item>"13.Kitap 69-71"</item>
+        <item>"14.Kitap 72-76"</item>
+        <item>"15.Kitap 77-78"</item>
+        <item>"16.Kitap 79-82"</item>
+        <item>"17.Kitap 83-87"</item>
+        <item>"18.Kitap 88-89"</item>
+        <item>"19.Kitap 90-96"</item>
+        <item>"20.Kitap 97-103"</item>
+        <item>"21.Kitap 104-105"</item>
+        <item>"22.Kitap 106-107"</item>
+        <item>"23.Kitap 108-112"</item>
+        <item>"24.Kitap 113-118"</item>
+        <item>"25.Kitap 119-1-96"</item>
+        <item>"26.Kitap 119-97-176"</item>
+        <item>"27.Kitap 120-134"</item>
+        <item>"28.Kitap 135-139"</item>
+        <item>"29.Kitap 140-144"</item>
+        <item>"30.Kitap 145-150"</item>
+    </string-array>
     <string name="title_activity_settings">Ayarlar</string>
+
+    <!--Root Preference-->
+    <string name="personal">Kişisel ayarlar</string>
+    <string name="your_name">İsim</string>
+    <string name="font">Font Ayarları</string>
+
 
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
     <string name="sync_header">Sync</string>
-    <string name="font">Font Ayarları</string>
 
     <!-- Messages Preferences -->
     <string name="signature_title">Your signature</string>

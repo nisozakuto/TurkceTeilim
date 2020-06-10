@@ -1,53 +1,59 @@
 package zakuto.tehilimtr;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.view.MenuItem;
+import android.preference.PreferenceManager;
+import android.text.InputType;
+import android.widget.EditText;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NavUtils;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.preference.EditTextPreference;
-import androidx.preference.Preference;
-import androidx.preference.PreferenceFragment;
 import androidx.preference.PreferenceFragmentCompat;
 
 public class SettingsActivity extends AppCompatActivity {
-    private static final String TAG = SettingsActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }
-}
-
-    /*
-    public static class FontFragment extends PreferenceFragmentCompat {
-        @Override
-        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-            setPreferencesFromResource(R.xml.font_preferences, rootKey);
-
-            *//*EditTextPreference signaturePreference = findPreference("fontKey");
-            if (signaturePreference != null) {
-                signaturePreference.setVisible(true);
-            }
-            EditTextPreference countingPreference = findPreference("fontKey");
-
-            if (countingPreference != null) {
-                countingPreference.setSummaryProvider(new Preference.SummaryProvider<EditTextPreference>() {
-                    @Override
-                    public CharSequence provideSummary(EditTextPreference preference) {
-                        String text = preference.getText();
-                        if (TextUtils.isEmpty(text)){
-                            return "Not set";
-                        }
-                        return "Length of saved value: " + text.length();
-                    }
-                });
-            }*//*
+        setContentView(R.layout.settings_activity);
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.settings, new SettingsFragment())
+                .commit();
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
         }
     }
-}*/
+
+    public static class SettingsFragment extends PreferenceFragmentCompat {
+        @Override
+        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+            setPreferencesFromResource(R.xml.root_preferences, rootKey);
+
+            EditTextPreference fontSize = findPreference("font");
+            if (fontSize != null) {
+                fontSize.setOnBindEditTextListener(new EditTextPreference.OnBindEditTextListener() {
+                    @Override
+                    public void onBindEditText(@NonNull EditText editText) {
+                        editText.setInputType(InputType.TYPE_CLASS_NUMBER);
+                    }
+                });
+            }
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        SharedPreferences.Editor settingsPref = sharedPreferences.edit();
+        settingsPref.putString("fontSize", "24");
+        settingsPref.commit();
+    }
+
+}
