@@ -29,14 +29,9 @@ import java.util.Map;
 public class ReadActivity extends AppCompatActivity implements View.OnClickListener {
     int[] passTehilimValues = new int[]{};
     String kitapExtra = null, tehilimExtra = null, layout = "latin", fontSize;
-    Button next, back;
     Integer teilimNumber = 23, changeScript = 1;
     ArrayList<String> mylist = new ArrayList<String>();
     ListView list;
-    ArrayList<String> myTehilimList = new ArrayList<String>();
-    String testcountryList[] = {"India", "China", "australia", "Portugle", "America", "NewZealand"};
-    ArrayList<String> countryList = new ArrayList<String>(5);
-    ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,13 +46,6 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
         list = findViewById(R.id.listView);
         final Button next = findViewById(R.id.next);
         final Button back = findViewById(R.id.back);
-
-        countryList.add(0, "India NewZealand");
-        countryList.add(1, "India Neealand");
-        countryList.add(2, "Indiaaland");
-        countryList.add(3, "IewZealand");
-        countryList.add(4, "India NewZealand");
-
 
         back.setOnClickListener(this);
         next.setOnClickListener(this);
