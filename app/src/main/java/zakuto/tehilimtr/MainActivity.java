@@ -149,7 +149,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .show();
                 break;
             default:
-                break;
         }
         return true;
     }
