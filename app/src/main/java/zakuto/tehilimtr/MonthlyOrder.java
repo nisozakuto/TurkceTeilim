@@ -3,7 +3,6 @@ package zakuto.tehilimtr;
 public class MonthlyOrder {
     int[] passTehilimValues = new int[]{};
 
-
     public int[] monthlyOrder(int position) {
         passTehilimValues = new int[]{};
         if (position == 1) {
@@ -118,9 +117,6 @@ public class MonthlyOrder {
             passTehilimValues = new int[]{145, 146, 147, 148, 149, 150};
             return passTehilimValues;
         }
-
         return passTehilimValues;
     }
-
-
 }

@@ -73,7 +73,7 @@
         android:entries="@array/fontSizes"
         android:entryValues="@array/fontSizes"
         android:key="font_size_preference"
-        android:title="List preference"
+        android:title="@string/font_size"
         app:useSimpleSummaryProvider="true" />
 
 </PreferenceScreen>

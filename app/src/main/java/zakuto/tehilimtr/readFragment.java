@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,7 @@ public class readFragment extends Fragment implements View.OnClickListener {
     TextView randomTextView;
     Button randomButton;
     RandomTehilim RandomTehilim = new RandomTehilim();
+    String kitap;
 
     public static readFragment newInstance() {
         return new readFragment();
@@ -28,42 +30,51 @@ public class readFragment extends Fragment implements View.OnClickListener {
 
     public TehilimClass TehilimClass = new TehilimClass();
 
-        @Override
-        public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                @Nullable Bundle savedInstanceState) {
-            Randomtehilimtr();
-            View root = inflater.inflate(R.layout.read_fragment, container, false);
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        Randomtehilimtr();
+        View root = inflater.inflate(R.layout.read_fragment, container, false);
 
-            randomTextView = root.findViewById(R.id.randomFragment);
-            randomTextView.setMovementMethod(new ScrollingMovementMethod());
-            randomTextView.setText(TehilimClass.getTehilim("tr" + RandomTehilim.randomNumber()));
-            randomButton = root.findViewById(R.id.randomButton);
-            randomButton.setOnClickListener(this);
-            return root;
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            kitap = bundle.getString("kitap", ("0"));
+            Log.i("Niso", "kitap passed info: " + kitap);
         }
+        randomTextView = root.findViewById(R.id.randomFragment);
+        randomTextView.setMovementMethod(new ScrollingMovementMethod());
+        randomTextView.setText(TehilimClass.getTehilim("tr" + RandomTehilim.randomNumber()));
+        randomButton = root.findViewById(R.id.randomButton);
+        randomButton.setOnClickListener(this);
+        return root;
+    }
 
-        public void Randomtehilimtr() {
-        }
+    public void Randomtehilimtr() {
+    }
 
-        @Override
-        public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-            super.onActivityCreated(savedInstanceState);
-            mViewModel = ViewModelProviders.of(this).get(ReadViewModel.class);
-        }
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        mViewModel = ViewModelProviders.of(this).get(ReadViewModel.class);
+    }
 
-        @Override
-        public void onClick(View view) {
-            switch (view.getId()) {
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
             case R.id.randomButton:
                 randomTextView.setText(TehilimClass.getTehilim("tr" + RandomTehilim.randomNumber()));
                 break;
         }
     }
-    public void onResume(){
+
+
+    public void onResume() {
         super.onResume();
         // Set title bar
-        ((MainActivity) getActivity())
-                .setActionBarTitle("Rastegele Teilim");
+        if (!kitap.equals("0")) {
+            ((MainActivity) getActivity())
+                    .setActionBarTitle("Teilim Kitapları");
+        }
 
     }
 }

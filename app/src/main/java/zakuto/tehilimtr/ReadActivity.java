@@ -6,66 +6,112 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+
+import zakuto.tehilimtr.tehilim.BeforeTehilimFragment;
+import zakuto.tehilimtr.tehilim.TehilimFragment;
 
 public class ReadActivity extends AppCompatActivity implements View.OnClickListener {
     int[] passTehilimValues = new int[]{};
-    String kitapExtra = null, tehilimExtra = null, layout = "latin", dailyTehilim = null, bookOfDay = "null",fontSize;
+    String fragmentKey = "readActivity", singleTehilim, kitapExtra = "1", tehilimExtra = "1", layout = "latin", dailyTehilim = "1", bookOfDay = "null", fontSize;
     Integer teilimNumber = 23, changeScript = 1;
     ArrayList<String> mylist = new ArrayList<String>();
     ListView list;
     ArrayList<String> myTehilimList = new ArrayList<String>();
     public TehilimClass TehilimClass = new TehilimClass();
+    ArrayList<Tehilim> latinAndHebrewList = new ArrayList<>();
+    Tehilim[] perek = new Tehilim[153];
+    private static final String TAG = "ReadActivity.java";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_read_for_full_book);
-
+        setContentView(R.layout.activity_read);
+        Log.i(TAG, "Started");
         ActionBar actionBar = getSupportActionBar();
+
         if (actionBar != null) {
             //actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setDisplayHomeAsUpEnabled(false);
         }
-
-        list = findViewById(R.id.listView);
+        /*list = findViewById(R.id.listView);
         final Button next = findViewById(R.id.next);
         final Button back = findViewById(R.id.back);
-
         back.setOnClickListener(this);
         next.setOnClickListener(this);
-
+        */
+        Fragment selectedFragment;
         Intent intent = getIntent();
         Bundle b = intent.getExtras();
 
         if (b != null) {
-            tehilimExtra = (String) b.get("tehilim");
-            kitapExtra = (String) b.get("kitap");
-            bookOfDay = (String) b.get("bookOfDay");
+            fragmentKey = (String) b.get("fragmentKey");
+            if (fragmentKey.equals("singleTehilim")) {
+                selectedFragment = new TehilimFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        selectedFragment).
+                        commit();
+            }
+            if (fragmentKey.equals("bookOfDay")) {
+                selectedFragment = new TehilimFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        selectedFragment).
+                        commit();
+            }
+            if (fragmentKey.equals("monthly")) {
+                selectedFragment = new BeforeTehilimFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        selectedFragment).
+                        commit();
+                fragmentKey = "monthlyStarted";
+            }
+            if (fragmentKey.equals("readActivity")) {
+                selectedFragment = new TehilimFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        selectedFragment).
+                        commit();
+            }
+            if (fragmentKey.equals("randomTehilim")) {
+                selectedFragment = new TehilimFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        selectedFragment).
+                        commit();
+            }
         }
+/*            if (fragmentKey.equals("singleTehilim")) {
+                singleTehilim = (String) b.get("singleTehilim");
+                singleTehilimFunction();
+                selectedFragment = new TehilimFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        selectedFragment).addToBackStack(null).
+                        commit();
+            } else if (fragmentKey.equals("bookOfDay")) {
+                kitapExtra = (String) b.get("bookOfDay");
+                //kitapFunction();
+                selectedFragment = new TehilimFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        selectedFragment).addToBackStack(null).
+                        commit();
+            }*/
+
+
+    }
+    /* tehilimExtra = (String) b.get("tehilim");
+        bookOfDay = (String) b.get("bookOfDay");
         if (bookOfDay != null) {
             kitapExtra = bookOfDay;
         }
-
         if (kitapExtra != null) {
             Log.i("kitapExtra", kitapExtra);
             ViewGroup nextlayout = (ViewGroup) next.getParent();
@@ -73,13 +119,40 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
             ViewGroup backlayout = (ViewGroup) back.getParent();
             backlayout.removeView(back);
             list.getLayoutParams().height = ViewGroup.LayoutParams.MATCH_PARENT;
-
         }
 
         if (layout != null) {
             chooseLayout();
         }
         chooseLayout();
+        both();*/
+
+    public void singleTehilimFunction() {
+        perek[Integer.parseInt(singleTehilim)] = new Tehilim(TehilimClass.getTehilim("tr" + Integer.parseInt(singleTehilim)), TehilimClass.getTehilim("H_perek" + Integer.parseInt(singleTehilim)));
+        latinAndHebrewList.add(perek[Integer.parseInt(singleTehilim)]);
+    }
+
+    public void kitapFunction() {
+        monthlyOrder(Integer.parseInt(kitapExtra));
+        if (kitapExtra.equals("23")) {
+            perek[116] = new Tehilim(TehilimClass.getTehilim("tr116"), TehilimClass.getTehilim("H_perek116")); //this adds an element to the list.
+            perek[117] = new Tehilim(TehilimClass.getTehilim("tr117"), TehilimClass.getTehilim("H_perek117")); //this adds an element to the list.
+            perek[118] = new Tehilim(TehilimClass.getTehilim("tr118"), TehilimClass.getTehilim("H_perek118")); //this adds an element to the list.
+            perek[151] = new Tehilim(TehilimClass.getTehilim("tr151"), TehilimClass.getTehilim("H_perek151")); //this adds an element to the list.
+            latinAndHebrewList.add(perek[116]);
+            latinAndHebrewList.add(perek[117]);
+            latinAndHebrewList.add(perek[118]);
+            latinAndHebrewList.add(perek[151]);
+
+        } else if (kitapExtra.equals("24")) {
+            perek[152] = new Tehilim(TehilimClass.getTehilim("tr152"), TehilimClass.getTehilim("H_perek152"));
+            latinAndHebrewList.add(perek[152]);
+        } else {
+            for (int i = passTehilimValues[0]; i < passTehilimValues[0] + passTehilimValues.length; i++) {
+                perek[i - 1] = new Tehilim(TehilimClass.getTehilim("tr" + i), TehilimClass.getTehilim("H_perek" + i));
+                latinAndHebrewList.add(perek[i - 1]);
+            }
+        }
     }
 
     public void chooseLayout() {
@@ -91,6 +164,25 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
             hebrewTehilim();
             Log.i("Test", "Hebrew");
         }
+    }
+
+    public void both() {
+        if (kitapExtra != null) {
+            if (kitapExtra == "23") {
+                mylist.add(TehilimClass.getTehilim("H_perek116")); //this adds an element to the list.
+                mylist.add(TehilimClass.getTehilim("H_perek117")); //this adds an element to the list.
+                mylist.add(TehilimClass.getTehilim("H_perek118")); //this adds an element to the list.
+                mylist.add(TehilimClass.getTehilim("H_perek1191")); //this adds an element to the list.
+            } else if (kitapExtra == "24") {
+                mylist.add(TehilimClass.getTehilim("H_perek1192")); //this adds an element to the list.
+            } else {
+                for (int i = passTehilimValues[0]; i < passTehilimValues[0] + passTehilimValues.length; i++) {
+                    perek[i - 1] = new Tehilim(TehilimClass.getTehilim("tr" + i), TehilimClass.getTehilim("H_perek" + i));
+                    latinAndHebrewList.add(perek[i - 1]);
+                }
+            }
+        }
+        setListView();
     }
 
     public void latinTehilim() {
@@ -133,16 +225,12 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
                 mylist.add(TehilimClass.getTehilim("H_perek118")); //this adds an element to the list.
                 mylist.add(TehilimClass.getTehilim("H_perek1191")); //this adds an element to the list.
             } else if (kitapExtra == "24") {
-
                 mylist.add(TehilimClass.getTehilim("H_perek1192")); //this adds an element to the list.
-
             } else {
                 for (int i = passTehilimValues[0]; i < passTehilimValues[0] + passTehilimValues.length; i++) {
                     mylist.add(TehilimClass.getTehilim("H_perek" + i)); //this adds an element to the list.
                 }
             }
-
-
         }
         if (dailyTehilim != null) {
             monthlyOrder(Integer.parseInt(dailyTehilim));
@@ -154,7 +242,6 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
         setListView();
     }
 
-
     public void setListView() {
         /*list.setAdapter(null);
         //ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1 , mylist);
@@ -163,9 +250,9 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
         /*SharedPreferences settingPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         String settingString = settingPrefs.getString("font_size_preference", "No info was found");*/
 
-        TehilimListAdapter tehilimlistadapter = new TehilimListAdapter(getApplicationContext(), mylist);
+        //TehilimListAdapter tehilimlistadapter = new TehilimListAdapter(getApplicationContext(), mylist);
+        TehilimListAdapter tehilimlistadapter = new TehilimListAdapter(this, R.layout.adapter_listview_layout, latinAndHebrewList);
         list.setAdapter(tehilimlistadapter);
-
     }
         /* FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -176,11 +263,11 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
         */
-//Intent gelenIntent = getIntent();
-//tehilimlerString = gelenIntent.getStringExtra("Tehilim");
-//List<Integer> tehilimList = (ArrayList<Integer>)getIntent().getSerializableExtra("TehilimList");
-//ArrayList<Integer> test = getIntent().putIntegerArrayListExtra("TehilimList");
-// Extract the array from the Bundle object
+    //Intent gelenIntent = getIntent();
+    //tehilimlerString = gelenIntent.getStringExtra("Tehilim");
+    //List<Integer> tehilimList = (ArrayList<Integer>)getIntent().getSerializableExtra("TehilimList");
+    //ArrayList<Integer> test = getIntent().putIntegerArrayListExtra("TehilimList");
+    // Extract the array from the Bundle object
         /*
         int[] tehilimNumbers = {23};
         //int[] myArr = extras.getIntArray("tehilimList");
@@ -193,11 +280,6 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
             //Log.i("Value", String.valueOf(readTehilimMap));
         }
         */
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
 
     @Override
     public void onPause() {
@@ -214,28 +296,27 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
         SharedPreferences sh = getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
         String s1 = sh.getString("name", "");
 
-
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this /* Activity context */);
         String testFontSize = sharedPreferences.getString("font_size_preference", "");
-       //Toast.makeText(this, "Font Size: " + testFontSize, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Font Size: " + testFontSize, Toast.LENGTH_SHORT).show();
 
         SharedPreferences fontSizePref = this.getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
         fontSize = fontSizePref.getString("fontSize", "");
-
         Log.i("fontSize", "yukarida " + fontSize);
-        TehilimListAdapter TehilimListAdapter = new TehilimListAdapter("Preference ");
+        //TehilimListAdapter TehilimListAdapter = new TehilimListAdapter("Preference ");
         getSharedPreferences("SHAREDPREFFORADAPTER", MODE_PRIVATE)
                 .edit()
                 .putString("p", fontSize)
                 .commit();
+        /*
         setListView();
+        */
 
         /*        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this *//* Activity context *//*);
         String name = sharedPreferences.getString("fontKey", "");
         //Toast.makeText(this, "Font Size: " + name, Toast.LENGTH_SHORT).show();*/
 
     }
-
 
     @Override
     public boolean onSupportNavigateUp() {
@@ -251,29 +332,45 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
         return true;
     }
 
+    /*  @Override
+      public boolean onPrepareOptionsMenu(Menu menu) {
+          if (changeScript == 1) {
+              menu.findItem(R.id.latin).setVisible(false);
+              menu.findItem(R.id.latinAndHebrew).setVisible(false);
+              layout = "latin";
+              chooseLayout();
+          }
+          if (changeScript == 2) {
+              menu.findItem(R.id.latin).setVisible(false);
+              menu.findItem(R.id.hebrew).setVisible(false);
+              layout = "hebrew";
+              chooseLayout();
+          }
+          if (changeScript == 3) {
+              menu.findItem(R.id.latinAndHebrew).setVisible(false);
+              menu.findItem(R.id.hebrew).setVisible(false);
+              layout = "latinAndHebrew";
+          }
+          return super.onPrepareOptionsMenu(menu);
+      }
+  */
     @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        if (changeScript == 1) {
-            menu.findItem(R.id.latin).setVisible(false);
-            menu.findItem(R.id.latinAndHebrew).setVisible(false);
-            layout = "latin";
-            chooseLayout();
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                Intent settingIntent = new Intent(this, SettingsActivity.class);
+                startActivity(settingIntent);
+                break;
+            case R.id.info:
+                Toast.makeText(this, "Versiyon: " + BuildConfig.VERSION_NAME, Toast.LENGTH_SHORT)
+                        .show();
+                break;
+            default:
         }
-        if (changeScript == 2) {
-            menu.findItem(R.id.latin).setVisible(false);
-            menu.findItem(R.id.hebrew).setVisible(false);
-            layout = "hebrew";
-            chooseLayout();
-        }
-        if (changeScript == 3) {
-            menu.findItem(R.id.latinAndHebrew).setVisible(false);
-            menu.findItem(R.id.hebrew).setVisible(false);
-            layout = "latinAndHebrew";
-        }
-        return super.onPrepareOptionsMenu(menu);
+        return true;
     }
 
-    @Override
+    /*@Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.latin:
@@ -295,11 +392,10 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(this, "Ayarlar yakında..", Toast.LENGTH_SHORT).show();
                 break;
             default:
-                break;
         }
         return true;
     }
-
+*/
     public int[] monthlyOrder(int position) {
         passTehilimValues = new int[]{};
         if (position == 1) {
@@ -420,6 +516,7 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
+/*
         switch (view.getId()) {
             case R.id.next:
                 if (teilimNumber == 150) {
@@ -442,5 +539,6 @@ public class ReadActivity extends AppCompatActivity implements View.OnClickListe
                 setListView();
                 break;
         }
+*/
     }
 }

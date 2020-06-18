@@ -6,62 +6,45 @@
     android:layout_height="match_parent"
     tools:context="zakuto.tehilimtr.ui.home.HomeFragment">
 
+
+    <FrameLayout
+        android:id="@+id/fragment_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+
     <TextView
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="190dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="190dp"
         android:text="@string/date"
         android:textColor="@android:color/black"
-        app:layout_constraintBottom_toTopOf="@+id/continueFromTheBook"
+        app:layout_constraintBottom_toTopOf="@+id/bookOfDay"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/continueFromTheBook"
-        android:layout_width="411dp"
+        android:id="@+id/bookOfDay"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="24dp"
-
-        android:background="@color/SkypeDarkBlue"
-        android:text="@string/continueFromTheBook"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-
-        app:layout_constraintBottom_toTopOf="@+id/randomButton"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/date" />
-
-
-    <Button
-
-        android:id="@+id/randomButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
         android:background="@color/SkypeDarkBlue"
         android:text="@string/todaysTehilims"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
-        app:layout_constraintBottom_toTopOf="@+id/FullBook"
+        app:layout_constraintBottom_toTopOf="@+id/randomButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/continueFromTheBook" />
-
+        app:layout_constraintTop_toBottomOf="@+id/date" />
 
     <Button
-        android:id="@+id/FullBook"
+        android:id="@+id/randomButton"
         android:layout_width="411dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_weight="1"
         android:background="@color/SkypeDarkBlue"
         android:padding="8dp"
@@ -70,8 +53,21 @@
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/randomButton" />
         app:layout_constraintTop_toBottomOf="@+id/bookOfDay" />
 
 
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-9743036193075566/1167532548"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_home"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/randomButton"
+        app:layout_constraintVertical_bias="1.0" />
+    <!--Mine app:adUnitId="ca-app-pub-9743036193075566/1167532548"-->
+    <!--Test app:adUnitId="ca-app-pub-3940256099942544/6300978111"-->
 </androidx.constraintlayout.widget.ConstraintLayout>

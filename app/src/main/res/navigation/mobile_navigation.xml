@@ -29,14 +29,14 @@
     <fragment
         android:id="@+id/TehilimFragment"
         android:name="zakuto.tehilimtr.tehilim.TehilimFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/title_user"
         tools:layout="@layout/fragment_tehilim" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="zakuto.tehilimtr.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:name="zakuto.tehilimtr.ui.user.UserFragment"
+        android:label="@string/title_user"
+        tools:layout="@layout/fragment_user" />
     <fragment
         android:id="@+id/readFragment"
         android:name="zakuto.tehilimtr.readFragment"

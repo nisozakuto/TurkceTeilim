@@ -14,66 +14,59 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class TehilimListAdapter extends BaseAdapter {
-    Context context;
-    ArrayList<String> countryList;
-    LayoutInflater inflter;
-    int fontSize = 16;
+public class TehilimListAdapter extends ArrayAdapter<Tehilim> {
+    private Context mContext;
+    int mresource;
     String testFontSize = "16";
 
-    public TehilimListAdapter(Context applicationContext, ArrayList<String> countryList) {
-        this.context = applicationContext;
-        this.countryList = countryList;
-        inflter = (LayoutInflater.from(applicationContext));
+    public TehilimListAdapter(@NonNull Context context, int resource, @NonNull ArrayList<Tehilim> objects) {
+        super(context, resource, objects);
+        mContext = context;
+        mresource = resource;
     }
 
+    @NonNull
     @Override
-    public int getCount() {
-        return countryList.size();
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        String latin = getItem(position).getLatin();
+        String hebrew = getItem(position).getHebrew();
+        Tehilim perek = new Tehilim(latin, hebrew);
+        LayoutInflater inflater = LayoutInflater.from(mContext);
+        convertView = inflater.inflate(mresource, parent, false);
+        TextView leftText = (TextView) convertView.findViewById(R.id.leftText);
+        TextView rightText = (TextView) convertView.findViewById(R.id.rightText);
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
+        testFontSize = sharedPreferences.getString("font_size_preference", "14");
+
+        leftText.setText(latin);
+        rightText.setText(hebrew);
+        leftText.setTextSize(TypedValue.COMPLEX_UNIT_DIP, Float.valueOf(testFontSize));
+        rightText.setTextSize(TypedValue.COMPLEX_UNIT_DIP, Float.valueOf(testFontSize));
+        return convertView;
     }
 
-    @Override
-    public Object getItem(int i) {
-        return null;
-    }
-
-    @Override
-    public long getItemId(int i) {
-        return 0;
-    }
-
-    @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        view = inflter.inflate(R.layout.listview_text, null);
-        TextView text1 = (TextView) view.findViewById(R.id.text1);
-        text1.setText(countryList.get(i));
-
-
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-        testFontSize = sharedPreferences.getString("font_size_preference", "");
-        Log.i("listAdapter", testFontSize);
-
-//      text1.setTextSize(TypedValue.COMPLEX_UNIT_SP, Float.parseFloat(context.getSharedPreferences("PATH", Context.MODE_PRIVATE).getString("p", "Error")));
-        if (testFontSize.equals(""))
-            testFontSize = "16";
-        text1.setTextSize(TypedValue.COMPLEX_UNIT_SP, Float.valueOf(testFontSize));
-
-        return view;
-    }
-
-    private String s;
-
-    public TehilimListAdapter(String s) {
-        this.s = s;
-    }
-
-    public void showToast(Context c) {
-        String pref = c.getSharedPreferences("SHAREDPREFFORADAPTER", Context.MODE_PRIVATE).getString("p", "Error");
-        Toast.makeText(c.getApplicationContext(), s + pref, Toast.LENGTH_LONG).show();
-        Log.i("fontSize", "adapterde  " + pref);
-        fontSize = Integer.parseInt(pref);
-    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

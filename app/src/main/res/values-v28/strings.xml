@@ -1,0 +1,102 @@
+<resources>
+    <string name="app_name">Türkçe Teilim</string>
+    <string name="title_home">Ana Sayfa</string>
+    <string name="title_dashboard">Teilimler</string>
+    <string name="title_book">Tüm Kitap</string>
+    <string name="title_user">Bilgiler</string>
+    <string name="title_activity_tum_kitap">tumKitap</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="previous">Previous</string>
+    <string name="home_string">Home</string>
+    <string name="city">Şehir</string>
+    <string name="date">Tarih</string>
+    <string name="random">Rastgele Oku</string>
+    <string name="next">İleri</string>
+    <string name="back">Geri</string>
+    <string name="close">Bitir</string>
+    <!-- Strings used for Top Menu -->
+    <string name="Info">Bilgiler</string>
+
+    <string name="continueFromTheBook">Kaldığın kitap\'tan devam et</string>
+    <!-- Strings used for fragments for Home -->
+    <string name="todaysTehilims">Günün teilimleri</string>
+    <string name="monthlyTehilimActivity">Aylık Düzen</string>
+
+    <string name="addButton">Listeme ekle</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="dummmyText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel feugiat quam. Donec commodo egestas congue. Mauris finibus interdum malesuada. Phasellus ac arcu a nibh lobortis congue sit amet sed lectus. Donec suscipit et nisi a gravida. Sed laoreet, erat id tincidunt elementum, ex erat rutrum quam, vitae convallis quam turpis sit amet dolor. In posuere diam dapibus venenatis consequat. Praesent dapibus ipsum eget tellus luctus hendrerit. Morbi iaculis augue et ipsum dictum, sed ultrices nulla ultrices. Fusce sit amet quam leo. Integer eget orci dapibus, feugiat libero non, vestibulum mi. Cras vitae porta justo.Nam sem felis, tristique id orci nec, tincidunt gravida quam. Ut non nunc faucibus, tincidunt velit vitae, vestibulum sapien. Cras ac tortor in quam finibus suscipit. Nam venenatis fringilla lorem sed fermentum. Etiam lobortis leo eget nisi dapibus pharetra. Aliquam eu dolor vel turpis fermentum molestie id in mauris. Duis id nulla tempus urna blandit tempor. Proin quis tempus odio, ac tincidunt justo. Nullam quis interdum erat, consequat mollis erat. Pellentesque semper ante in eros venenatis malesuada. Duis ullamcorper, quam eget eleifend feugiat, dolor mauris scelerisque ligula, sed laoreet quam enim suscipit purus. Vivamus ornare mauris non suscipit sodales.Ut dapibus aliquet odio non tempus. Sed fermentum feugiat ante. Fusce volutpat turpis sit amet urna placerat consectetur. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla consequat luctus pulvinar. Vivamus malesuada sit amet lectus sed mollis. Cras elementum non ipsum sed consequat. Etiam nec faucibus nunc. Vestibulum in vehicula tortor.Sed mattis nibh non diam maximus, eget volutpat felis dignissim. Donec vel mauris sagittis nunc iaculis porttitor nec a sapien. Etiam hendrerit massa at eleifend varius. Curabitur rhoncus nibh a felis sollicitudin sollicitudin. Sed dolor ex, dapibus vel vulputate eu, dapibus in turpis. Quisque rutrum, urna et rhoncus sollicitudin, urna ante fermentum ipsum, at suscipit sem ligula ac diam. Quisque feugiat nisi vitae ligula interdum, vel ultrices dui pharetra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc in consectetur mi, ut ornare nisi. Sed ligula nibh, viverra vitae erat et, faucibus pulvinar orci. Nam euismod, sem non imperdiet tempus, nunc magna condimentum est, ut viverra est tortor non nisi.Mauris et viverra nisl. Nunc ut porttitor velit. Vestibulum id venenatis quam. Proin imperdiet ex nec varius lobortis. Phasellus vitae elit vitae urna pretium luctus. Vivamus nec arcu elementum, porta felis non, semper metus. Vestibulum nec nibh lacus. Integer suscipit tortor volutpat, venenatis enim id, imperdiet mi.</string>
+    <string name="preTehilimText">Yei Ratson milefaneha Adonay, Eloenu VEloe avotenu, aboher beDavid avdo uvzaro aharav veaboher beşirot vetişbahot,şeterahem alenu, utee haşuva leFaneha keriyat mizmore Teilim şenikra, keilu kivanu vehol akavanot areyot lehaven.\nUvhoah pesuke Teilim vetevoteem veotiyoteem unkudoteem vetaameem uşmoteha akedoşim aketuvim baem,veaşemot ayotseim meem meraşe tevot vesofe tevot, vihilufe tevot, uvizhut Avraam Yitshak veYaakov Moşe veAaron veYosef veDavidameleh aleem aşalom, uzhut kol atsadikim veahasidim,yeemu na rahameha alenu veal anşe vetenu veal kol kerovenu veal kol mi şeem mişoreş nafşenu ruhenu venişmatenu, veal kolYisrael ahenu behol mekomot moşevoteem,ute keriat mizmore Teilim resuya lefaneha lizmor aritsim ulahrit kol ahohim veakosim asovevim et aşoşanna aelyona,ulhaber eşet neurim im doda beaava veahava şalom vereut.\nUvrov rahameha yimaşeh alenu veal kol anizkarim şefa keduşa vetaora şefa yeşua verahamim,veal tikahenu min aolam aze kodem zemanenu, veniske venihye hayim arukim tovim umtukanim, beofen şenuhal letaken et aşer şihatnu.\nUzhut Avraam Yitshak veYaakov Moşe veAaron Yosef veDavid ameleh aleem aşalom, uzhut kol atsadikim veahasidim,tagen alenu veal kol anizkarim uvaadenu uvaadam, şetaarih apeha ad şuvenu Eleha bitşuva şelema.Umeotsar matenat hinam honenu, kedihtiv. vehanoti et aşer ahon verihamti et aşer arahem.\nUvizhut keriyatenu zod, yiye iluy lenefeş ruah neşema haya yehida şel kol mete ameha Yisrael,velirfuat kol hole ameha Yisrael anaşim venaşim vataf ulaslahat uvriut kol ameha Yisrael.Uhşem şeanahnu omerim leFaneha şira baolam aze kah tezakenu lomar lefaneha şir uşvaha leolam aba.Veal yede amirat aTeilim titorer havatselet aşaron laşir bekol nain gilat veranen, kevod aLevanon yutan la,od veadar beVet Eloenu, bimera veyamenu Amen Sela.\n\nLehu neranena lAdonay, nariya leTSur yişenu. Nekadema Panav betoda, bizmirot nariya lo. Ki El gadol Adonay, uMeleh gadol al kol eloim.\n</string>
+    <string name="afterTehilimText">Mi yiten miTSiyon yeşuat Yisrael; beşuv Adonay şevut amo, yagel Yaakov yismah Yisrael.Utşuat tsadikim meAdonay, mauzan beet tsara.Vayazerem Adonay vayfaletem yefaletem mereşaim veyoşiem, kihasu vo.\n \nYei ratson milefaneha, Adonay Eloenu vEloe avotenu, bizhutMizmore Teilim şekaranu leFaneha, uvizhut pesukeem uvizhut tevoteem uvizhut Şemoteha akedoşim veateorim ayotseim meem,Şetehaper lanu al kol hatotenu vetimhol lanu al kol avonotenu, vetislah lanu al kol peşaenu, şehatanu veşeavinu veşepaşanu leFaneha;vetahazirenu bitşuva şelema leFaneha; vetadrihenu laavodateha; vetiftah libenu betalmud Torateha;vetişlah refua şelema lehole ameha ; vetikra lişvuyim deror velaasurim pekah koah; ulhol olehe derahim veovere yamim unarot meameha Yisrael,tatsilem mikol tsaar vanezeg, vetagiem limhoz heftsam lehayim ulşalom; vetifkod lehol haşuhe vanim bezera şel kayama laavodateha ulyirateha;veubarot şel ameha bet Yisrael tatsilen şelo tapelna veladoteen;veayoşevot al amaşber berahemeha arabim tatsilen mikol ra; \nveel amenikot taşpia şelo yehsar halav midadeen;veal yimşol askera veşedin vehol pegaim umarin bişin behol yalde ameha bet Yisrael,utgadelem leTorateha lilmod Tora lişma, vetatsilem meayin ara umidever umimagefa umisatan umiyetser ara;utvatel mealenu umikol ameha bet Yisrael behol makom şeem kol gezerot kaşot veraot;vetate lev amalhut alenu letova vetigzor alenu gezerot tovot;vetişlah beraha veatslaha behol maase yadenu; veahen parnasatenu miyadeha arehava veamelea, velo yitstarhu ameha Yisrael ze laze velo leam aher;veten lehol iş veiş de parnasato; ulhol geviya ugviya de mahsora; utmaer vetahiş legaolenu vetivne bet mikdaşenu vetifartenu;\n\nUvizhut şeloş esre midoteha şel rahamim aketuvot betorateha – kemo şeneemar.\nAdonay Adonay El Rahum veHanun Ereh Apayim veRav Hesed veEmet notser Hesed laalafim nose avon vafeşa vehataa veNake,şeenan hozerot rekam mileFaneha.ozrenu Eloe yişenu al devar kevod Şemeha, veatsilenu vehaper al hatotenu lemaan Şemeha. Baruh Adonay leolam, Amen veAmen.</string>
+    <string name="title_activity_info">Info</string>
+    <string-array name="Gunluk">
+        <item>"1.Kitap 1-9"</item>
+        <item>"2.Kitap 10-17"</item>
+        <item>"3.Kitap 18-22"</item>
+        <item>"4.Kitap 23-28"</item>
+        <item>"5.Kitap 29-34"</item>
+        <item>"6.Kitap 35-38"</item>
+        <item>"7.Kitap 39-43"</item>
+        <item>"8.Kitap 44-48"</item>
+        <item>"9.Kitap 49-54"</item>
+        <item>"10.Kitap 55-59"</item>
+        <item>"11.Kitap 60-65"</item>
+        <item>"12.Kitap 66-68"</item>
+        <item>"13.Kitap 69-71"</item>
+        <item>"14.Kitap 72-76"</item>
+        <item>"15.Kitap 77-78"</item>
+        <item>"16.Kitap 79-82"</item>
+        <item>"17.Kitap 83-87"</item>
+        <item>"18.Kitap 88-89"</item>
+        <item>"19.Kitap 90-96"</item>
+        <item>"20.Kitap 97-103"</item>
+        <item>"21.Kitap 104-105"</item>
+        <item>"22.Kitap 106-107"</item>
+        <item>"23.Kitap 108-112"</item>
+        <item>"24.Kitap 113-118"</item>
+        <item>"25.Kitap 119-1-96"</item>
+        <item>"26.Kitap 119-97-176"</item>
+        <item>"27.Kitap 120-134"</item>
+        <item>"28.Kitap 135-139"</item>
+        <item>"29.Kitap 140-144"</item>
+        <item>"30.Kitap 145-150"</item>
+    </string-array>
+    <string name="title_activity_settings">Ayarlar</string>
+
+    <!--Root Preference-->
+    <string name="personal">Kişisel ayarlar</string>
+    <string name="your_name">İsim</string>
+    <string name="font">Font Ayarları</string>
+
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="title_activity_texts">textsActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="title_activity_tabtest">tabtest</string>
+
+    <!-- Font Preferences -->
+    <string name="font_size">Font Boyutu</string>
+    <string name="font_title">Font Boyutu</string>
+    <string name="font_summary">Font Boyutunu ayarla</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="title_activity_read">ReadActivity</string>
+</resources>

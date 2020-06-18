@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_home" />
+        android:title="@string/title_home"
+        android:visible="true"/>
     <item
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_trBooks"
         android:icon="@drawable/calendar"
-        android:title="@string/title_dashboard" />
+        android:title="@string/title_trBooks"
+        android:visible="true" />
     <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/profilebw"
-        android:title="@string/title_notifications" />
+        android:id="@+id/navigation_book"
+        android:icon="@drawable/ic_baseline_menu_book_24"
+        android:title="@string/title_book"
+        android:visible="true"/>
+    <item
+        android:id="@+id/navigation_user"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="@string/title_user"
+        android:visible="true" />
 </menu>

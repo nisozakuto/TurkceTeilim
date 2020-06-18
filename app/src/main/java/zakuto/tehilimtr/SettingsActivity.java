@@ -34,7 +34,6 @@ public class SettingsActivity extends AppCompatActivity {
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(R.xml.root_preferences, rootKey);
-
             EditTextPreference fontSize = findPreference("font");
             if (fontSize != null) {
                 fontSize.setOnBindEditTextListener(new EditTextPreference.OnBindEditTextListener() {
@@ -52,7 +51,7 @@ public class SettingsActivity extends AppCompatActivity {
         super.onPause();
         SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
         SharedPreferences.Editor settingsPref = sharedPreferences.edit();
-        settingsPref.putString("fontSize", "24");
+        settingsPref.putString("fontSize", "16");
         settingsPref.commit();
     }
 

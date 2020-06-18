@@ -9,7 +9,7 @@
         android:id="@+id/preTehilimFragment"
         android:name="zakuto.tehilimtr.tehilim.BeforeTehilimFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_before_tehilim">
+        tools:layout="@layout/fragment_text_before_and_after">
         <action
             android:id="@+id/action_PreTehilimFragment_to_TehilimFragment"
             app:destination="@id/TehilimFragment" />
@@ -19,7 +19,6 @@
         android:name="zakuto.tehilimtr.tehilim.TehilimFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_tehilim">
-
         <action
             android:id="@+id/action_TehilimFragment_to_afterTehilimFragment"
             app:destination="@id/afterTehilimFragment" />
@@ -28,6 +27,6 @@
         android:id="@+id/afterTehilimFragment"
         android:name="zakuto.tehilimtr.tehilim.AfterTehilimFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_after_tehilim">
+        tools:layout="@layout/fragment_text_before_and_after">
     </fragment>
 </navigation>

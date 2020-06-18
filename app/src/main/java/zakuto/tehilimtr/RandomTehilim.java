@@ -9,7 +9,6 @@ public class RandomTehilim {
     public int randomNumber() {
         Random random = new Random();
         randomNumberTemp = random.nextInt(max - min + 1);
-
         //For Test Purposes
         /*for(int i = 0; i<500; i++){
             randomNumberTemp =  random.nextInt(max-min + 1 );

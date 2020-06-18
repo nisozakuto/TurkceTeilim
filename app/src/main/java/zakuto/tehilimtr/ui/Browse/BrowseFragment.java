@@ -1,6 +1,7 @@
 package zakuto.tehilimtr.ui.Browse;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
@@ -17,9 +17,9 @@ import com.google.android.material.tabs.TabLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-import zakuto.tehilimtr.FullBookFragment;
-import zakuto.tehilimtr.MonthlyFragment;
 import zakuto.tehilimtr.R;
+import zakuto.tehilimtr.ui.FullBookFragment;
+import zakuto.tehilimtr.ui.MonthlyFragment;
 
 public class BrowseFragment extends Fragment {
 
@@ -31,28 +31,15 @@ public class BrowseFragment extends Fragment {
         setRetainInstance(true);
     }
 
-    /*@Override
-        public View onCreateView(@NonNull LayoutInflater inflater,
-                                 ViewGroup container, Bundle savedInstanceState) {
-            dashboardViewModel =
-                    ViewModelProviders.of(this).get(MonthlyViewModel.class);
-            View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
-            final TextView textView = root.findViewById(R.id.textViewFortehilimtr);
-            dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-                @Override
-                public void onChanged(@Nullable String s) {
-                    textView.setText(s);
-                }
-            });
-            return root;
-        }
-    */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_browse, container, false);
+        Log.i("Current", "BrowseFragment");
+
         ViewPager viewPager = (ViewPager) view.findViewById(R.id.view_pager);
         setupViewPager(viewPager);
-        TabLayout tabs = (TabLayout) view.findViewById(R.id.result_tabs1);
+
+        TabLayout tabs = (TabLayout) view.findViewById(R.id.tabs_layout);
         tabs.setupWithViewPager(viewPager);
         return view;
     }
