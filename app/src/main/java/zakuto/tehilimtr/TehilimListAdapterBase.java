@@ -50,7 +50,7 @@ public class TehilimListAdapterBase extends BaseAdapter {
         //leftText.setText(teilimList.get(i));
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-        testFontSize = sharedPreferences.getString("font_size_preference", "");
+        testFontSize = sharedPreferences.getString("font_size_preference", "14");
         Log.i("Niso", "Test font size: " + testFontSize + "in TehilimListAdapter.java");
 
         //text1.setTextSize(TypedValue.COMPLEX_UNIT_SP, Float.parseFloat(context.getSharedPreferences("PATH", Context.MODE_PRIVATE).getString("p", "Error")));
