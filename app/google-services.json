@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "648169051034",
+    "firebase_url": "https://teilim-4c98c.firebaseio.com",
+    "project_id": "teilim-4c98c",
+    "storage_bucket": "teilim-4c98c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:648169051034:android:4e07dba2aca6437a712023",
+        "android_client_info": {
+          "package_name": "zakuto.tehilimtr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "648169051034-h6gs46glg3ov0b1meu2a2d5knlcloorc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABwrlBDopcgKQesG6JT9PYsBkhvfj-tlg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "648169051034-h6gs46glg3ov0b1meu2a2d5knlcloorc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
