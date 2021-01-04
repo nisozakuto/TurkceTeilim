@@ -55,21 +55,10 @@ public class MonthlyFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
                 position += 1;
-                //Toast.makeText(getActivity(), "Gün " + position + " açılıyor!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(), ReadActivity.class);
-                //Bottom two lines fo not work because we use fragments and currently, i am not pulling those values in the fragment
                 intent.putExtra("kitap", String.valueOf(position));
                 intent.putExtra("fragmentKey", "monthly");
                 startActivity(intent);
-
-            /*  TehilimFragment nextFrag = new TehilimFragment();
-                bundle.putString("bookNumber", String.valueOf(position));
-                bundle.putString("fragmentKey", "bookNumber");
-                nextFrag.setArguments(bundle);
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, nextFrag, "findThisFragment")
-                        .addToBackStack(null)
-                        .commit();*/
             }
         });
         return view;

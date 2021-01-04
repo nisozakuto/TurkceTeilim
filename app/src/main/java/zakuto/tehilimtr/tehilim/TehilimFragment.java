@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import zakuto.tehilimtr.MonthlyOrder;
 import zakuto.tehilimtr.R;
@@ -39,7 +40,6 @@ public class TehilimFragment extends Fragment {
     Tehilim[] perek = new Tehilim[153];
     int intSingleTehilim;
     RandomTehilim randomTehilim = new RandomTehilim();
-    //Bundle keys
     String singleTehilim;
 
     @Override
@@ -47,23 +47,12 @@ public class TehilimFragment extends Fragment {
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
-        // Inflate the layout for this fragment
-        Log.i(TAG, "Started");
-        Log.i("Current", "TehilimFragment");
         return inflater.inflate(R.layout.fragment_tehilim, container, false);
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        /*view.findViewById(R.id.button_first).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavHostFragment.findNavController(TehilimFragment.this)
-                        .navigate(R.id.action_TehilimFragment_to_afterTehilimFragment);
-            }
-        });*/
-        // BookNumber ve BookofDay ayni degeri ayni deger'e, kitap numarasina ihtiyaclari var.
-
+          // BookNumber ve BookofDay ayni degeri ayni deger'e, kitap numarasina ihtiyaclari var.
         list = view.findViewById(R.id.listView);
         list.setAdapter(null);
         Intent intent = getActivity().getIntent();
@@ -81,17 +70,14 @@ public class TehilimFragment extends Fragment {
             } else if (fragmentKey.equals("bookOfDay")) {
                 kitapExtra = (String) b.get("bookOfDay");
                 kitapFunction();
-                //next.setVisibility(View.GONE);
                 next.setText("Bitir.");
                 getActivity().setTitle("Günün Kitabı");
             } else if (fragmentKey.equals("monthly")) {
                 kitapExtra = (String) b.get("kitap");
-                Log.i("Niso", kitapExtra);
                 kitapFunction();
                 getActivity().setTitle("Kitap Düzeni");
             } else if (fragmentKey.equals("bookNumber2")) {
                 kitapExtra = (String) b.get("kitap");
-                Log.i("Niso", kitapExtra);
                 kitapFunction();
                 getActivity().setTitle("Kitap Düzeni");
             } else if (fragmentKey.equals("randomTehilim")) {
@@ -100,9 +86,7 @@ public class TehilimFragment extends Fragment {
                 singleTehilimFunction();
                 getActivity().setTitle("Rastgele");
                 next.setText("Rastgele");
-
             }
-
         }
         setListView();
 
@@ -115,8 +99,6 @@ public class TehilimFragment extends Fragment {
                         intSingleTehilim++;
                         singleTehilimFunction();
                     } else if (fragmentKey.equals("bookOfDay")) {
-                        /*kitapExtra = (String) b.get("bookOfDay");
-                        kitapFunction();*/
                         getActivity().onBackPressed();
                     } else if (fragmentKey.equals("monthly")) {
                         Fragment nextFrag;
@@ -138,7 +120,6 @@ public class TehilimFragment extends Fragment {
                     }
                     setListView();
                 }
-
             }
         });
     }
@@ -165,7 +146,9 @@ public class TehilimFragment extends Fragment {
             perek[152] = new Tehilim(TehilimClass.getTehilim("tr152"), TehilimClass.getTehilim("H_perek152"));
             latinAndHebrewList.add(perek[152]);
         } else {
+            Log.d("Jan4","" + Arrays.toString(passTehilimValues));
             for (int i = passTehilimValues[0]; i < passTehilimValues[0] + passTehilimValues.length; i++) {
+                Log.i("Jan4","" + i);
                 perek[i - 1] = new Tehilim(TehilimClass.getTehilim("tr" + i), TehilimClass.getTehilim("H_perek" + i));
                 latinAndHebrewList.add(perek[i - 1]);
             }
@@ -174,12 +157,6 @@ public class TehilimFragment extends Fragment {
 
     public void setListView() {
         TehilimListAdapter tehilimlistadapter = null;
-        //tehilimlistadapter.clear();
-        /*x++;
-        Log.i("test", "setlistview is called " + String.valueOf(x) + " times.");
-        list.setAdapter(null);
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, mylist);
-        list.setAdapter(arrayAdapter);*/
         tehilimlistadapter = new TehilimListAdapter(getActivity(), R.layout.adapter_listview_layout, latinAndHebrewList);
         list.setAdapter(tehilimlistadapter);
     }
@@ -200,7 +177,7 @@ public class TehilimFragment extends Fragment {
             return passTehilimValues;
         }
         if (position == 2) {
-            passTehilimValues = new int[]{9, 10, 11, 12, 14, 15};
+            passTehilimValues = new int[]{9, 10, 11, 12, 13, 14, 15};
             return passTehilimValues;
         }
         if (position == 3) {

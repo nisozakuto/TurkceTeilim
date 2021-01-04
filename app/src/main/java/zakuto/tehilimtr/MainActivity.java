@@ -43,12 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         navView.setOnNavigationItemSelectedListener(bottomNavListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new HomeFragment()).commit();
-        /*
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications).build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        NavigationUI.setupWithNavController(navView, navController);
-*/
+
         SharedPreferences fontSizePref = this.getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
         String fontSize = fontSizePref.getString("fontSize", "");
         Log.i("fontSize", "yukarida " + fontSize);
@@ -57,8 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getSharedPreferences("SHAREDPREFFORADAPTER", MODE_PRIVATE)
                 .edit()
                 .putString("p", fontSize)
-                .commit();
-
+                .apply();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener bottomNavListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -89,21 +83,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void setActionBarTitle(String title) {
         getSupportActionBar().setTitle(title);
     }
-    /*  @Override
-    protected void onPause() {
-        super.onPause();
 
-        SharedPreferences sharedPreferences
-                = getSharedPreferences("MySharedPref",
-                MODE_PRIVATE);
-        SharedPreferences.Editor myEdit
-                = sharedPreferences.edit();
-        myEdit.putString(
-                "name",
-                "24");
-        myEdit.commit();
-    }
-*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -115,12 +95,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            // action with ID action_refresh was selected
-            /* case R.id.action_refresh:
-                Toast.makeText(this, "Refresh selected", Toast.LENGTH_SHORT).show();
-                break;
-            */
-            // action with ID action_settings was selected
             case R.id.action_settings:
                 Intent settingIntent = new Intent(this, SettingsActivity.class);
                 startActivity(settingIntent);
