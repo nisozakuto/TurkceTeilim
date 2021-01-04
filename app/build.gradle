@@ -2,14 +2,18 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion "28.0.3"
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+    lintOptions {
+        checkReleaseBuilds false
+    }
 
     defaultConfig {
         applicationId "zakuto.tehilimtr"
         minSdkVersion 21
-        targetSdkVersion 28
-        versionCode 27
+        targetSdkVersion 29
+        versionCode 28
         versionName "1.9.19"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
